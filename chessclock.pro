@@ -13,11 +13,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         chessclockwindow.cpp \
     classes/turninformation.cpp \
-    classes/chessclock.cpp
+    classes/chessclock.cpp \
+    classes/chessclockwidget.cpp
 
 HEADERS  += chessclockwindow.h \
     classes/turninformation.h \
-    classes/chessclock.h
+    classes/chessclock.h \
+    classes/chessclockwidget.h
 
 CONFIG += mobility
 MOBILITY = 
@@ -28,3 +30,6 @@ symbian {
     TARGET.EPOCSTACKSIZE = 0x14000
     TARGET.EPOCHEAPSIZE = 0x020000 0x800000
 }
+
+RESOURCES += \
+    chessclock.qrc

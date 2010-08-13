@@ -36,6 +36,9 @@ class TurnInformation;
 
   Base class of chess clock.
 
+  ChessClock has not GUI itself, but it is subclass of QWidget
+  avoiding polymorphism.
+
   */
 class ChessClock : public QWidget
 {
@@ -52,6 +55,8 @@ public:
 
     bool isLoser() const  { return loser_; }
     int getTurn() const  { return turn_; }
+    bool isWhite() const { return isWhite_; }
+    RunningStatus getStatus() const { return status_ ; }
 
 
     /*! Start new turn */
@@ -80,16 +85,23 @@ public:
       @return Time available in msecs */
     virtual int getTimeAvailable();
 
+    /*! Get total time played
+      @return Time played in msecs */
+    virtual int getTimePlayed() const;
+
+
 signals:
-    void timeOut();
+    void timeOutLoser();
 
 public slots:    
 
     /*! Refresh clock information */
     virtual void repaintClock() = 0;
 
+    /*! Update clock information, check looser state and refresh */
+    virtual void updateClock();
 
-protected:
+private:
     ChessClock* another_; /*! Another player's clock */
 
     bool loser_;        /*! Is player losed because of timeout */
@@ -97,8 +109,8 @@ protected:
     RunningStatus status_;
     TurnInformation* currentTurn_;
 
-    int timePlayed_;    /*! Time played in this game */
-    int timeAvailableBeforeTurn_; /*! Time available for play BEFORE this turn!*/
+    int timePlayedBeforeTurn_;    /*! Time played in this game BEFORE this turn msecs */
+    int timeAvailableBeforeTurn_; /*! Time available for play BEFORE this turn msecs !*/
 
     bool isWhite_;      /*! True if white player */
 

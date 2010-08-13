@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul>
       <li><a href="annotated.html"><span>Class&nbsp;List</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
     </ul>
   </div>
@@ -54,14 +55,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#a0126f181e93c7fa7b6d53b46be79247d">TurnInformation</a> (int turnId, bool white)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Turn information object.  <a href="#a0126f181e93c7fa7b6d53b46be79247d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#a7bd37ef52b31183461e723ba6696c189">getTurnId</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#aed060b1f97af53336c46236558108ee2">getDuration</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Duration of turn.  <a href="#aed060b1f97af53336c46236558108ee2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#a5f57a39058ca8a7a2e5f16fbc2159f7b">getPaused</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Duration of pauses during this turn.  <a href="#a5f57a39058ca8a7a2e5f16fbc2159f7b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#ad8f3352abc78dfdc7cc1715912602dbb">getTimeAfter</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Time available for this player after this turn.  <a href="#ad8f3352abc78dfdc7cc1715912602dbb"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#a3f08395c6be06b474937a95fb638c052">isWhiteTurn</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#ad9802d9ccc6849b3bc1aedf87d2f0926">getTurnId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#a04e622dacea74dbc558b1a4260bff9a6">getDuration</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Duration of turn.  <a href="#a04e622dacea74dbc558b1a4260bff9a6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#ae2d37b598c7fb0fb5882e44559f662cb">getPaused</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Duration of pauses during this turn.  <a href="#ae2d37b598c7fb0fb5882e44559f662cb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#acca895a029b03caa72115aed776e3070">getTimeAfter</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Time available for this player after this turn.  <a href="#acca895a029b03caa72115aed776e3070"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#adfe335e110744566aee521c4784f08a0">isWhiteTurn</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#a355359f883ab74e549b5e439ea7e827e">addTime</a> (int msecs)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#ab8d3aa0183f400b64b217d39e920bb69">addPause</a> (int msecs)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_information.html#a8820646aa51dd407d909fa08b55d52c5">turnReady</a> (int msecs)</td></tr>
@@ -166,7 +167,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div>
 </div>
-<a class="anchor" id="aed060b1f97af53336c46236558108ee2"></a><!-- doxytag: member="TurnInformation::getDuration" ref="aed060b1f97af53336c46236558108ee2" args="()" -->
+<a class="anchor" id="a04e622dacea74dbc558b1a4260bff9a6"></a><!-- doxytag: member="TurnInformation::getDuration" ref="a04e622dacea74dbc558b1a4260bff9a6" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -175,7 +176,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -188,7 +189,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div>
 </div>
-<a class="anchor" id="a5f57a39058ca8a7a2e5f16fbc2159f7b"></a><!-- doxytag: member="TurnInformation::getPaused" ref="a5f57a39058ca8a7a2e5f16fbc2159f7b" args="()" -->
+<a class="anchor" id="ae2d37b598c7fb0fb5882e44559f662cb"></a><!-- doxytag: member="TurnInformation::getPaused" ref="ae2d37b598c7fb0fb5882e44559f662cb" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -197,7 +198,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -210,7 +211,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div>
 </div>
-<a class="anchor" id="ad8f3352abc78dfdc7cc1715912602dbb"></a><!-- doxytag: member="TurnInformation::getTimeAfter" ref="ad8f3352abc78dfdc7cc1715912602dbb" args="()" -->
+<a class="anchor" id="acca895a029b03caa72115aed776e3070"></a><!-- doxytag: member="TurnInformation::getTimeAfter" ref="acca895a029b03caa72115aed776e3070" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -219,7 +220,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
@@ -228,11 +229,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Time available for this player after this turn. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Time available in msecs </dd></dl>
 
-<p>Definition at line <a class="el" href="turninformation_8cpp_source.html#l00052">52</a> of file <a class="el" href="turninformation_8cpp_source.html">turninformation.cpp</a>.</p>
+<p>Definition at line <a class="el" href="turninformation_8cpp_source.html#l00053">53</a> of file <a class="el" href="turninformation_8cpp_source.html">turninformation.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7bd37ef52b31183461e723ba6696c189"></a><!-- doxytag: member="TurnInformation::getTurnId" ref="a7bd37ef52b31183461e723ba6696c189" args="()" -->
+<a class="anchor" id="ad9802d9ccc6849b3bc1aedf87d2f0926"></a><!-- doxytag: member="TurnInformation::getTurnId" ref="ad9802d9ccc6849b3bc1aedf87d2f0926" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -241,7 +242,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -251,7 +252,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div>
 </div>
-<a class="anchor" id="a3f08395c6be06b474937a95fb638c052"></a><!-- doxytag: member="TurnInformation::isWhiteTurn" ref="a3f08395c6be06b474937a95fb638c052" args="()" -->
+<a class="anchor" id="adfe335e110744566aee521c4784f08a0"></a><!-- doxytag: member="TurnInformation::isWhiteTurn" ref="adfe335e110744566aee521c4784f08a0" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -260,7 +261,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -295,7 +296,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="turninformation_8cpp_source.html#l00046">46</a> of file <a class="el" href="turninformation_8cpp_source.html">turninformation.cpp</a>.</p>
+<p>Definition at line <a class="el" href="turninformation_8cpp_source.html#l00047">47</a> of file <a class="el" href="turninformation_8cpp_source.html">turninformation.cpp</a>.</p>
 
 </div>
 </div>
@@ -410,7 +411,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -419,7 +420,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Fri Aug 13 22:27:27 2010 for Chess Clock by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Sat Aug 14 01:28:48 2010 for Chess Clock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

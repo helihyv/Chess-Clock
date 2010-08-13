@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul>
       <li><a href="annotated.html"><span>Class&nbsp;List</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
       <li class="current"><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
     </ul>
   </div>
@@ -46,6 +47,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li class="current"><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
     </ul>
   </div>
 </div>
@@ -54,14 +57,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>duration_
 : <a class="el" href="class_turn_information.html#a659fbb28b8b241ce857c93e99c6c0005">TurnInformation</a>
 </li>
+<li>leftLabel_
+: <a class="el" href="class_chess_clock_widget.html#a31e798ae2b57a3cc8c57cf250765e298">ChessClockWidget</a>
+</li>
+<li>loserLabel_
+: <a class="el" href="class_chess_clock_widget.html#a6ad3fb59c2e7a22d3a137734cb1b8743">ChessClockWidget</a>
+</li>
+<li>mainLayout
+: <a class="el" href="class_chess_clock_widget.html#a905b8c74dc718068c6591b303601d2a3">ChessClockWidget</a>
+</li>
 <li>paused_
 : <a class="el" href="class_turn_information.html#a045f9d3fb6faea111cb6bc1e798ca40d">TurnInformation</a>
+</li>
+<li>picActive_
+: <a class="el" href="class_chess_clock_widget.html#a01ed1d1d2c361035a18759d71579cae5">ChessClockWidget</a>
+</li>
+<li>picLoser_
+: <a class="el" href="class_chess_clock_widget.html#aae5f8a2e8d543b73cf00b898d151f5e7">ChessClockWidget</a>
+</li>
+<li>picPassive_
+: <a class="el" href="class_chess_clock_widget.html#a29a634972ab639701db2926b7ba57ebf">ChessClockWidget</a>
+</li>
+<li>pictureLabel_
+: <a class="el" href="class_chess_clock_widget.html#a0ccc35d293627ec749f5d59e76a33b8e">ChessClockWidget</a>
 </li>
 <li>timeAfter_
 : <a class="el" href="class_turn_information.html#a5516d055dd81c55b75567247b8293cde">TurnInformation</a>
 </li>
+<li>timeAverageLabel_
+: <a class="el" href="class_chess_clock_widget.html#a5dd50d99a38ae15fadf497818d23c249">ChessClockWidget</a>
+</li>
+<li>timeUsedLabel_
+: <a class="el" href="class_chess_clock_widget.html#a4185a840e7d461cf84d580c57a1c12f9">ChessClockWidget</a>
+</li>
 <li>turnId_
 : <a class="el" href="class_turn_information.html#a77d4475ceb0b529835ffe09cb3974cfa">TurnInformation</a>
+</li>
+<li>turnLabel_
+: <a class="el" href="class_chess_clock_widget.html#a12db89f00b41cc0cff52a231f42cb6a8">ChessClockWidget</a>
 </li>
 <li>turnReady_
 : <a class="el" href="class_turn_information.html#a8e0a6eb69455755152da7705e46e1f48">TurnInformation</a>
@@ -76,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Fri Aug 13 22:27:27 2010 for Chess Clock by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Sat Aug 14 01:28:48 2010 for Chess Clock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

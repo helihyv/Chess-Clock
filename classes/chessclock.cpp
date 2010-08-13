@@ -31,8 +31,9 @@ ChessClock::ChessClock(bool white, QWidget *parent) :
     isWhite_ = white;
     loser_ = false;
     turn_ = 0;
-    timePlayed_ = 0;
+    timePlayedBeforeTurn_ = 0;
     status_ = NotRunning;
+    another_ = 0;
 
     // Set clock timer calculating played time
     clockTime_.start();
@@ -52,7 +53,7 @@ void ChessClock::startTurn()
     status_=Running;
 
     // Repaint clock
-    repaintClock();
+    updateClock();
 }
 
 void ChessClock::pauseTurn()
@@ -60,7 +61,7 @@ void ChessClock::pauseTurn()
     // Update turn time
     currentTurn_->addTime( clockTime_.restart() );
     status_ = Paused;
-    repaintClock();
+    updateClock();
 }
 
 void ChessClock::continueTurn()
@@ -69,7 +70,7 @@ void ChessClock::continueTurn()
     // Add pause duration to information object
     currentTurn_->addPause( clockTime_.restart() );
     status_ = Running;
-    repaintClock();
+    updateClock();
 }
 
 
@@ -78,9 +79,11 @@ TurnInformation* ChessClock::endTurn()
     status_ = NotRunning;
     // Update turn time
     currentTurn_->addTime( clockTime_.restart());
+    // Count time played
+    timePlayedBeforeTurn_ = getTimePlayed();
     // Count time available
     timeAvailableBeforeTurn_ = getTimeAvailable();
-    repaintClock();
+    updateClock();
 
     // Close and return turn information
     currentTurn_->turnReady(timeAvailableBeforeTurn_ );
@@ -103,3 +106,30 @@ int ChessClock::getTimeAvailable()
     else
         return timeAvailableBeforeTurn_;
 }
+
+
+int ChessClock::getTimePlayed() const
+{
+    // Count time played time
+    if( currentTurn_ )
+        return timePlayedBeforeTurn_ + currentTurn_->getDuration();
+    else
+        return timePlayedBeforeTurn_;
+}
+
+void ChessClock::updateClock()
+{
+    // Check loser
+    if( another_ && !another_->isLoser())
+    {
+        if( getTimeAvailable() < 0 && !loser_)
+        {
+            loser_ = true;
+            emit timeOutLoser();
+        }
+
+    }
+    repaintClock();
+
+}
+

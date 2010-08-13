@@ -21,9 +21,15 @@
 
 #include "chessclockwindow.h"
 
+#include "classes/chessclockwidget.h"
+
 ChessClockWindow::ChessClockWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+
+    ChessClockWidget* widget = new ChessClockWidget(true, this);
+    setCentralWidget(widget);
+
 }
 
 ChessClockWindow::~ChessClockWindow()

@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/rc">
+        <file>pic/black_blue.png</file>
+        <file>pic/black_gray.png</file>
+        <file>pic/loser.png</file>
+        <file>pic/white_blue.png</file>
+        <file>pic/white_gray.png</file>
+    </qresource>
+</RCC>
