@@ -23,12 +23,19 @@
 
 #include "classes/chessclockwidget.h"
 
+#include <QIcon>
+#include <QApplication>
+
 ChessClockWindow::ChessClockWindow(QWidget *parent)
     : QMainWindow(parent)
 {
 
+    setWindowIcon( QIcon(":/rc/pic/chessclock.png"));
+    setWindowTitle( QString("%1 %2").arg(qApp->applicationName()).arg(qApp->applicationVersion()) );
+
     ChessClockWidget* widget = new ChessClockWidget(true, this);
     setCentralWidget(widget);
+    widget->startTurn();
 
 }
 

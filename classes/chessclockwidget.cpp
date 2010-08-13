@@ -134,7 +134,7 @@ void ChessClockWidget::repaintClock()
         timeAverage = 0;
     else
         timeAverage = getTimePlayed() / getTurn();
-    timeAverageLabel_->setText( tr("Average %1 per turn").arg( timeString( timeAverage ) ) );
+    timeAverageLabel_->setText( tr("Avg %1").arg( timeString( timeAverage ) ) );
 
     turnLabel_->setText( tr("Turn %1").arg(getTurn()));
 

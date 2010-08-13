@@ -40,7 +40,7 @@ ChessClock::ChessClock(bool white, QWidget *parent) :
 
     // Set updating timer
     updateTimer_.setInterval( UPDATEINTERVAL );
-    connect( &updateTimer_, SIGNAL(timeout),this,SLOT(updateClock()));
+    connect( &updateTimer_, SIGNAL(timeout()),this,SLOT(updateClock()));
 }
 
 void ChessClock::startTurn()
@@ -50,6 +50,7 @@ void ChessClock::startTurn()
     // Turn information for this new turn
     currentTurn_ = new TurnInformation(turn_, isWhite_);
     clockTime_.restart();
+    updateTimer_.start();
     status_=Running;
 
     // Repaint clock
@@ -58,6 +59,7 @@ void ChessClock::startTurn()
 
 void ChessClock::pauseTurn()
 {
+    updateTimer_.stop();
     // Update turn time
     currentTurn_->addTime( clockTime_.restart() );
     status_ = Paused;
@@ -70,6 +72,7 @@ void ChessClock::continueTurn()
     // Add pause duration to information object
     currentTurn_->addPause( clockTime_.restart() );
     status_ = Running;
+    updateTimer_.start();
     updateClock();
 }
 
@@ -77,6 +80,7 @@ void ChessClock::continueTurn()
 TurnInformation* ChessClock::endTurn()
 {
     status_ = NotRunning;
+    updateTimer_.stop();
     // Update turn time
     currentTurn_->addTime( clockTime_.restart());
     // Count time played
@@ -89,6 +93,7 @@ TurnInformation* ChessClock::endTurn()
     currentTurn_->turnReady(timeAvailableBeforeTurn_ );
     TurnInformation* information = currentTurn_;
     currentTurn_ = 0;
+    emit endTurn();
     return information;
 }
 
@@ -102,7 +107,11 @@ int ChessClock::getTimeAvailable()
     // Most simple - will be overwritten in more complex time controls:
     // subtract duration time!
     if( currentTurn_)
+    {
+        // Update turn time
+        currentTurn_->addTime( clockTime_.restart());
         return timeAvailableBeforeTurn_-currentTurn_->getDuration();
+    }
     else
         return timeAvailableBeforeTurn_;
 }
@@ -115,6 +124,12 @@ int ChessClock::getTimePlayed() const
         return timePlayedBeforeTurn_ + currentTurn_->getDuration();
     else
         return timePlayedBeforeTurn_;
+}
+
+
+void ChessClock::setTimeAvailable(int msecs)
+{
+    timeAvailableBeforeTurn_ = msecs;
 }
 
 void ChessClock::updateClock()

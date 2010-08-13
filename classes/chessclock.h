@@ -89,9 +89,15 @@ public:
       @return Time played in msecs */
     virtual int getTimePlayed() const;
 
+    /*! Set time available
+
+      @param msecs Time available in msecs */
+    void setTimeAvailable(int msecs);
+
 
 signals:
     void timeOutLoser();
+    void endTurn();
 
 public slots:    
 

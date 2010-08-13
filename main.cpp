@@ -53,7 +53,11 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    a.setApplicationName( a.tr("Chess Clock","Application name") );
+    a.setApplicationVersion("0.1.0");
+
     ChessClockWindow w;
+
 #if defined(Q_WS_S60)
     w.showMaximized();
 #else
