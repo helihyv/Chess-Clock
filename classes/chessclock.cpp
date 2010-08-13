@@ -93,7 +93,7 @@ TurnInformation* ChessClock::endTurn()
     currentTurn_->turnReady(timeAvailableBeforeTurn_ );
     TurnInformation* information = currentTurn_;
     currentTurn_ = 0;
-    emit endTurn();
+    emit turnEnded();
     return information;
 }
 
@@ -130,6 +130,12 @@ int ChessClock::getTimePlayed() const
 void ChessClock::setTimeAvailable(int msecs)
 {
     timeAvailableBeforeTurn_ = msecs;
+}
+
+
+void ChessClock::addTime(int msecs)
+{
+   timeAvailableBeforeTurn_ += msecs;
 }
 
 void ChessClock::updateClock()

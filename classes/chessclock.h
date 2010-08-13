@@ -94,10 +94,18 @@ public:
       @param msecs Time available in msecs */
     void setTimeAvailable(int msecs);
 
+    /*! Add time
+
+      Add time to timeAvailableBeforeTurn_ total available time
+      counter.
+
+      @param msecs Time to add in msecs */
+    void addTime(int msecs);
+
 
 signals:
     void timeOutLoser();
-    void endTurn();
+    void turnEnded();
 
 public slots:    
 
