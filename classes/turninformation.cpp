@@ -40,7 +40,8 @@ void TurnInformation::addTime(int msecs)
 void TurnInformation::addPause(int msecs)
 {
     if( !turnReady_ )
-        pause_ += msecs;
+        paused_ += msecs;
+
 }
 
 void TurnInformation::turnReady(int msecs)
@@ -49,7 +50,7 @@ void TurnInformation::turnReady(int msecs)
     turnReady_ = true;
 }
 
-int TurnInformation::getTimeAfter()
+int TurnInformation::getTimeAfter() const
 {
     if( turnReady_ )
         return timeAfter_;

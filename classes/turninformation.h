@@ -40,20 +40,20 @@ public:
       @param white true if turn on white, false id black */
     TurnInformation(int turnId, bool white);
 
-    int getTurnId() { return turnId_; }
+    int getTurnId() const { return turnId_; }
 
     /*! Duration of turn
       @return Duration of turn in msecs */
-    int getDuration() { return duration_; }
+    int getDuration() const { return duration_; }
 
     /*! Duration of pauses during this turn
       @return Duration of pauses in msecs */
-    int getPaused() { return paused_; }
+    int getPaused() const { return paused_; }
 
     /*! Time available for this player after this turn
       @return Time available in msecs */
-    int getTimeAfter();
-    bool isWhiteTurn() { return white_; }
+    int getTimeAfter() const;
+    bool isWhiteTurn() const { return white_; }
 
     void addTime( int msecs );
     void addPause( int msecs );

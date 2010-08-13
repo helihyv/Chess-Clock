@@ -12,10 +12,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         chessclockwindow.cpp \
-    classes/turninformation.cpp
+    classes/turninformation.cpp \
+    classes/chessclock.cpp
 
 HEADERS  += chessclockwindow.h \
-    classes/turninformation.h
+    classes/turninformation.h \
+    classes/chessclock.h
 
 CONFIG += mobility
 MOBILITY = 
