@@ -1,4 +1,4 @@
-/**************************************************************************
+ /**************************************************************************
 
     Chess Clock
 
@@ -19,24 +19,28 @@
 
 **************************************************************************/
 
-#ifndef CHESSCLOCKWINDOW_H
-#define CHESSCLOCKWINDOW_H
+#ifndef WELCOMESCREENWIDGET_H
+#define WELCOMESCREENWIDGET_H
 
-#include <QtGui/QMainWindow>
+#include <QWidget>
 
-class ClocksWidget;
+/*! Welcome screen
 
-class ChessClockWindow : public QMainWindow
+  @author Arto Hyvättinen
+  @date 2010-08-14
+
+  */
+
+class WelcomeScreenWidget : public QWidget
 {
     Q_OBJECT
-
 public:
-    ChessClockWindow(QWidget *parent = 0);
-    ~ChessClockWindow();
+    WelcomeScreenWidget(QWidget *parent = 0);
 
+signals:
 
-protected:
-    ClocksWidget*   clocks_;
+public slots:
+
 };
 
-#endif // CHESSCLOCKWINDOW_H
+#endif // WELCOMESCREENWIDGET_H

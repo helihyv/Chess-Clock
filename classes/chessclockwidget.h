@@ -41,6 +41,12 @@ class ChessClockWidget : public ChessClock
     Q_OBJECT
 public:
     ChessClockWidget(bool white, QWidget *parent = 0);
+    /*! Set time begin of turn shown green.
+
+      Extra time of turn is shown green.
+      @param msecs Green time in msecs
+      */
+    void setGreenTime(int msecs);
 
 signals:
 
@@ -71,10 +77,13 @@ protected:
     QLabel* timeUsedLabel_;
     QLabel* timeAverageLabel_;
     QLabel* turnLabel_;
+    QLabel* turnTimeLabel_;
     QLabel* loserLabel_;
     QLabel* leftLabel_;
 
     QVBoxLayout* mainLayout;
+
+    int greenTime_; /*! Green time in begin of turn */
 
 
 };

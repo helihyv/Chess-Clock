@@ -87,7 +87,7 @@ public:
 
     /*! Get total time played
       @return Time played in msecs */
-    virtual int getTimePlayed() const;
+    virtual int getTimePlayed();
 
     /*! Set time available
 
@@ -101,6 +101,10 @@ public:
 
       @param msecs Time to add in msecs */
     void addTime(int msecs);
+
+    /*! Get time played current turn.
+      @return Time in msecs */
+    int currentTurnPlayed();
 
 
 signals:

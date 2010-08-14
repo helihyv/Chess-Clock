@@ -6,5 +6,6 @@
         <file>pic/white_blue.png</file>
         <file>pic/white_gray.png</file>
         <file>pic/chessclock.png</file>
+        <file>pic/logo.png</file>
     </qresource>
 </RCC>

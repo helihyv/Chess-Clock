@@ -29,6 +29,8 @@
 ChessClockWidget::ChessClockWidget(bool white, QWidget *parent) :
     ChessClock(white, parent)
 {
+    greenTime_ = 0;
+
     mainLayout = new QVBoxLayout;
 
     initPictures();
@@ -39,6 +41,11 @@ ChessClockWidget::ChessClockWidget(bool white, QWidget *parent) :
     setLayout( mainLayout );
 }
 
+
+void ChessClockWidget::setGreenTime(int msecs)
+{
+    greenTime_ = msecs;
+}
 
 void ChessClockWidget::initPictures()
 {
@@ -66,10 +73,14 @@ void ChessClockWidget::initLabels()
     timeUsedLabel_ = new QLabel;
     timeAverageLabel_ = new QLabel;
     turnLabel_=new QLabel;
+    turnTimeLabel_=new QLabel;
 
     timeUsedLabel_->setFont(normalFont);
     timeAverageLabel_->setFont(normalFont);
     turnLabel_->setFont(normalFont);
+
+    QFont turnTimeFont("Helvetica",36,QFont::Bold);
+    turnTimeLabel_->setFont(turnTimeFont);
 
     loserLabel_ = new QLabel;
     loserLabel_->setPixmap(picLoser_);
@@ -83,6 +94,7 @@ void ChessClockWidget::initTop()
     details->addWidget(timeUsedLabel_);
     details->addWidget(timeAverageLabel_);
     details->addWidget(turnLabel_);
+    details->addWidget(turnTimeLabel_);
 
     QHBoxLayout* topLayout = new QHBoxLayout();
     if( isWhite() )
@@ -113,7 +125,7 @@ void ChessClockWidget::initBottom()
     leftLabel_ = new QLabel("0.00.00");
     leftLabel_->setFont(bigfont);
     // Black player: right alignment
-    if( isWhite() )
+    if( !isWhite() )
        leftLabel_->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     mainLayout->addWidget(leftLabel_);
 }
@@ -137,6 +149,13 @@ void ChessClockWidget::repaintClock()
     timeAverageLabel_->setText( tr("Avg %1").arg( timeString( timeAverage ) ) );
 
     turnLabel_->setText( tr("Turn %1").arg(getTurn()));
+
+    // Current turn played
+    // Extra time of this turn is shown in green.
+    if( currentTurnPlayed() < greenTime_ )
+        turnTimeLabel_->setText( QString("<font color=green> %1 </font>") .arg(timeString( currentTurnPlayed()) ) );
+    else
+        turnTimeLabel_->setText( timeString( currentTurnPlayed() ) );
 
     // Loser flag
     loserLabel_->setVisible( isLoser());

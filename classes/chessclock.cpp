@@ -79,14 +79,14 @@ void ChessClock::continueTurn()
 
 TurnInformation* ChessClock::endTurn()
 {
-    status_ = NotRunning;
     updateTimer_.stop();
-    // Update turn time
-    currentTurn_->addTime( clockTime_.restart());
     // Count time played
     timePlayedBeforeTurn_ = getTimePlayed();
     // Count time available
+    // This update current turn
     timeAvailableBeforeTurn_ = getTimeAvailable();
+
+    status_ = NotRunning;
     updateClock();
 
     // Close and return turn information
@@ -109,19 +109,18 @@ int ChessClock::getTimeAvailable()
     if( currentTurn_)
     {
         // Update turn time
-        currentTurn_->addTime( clockTime_.restart());
-        return timeAvailableBeforeTurn_-currentTurn_->getDuration();
+        return timeAvailableBeforeTurn_-currentTurnPlayed();
     }
     else
         return timeAvailableBeforeTurn_;
 }
 
 
-int ChessClock::getTimePlayed() const
+int ChessClock::getTimePlayed()
 {
     // Count time played time
     if( currentTurn_ )
-        return timePlayedBeforeTurn_ + currentTurn_->getDuration();
+        return timePlayedBeforeTurn_ + currentTurnPlayed();
     else
         return timePlayedBeforeTurn_;
 }
@@ -136,6 +135,22 @@ void ChessClock::setTimeAvailable(int msecs)
 void ChessClock::addTime(int msecs)
 {
    timeAvailableBeforeTurn_ += msecs;
+}
+
+int ChessClock::currentTurnPlayed()
+{
+    if( currentTurn_ )
+    {
+        // Update current time
+        if( status_ == Running )
+            currentTurn_->addTime( clockTime_.restart());
+
+        // Return current time
+        return currentTurn_->getDuration();
+     }
+    else
+        // No current turn!
+        return 0;
 }
 
 void ChessClock::updateClock()

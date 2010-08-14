@@ -21,6 +21,7 @@
 
 #include "chessclockwindow.h"
 
+#include "classes/clockswidget.h"
 #include "classes/chessclockwidget.h"
 
 #include <QIcon>
@@ -33,9 +34,15 @@ ChessClockWindow::ChessClockWindow(QWidget *parent)
     setWindowIcon( QIcon(":/rc/pic/chessclock.png"));
     setWindowTitle( QString("%1 %2").arg(qApp->applicationName()).arg(qApp->applicationVersion()) );
 
-    ChessClockWidget* widget = new ChessClockWidget(true, this);
-    setCentralWidget(widget);
-    widget->startTurn();
+    ChessClockWidget* white = new ChessClockWidget(true, this);
+    white->setGreenTime(5000);
+    ChessClockWidget* black = new ChessClockWidget(false, this);
+    white->startTurn();
+    black->repaintClock();
+
+    clocks_ = new ClocksWidget( this );
+    setCentralWidget( clocks_ );
+    clocks_->setClocks(white, black);
 
 }
 
