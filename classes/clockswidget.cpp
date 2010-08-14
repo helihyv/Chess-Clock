@@ -92,6 +92,15 @@ void ClocksWidget::pause()
     }
 }
 
+void ClocksWidget::stopPlay()
+{
+    if( status_ == BlackTurn || status_ == BlackPause )
+       emit TurnFinished( black_->endTurn());
+    else if( status_ == WhiteTurn || status_ == WhitePause )
+        emit TurnFinished( white_->endTurn());
+    status_ = Stopped;
+}
+
 
 void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
 {
@@ -117,6 +126,18 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
             white_->startTurn();
             status_=WhiteTurn;
             break;
+        case WhitePause:
+            // Continue play
+            white_->continueTurn();
+            status_=WhiteTurn;
+            break;
+        case BlackPause:
+            // Continue play
+            black_->continueTurn();
+            status_=BlackTurn;
+            break;
+        case Stopped:
+            emit ClickedWhenStopped();
 
 
         }

@@ -55,9 +55,13 @@ protected:
 
 signals:
    void TurnFinished(TurnInformation* turnInfo);
+   void ClickedWhenStopped();
 
 public slots:
+   /*! Pause game */
     void pause();
+    /*! End the game */
+    void stopPlay();
 
 protected:
     ChessClock* white_;
