@@ -28,7 +28,7 @@
 class QHBoxLayout;
 class QVBoxLayout;
 class QLabel;
-class WelcomeScreenWidget;
+class TurnInformation;
 
 class ChessClock;
 
@@ -37,40 +37,34 @@ class ChessClock;
     @author Arto Hyvättinen
     @date 2010-08-14
 
-    Central widget of Chess Clock
+    Central widget of Chess Clock.
+    Needed to create new ClocksWidget to
+    every new game.
 
   */
 class ClocksWidget : public QWidget
 {
     Q_OBJECT
 public:
-    ClocksWidget(QWidget *parent = 0);
-
-    /*! Set clocks and paint them.
-
-      */
-    void setClocks(ChessClock* white, ChessClock* black);
+    ClocksWidget(ChessClock* white, ChessClock* black, QWidget *parent = 0);
 
 
 protected:
-//    void mouseReleaseEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
 
-    void initEmptyScreen();
 
 signals:
-    void setupTouch();
+   void TurnFinished(TurnInformation* turnInfo);
 
 public slots:
+    void pause();
 
 protected:
     ChessClock* white_;
     ChessClock* black_;
 
-    QHBoxLayout* clockLayout_;
-
     QLabel* pauseLabel_;
     QLabel* welcomeLabel_;
-    WelcomeScreenWidget* welcomeScreen_;
 
     enum GameStatus {
         Stopped  /*! Not running */,
@@ -78,7 +72,6 @@ protected:
         BlackTurn,
         WhitePause,
         BlackPause,
-        NoClocks,    /*! Clocks not set ! */
         Welcome
         };
 

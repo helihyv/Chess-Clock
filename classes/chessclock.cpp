@@ -34,6 +34,7 @@ ChessClock::ChessClock(bool white, QWidget *parent) :
     timePlayedBeforeTurn_ = 0;
     status_ = NotRunning;
     another_ = 0;
+    currentTurn_ = 0;
 
     // Set clock timer calculating played time
     clockTime_.start();

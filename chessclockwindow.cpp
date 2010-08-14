@@ -37,12 +37,10 @@ ChessClockWindow::ChessClockWindow(QWidget *parent)
     ChessClockWidget* white = new ChessClockWidget(true, this);
     white->setGreenTime(5000);
     ChessClockWidget* black = new ChessClockWidget(false, this);
-    white->startTurn();
-    black->repaintClock();
 
-    clocks_ = new ClocksWidget( this );
+    clocks_ = new ClocksWidget( white, black, this );
     setCentralWidget( clocks_ );
-    clocks_->setClocks(white, black);
+
 
 }
 

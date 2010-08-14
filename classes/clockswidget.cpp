@@ -21,7 +21,6 @@
 
 #include "clockswidget.h"
 #include "chessclock.h"
-#include "welcomescreenwidget.h"
 
 #include <QLabel>
 #include <QPixmap>
@@ -31,15 +30,18 @@
 #include <QFont>
 
 
-ClocksWidget::ClocksWidget(QWidget *parent) :
+ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent):
     QWidget(parent)
 {
-    white_ = 0;
-    black_ = 0;
-    status_ = NoClocks;
+    // Set up clocks
+    white_ = white;
+    black_ = black;
 
+    // SET UP UI
     // Make layout for clocks
-    QHBoxLayout* clockLayout_ = new QHBoxLayout;
+    QHBoxLayout* clockLayout = new QHBoxLayout;
+    clockLayout->addWidget(white_ );
+    clockLayout->addWidget( black_ );
 
     // Pause information label
     pauseLabel_ = new QLabel( tr("<font color=yellow>Paused. Touch to continue.</font>"));
@@ -48,58 +50,77 @@ ClocksWidget::ClocksWidget(QWidget *parent) :
     pauseLabel_->setVisible( false );
 
     // Welcome label for first touch
-    welcomeLabel_ = new QLabel( tr("<font color=yellow>Welcome! Please touch to start game.<br>"
+    welcomeLabel_ = new QLabel( tr("<font color=green>Welcome! Please touch to start game.<br>"
                                    "Then touch to end turn.</font>"));
     welcomeLabel_->setFont( QFont("Helvetica",25));
     welcomeLabel_->setAlignment( Qt::AlignCenter);
-    welcomeLabel_->setVisible( false );
-
-    // Welcome screen if no clocks set
-    welcomeScreen_ = new WelcomeScreenWidget(this);
+    welcomeLabel_->setVisible( true );  // Show welcome message
 
     // Put all in layout
     QVBoxLayout* mainLayout = new QVBoxLayout;
-    mainLayout->addLayout(clockLayout_);
+    mainLayout->addLayout(clockLayout);
     mainLayout->addWidget(pauseLabel_);
     mainLayout->addWidget(welcomeLabel_);
-    mainLayout->addWidget(welcomeScreen_);
 
     setLayout( mainLayout);
-
-}
-
-
-
-void ClocksWidget::setClocks(ChessClock *white, ChessClock *black)
-{
-    // Remove old clocks
-    if( white_ )
-    {
-        clockLayout_->removeWidget( white_ );
-        delete white_;
-    }
-    if( black_ )
-    {
-        clockLayout_->removeWidget( black_ );
-        delete black_;
-    }
-
-    // Set up new ones
-    white_ = white;
-    black_ = black;
-
-    clockLayout_->addWidget(white_);
-    clockLayout_->addWidget( black_ );
+    status_ = Welcome;
 
     // First paint
     white_->repaintClock();
     black_->repaintClock();
 
-    // Welcome status for first touch
-    welcomeLabel_->setVisible(true);
-    status_ = Welcome;
+    // Set up others
+    white_->setAnother(black_);
+    black_->setAnother(white_);
+
+    delayTimer_.start(); // Initial start
+}
+
+void ClocksWidget::pause()
+{
+    if(status_ == WhiteTurn)
+    {
+        status_= WhitePause;
+        white_->pauseTurn();
+        pauseLabel_->setVisible(true);
+    }
+    else if( status_ == BlackTurn)
+    {
+        status_ = BlackPause;
+        black_->pauseTurn();
+        pauseLabel_->setVisible(true);
+    }
+}
 
 
+void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
+{
+    if( delayTimer_.elapsed() > CLICKDELAY )  // To avoid double clicks
+    {
+        switch( status_)
+        {
+        case Welcome :
+            // Start game!
+            welcomeLabel_->setVisible(false);
+            white_->startTurn();
+            status_ = WhiteTurn;
+            break;
+        case WhiteTurn:
+            // White turn finished, then black
+            emit TurnFinished( white_->endTurn());
+            black_->startTurn();
+            status_=BlackTurn;
+            break;
+        case BlackTurn:
+            // Black finished, then white
+            emit TurnFinished( black_->endTurn());
+            white_->startTurn();
+            status_=WhiteTurn;
+            break;
+
+
+        }
+    }
 }
 
 int const ClocksWidget::CLICKDELAY;
