@@ -7,5 +7,7 @@
         <file>pic/white_gray.png</file>
         <file>pic/chessclock.png</file>
         <file>pic/logo.png</file>
+        <file>pic/white_small.png</file>
+        <file>pic/black_small.png</file>
     </qresource>
 </RCC>

@@ -16,14 +16,19 @@ SOURCES += main.cpp\
     classes/chessclock.cpp \
     classes/chessclockwidget.cpp \
     classes/clockswidget.cpp \
-    classes/welcomescreenwidget.cpp
+    classes/welcomescreenwidget.cpp \
+    classes/timecontrol/basicdialog.cpp \
+    classes/timecontrol/notimecontrol.cpp
 
 HEADERS  += chessclockwindow.h \
     classes/turninformation.h \
     classes/chessclock.h \
     classes/chessclockwidget.h \
     classes/clockswidget.h \
-    classes/welcomescreenwidget.h
+    classes/welcomescreenwidget.h \
+    classes/timecontrol.h \
+    classes/timecontrol/basicdialog.h \
+    classes/timecontrol/notimecontrol.h
 
 CONFIG += mobility
 MOBILITY = 

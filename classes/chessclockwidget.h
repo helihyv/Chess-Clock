@@ -65,7 +65,7 @@ protected:
     virtual void initBottom();
 
     /*! Convert msecs to h:mm:ss QString */
-    QString timeString(int msecs);
+   static QString timeString(int msecs);
 
 protected:
 

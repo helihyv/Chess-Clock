@@ -54,6 +54,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     a.setApplicationName( a.tr("Chess Clock","Application name") );
+    a.setOrganizationName("Chess Clock");
+    a.setOrganizationDomain("chessclock.garage.maemo.org");
     a.setApplicationVersion("0.1.0");
 
     ChessClockWindow w;
