@@ -31,6 +31,7 @@ public:
 
     QString getName();
     QString getDescription();
+    QIcon getIcon();
     ClocksWidget* initGame(bool useLastSettings);
 };
 

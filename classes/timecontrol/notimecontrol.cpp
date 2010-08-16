@@ -38,6 +38,11 @@ QString NoTimeControl::getDescription()
     return qApp->translate("NoneTimeControl","Never add time.");
 }
 
+QIcon NoTimeControl::getIcon()
+{
+    return QIcon(":/rc/pic/oldclock.png");
+}
+
 ClocksWidget* NoTimeControl::initGame(bool useLastSettings)
 {
     BasicDialog dialog(getName());

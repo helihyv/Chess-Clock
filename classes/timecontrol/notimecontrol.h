@@ -32,6 +32,7 @@ public:
 
     QString getName() { return qApp->translate("NoTimeControl","Normal clock"); }
     QString getDescription();
+    QIcon getIcon();
     ClocksWidget* initGame(bool useLastSettings);
 };
 

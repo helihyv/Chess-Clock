@@ -37,6 +37,11 @@ QString HourGlassTimeControl::getName()
     return qApp->translate("Hour Glass","Hour Glass");
 }
 
+QIcon HourGlassTimeControl::getIcon()
+{
+    return QIcon(":/rc/pic/hourglass.png");
+}
+
 QString HourGlassTimeControl::getDescription()
 {
     return qApp->translate("Hour Glass","Time added to clock is substracted to another");
