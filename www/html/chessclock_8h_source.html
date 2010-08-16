@@ -18,6 +18,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -85,10 +86,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00053"></a><a class="code" href="class_chess_clock.html#a4a819ca828d25e17dd5975a2ea935d28a71899c98710fe6d3a18a5d3f1029e9d9">00053</a>         <a class="code" href="class_chess_clock.html#a4a819ca828d25e17dd5975a2ea935d28a71899c98710fe6d3a18a5d3f1029e9d9" title="Turn paused.">Paused</a>  = 2
 <a name="l00054"></a>00054     };
 <a name="l00055"></a>00055 
-<a name="l00056"></a><a class="code" href="class_chess_clock.html#a8ee162da0545410332d3fc1c4696b64a">00056</a>     <span class="keywordtype">bool</span> <a class="code" href="class_chess_clock.html#a8ee162da0545410332d3fc1c4696b64a">isLoser</a>()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> loser_; }
-<a name="l00057"></a><a class="code" href="class_chess_clock.html#ad250dc2ff1f62f2c984e1925d30c1956">00057</a>     <span class="keywordtype">int</span> <a class="code" href="class_chess_clock.html#ad250dc2ff1f62f2c984e1925d30c1956">getTurn</a>()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> turn_; }
-<a name="l00058"></a><a class="code" href="class_chess_clock.html#a87c8761d7b25ef31764a3e173b9645c1">00058</a>     <span class="keywordtype">bool</span> <a class="code" href="class_chess_clock.html#a87c8761d7b25ef31764a3e173b9645c1">isWhite</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> isWhite_; }
-<a name="l00059"></a><a class="code" href="class_chess_clock.html#a8988e92a321e25d52dc00552b4d44a4d">00059</a>     <a class="code" href="class_chess_clock.html#a4a819ca828d25e17dd5975a2ea935d28">RunningStatus</a> <a class="code" href="class_chess_clock.html#a8988e92a321e25d52dc00552b4d44a4d">getStatus</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> status_ ; }
+<a name="l00056"></a><a class="code" href="class_chess_clock.html#a8ee162da0545410332d3fc1c4696b64a">00056</a>     <span class="keywordtype">bool</span> <a class="code" href="class_chess_clock.html#a8ee162da0545410332d3fc1c4696b64a">isLoser</a>()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> <a class="code" href="class_chess_clock.html#a4ed94dc49d57927eb518c3e7d93718b1" title="Another player&amp;#39;s clock.">loser_</a>; }
+<a name="l00057"></a><a class="code" href="class_chess_clock.html#ad250dc2ff1f62f2c984e1925d30c1956">00057</a>     <span class="keywordtype">int</span> <a class="code" href="class_chess_clock.html#ad250dc2ff1f62f2c984e1925d30c1956">getTurn</a>()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> <a class="code" href="class_chess_clock.html#aba90e7b968a5d27fc8653f7690344f8d" title="Is player losed because of timeout.">turn_</a>; }
+<a name="l00058"></a><a class="code" href="class_chess_clock.html#a87c8761d7b25ef31764a3e173b9645c1">00058</a>     <span class="keywordtype">bool</span> <a class="code" href="class_chess_clock.html#a87c8761d7b25ef31764a3e173b9645c1">isWhite</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_chess_clock.html#a844453fc4683c62d24b53b70fb68c1a9" title="Time available for play BEFORE this turn msecs !">isWhite_</a>; }
+<a name="l00059"></a><a class="code" href="class_chess_clock.html#a8988e92a321e25d52dc00552b4d44a4d">00059</a>     <a class="code" href="class_chess_clock.html#a4a819ca828d25e17dd5975a2ea935d28">RunningStatus</a> <a class="code" href="class_chess_clock.html#a8988e92a321e25d52dc00552b4d44a4d">getStatus</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_chess_clock.html#ad2d4601fbc0dae0599a95ce7924c9902" title="Current turn.">status_</a> ; }
 <a name="l00060"></a>00060 
 <a name="l00061"></a>00061 
 <a name="l00063"></a>00063     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock.html#a49504d86896ef3f724b2aa481c85435a" title="Start new turn.">startTurn</a>();
@@ -103,35 +104,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00080"></a>00080 
 <a name="l00086"></a>00086     <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_chess_clock.html#a8e7d214dcc13dcd1087d2281fe96ce16" title="Get total time available.">getTimeAvailable</a>();
 <a name="l00087"></a>00087 
-<a name="l00090"></a>00090     <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_chess_clock.html#a90be9c7c27f000e7bcad1420d8f3e8b0" title="Get total time played.">getTimePlayed</a>() <span class="keyword">const</span>;
+<a name="l00090"></a>00090     <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_chess_clock.html#a4bc0dedc29db4e121424b83605a3ec1b" title="Get total time played.">getTimePlayed</a>();
 <a name="l00091"></a>00091 
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093 signals:
-<a name="l00094"></a>00094     <span class="keywordtype">void</span> <a class="code" href="class_chess_clock.html#a9406ad0b60047e6605cf3e41c8a47b13">timeOutLoser</a>();
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096 <span class="keyword">public</span> slots:    
-<a name="l00097"></a>00097 
-<a name="l00099"></a>00099     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock.html#a349c7c108551649a9885651c5470e2dd" title="Refresh clock information.">repaintClock</a>() = 0;
-<a name="l00100"></a>00100 
-<a name="l00102"></a>00102     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock.html#a2262f5bb09794ef7a40c62c0c28a6979" title="Update clock information, check looser state and refresh.">updateClock</a>();
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104 <span class="keyword">private</span>:
-<a name="l00105"></a>00105     <a class="code" href="class_chess_clock.html" title="Clock of a individual player.">ChessClock</a>* another_; 
-<a name="l00107"></a>00107     <span class="keywordtype">bool</span> loser_;        
-<a name="l00108"></a>00108     <span class="keywordtype">int</span> turn_;          
-<a name="l00109"></a>00109     <a class="code" href="class_chess_clock.html#a4a819ca828d25e17dd5975a2ea935d28">RunningStatus</a> status_;
-<a name="l00110"></a>00110     <a class="code" href="class_turn_information.html" title="Turn information class.">TurnInformation</a>* currentTurn_;
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112     <span class="keywordtype">int</span> timePlayedBeforeTurn_;    
-<a name="l00113"></a>00113     <span class="keywordtype">int</span> timeAvailableBeforeTurn_; 
-<a name="l00115"></a>00115     <span class="keywordtype">bool</span> isWhite_;      
-<a name="l00117"></a>00117     QTime clockTime_;
-<a name="l00118"></a>00118     QTimer updateTimer_;
-<a name="l00119"></a>00119 
-<a name="l00120"></a>00120     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> UPDATEINTERVAL = 1000; 
-<a name="l00122"></a>00122 };
-<a name="l00123"></a>00123 
-<a name="l00124"></a>00124 <span class="preprocessor">#endif // CHESSCLOCK_H</span>
+<a name="l00095"></a>00095     <span class="keywordtype">void</span> <a class="code" href="class_chess_clock.html#af0415d0184abb73d9ee3348635c3e0d8" title="Set time available.">setTimeAvailable</a>(<span class="keywordtype">int</span> msecs);
+<a name="l00096"></a>00096 
+<a name="l00103"></a>00103     <span class="keywordtype">void</span> <a class="code" href="class_chess_clock.html#a7726be810822d28f039252e29e8377d5" title="Add time.">addTime</a>(<span class="keywordtype">int</span> msecs);
+<a name="l00104"></a>00104 
+<a name="l00107"></a>00107     <span class="keywordtype">int</span> <a class="code" href="class_chess_clock.html#a781fff762250f63de87d12f5d88ae5ed" title="Get time played current turn.">currentTurnPlayed</a>();
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 signals:
+<a name="l00111"></a>00111     <span class="keywordtype">void</span> <a class="code" href="class_chess_clock.html#a9406ad0b60047e6605cf3e41c8a47b13">timeOutLoser</a>();
+<a name="l00112"></a>00112     <span class="keywordtype">void</span> <a class="code" href="class_chess_clock.html#a832bb1a623c56078c91be7d67b12dea9">turnEnded</a>();
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 <span class="keyword">public</span> slots:    
+<a name="l00115"></a>00115 
+<a name="l00117"></a>00117     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock.html#a349c7c108551649a9885651c5470e2dd" title="Refresh clock information.">repaintClock</a>() = 0;
+<a name="l00118"></a>00118 
+<a name="l00120"></a>00120     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock.html#a2262f5bb09794ef7a40c62c0c28a6979" title="Update clock information, check looser state and refresh.">updateClock</a>();
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 <span class="keyword">protected</span>:
+<a name="l00123"></a><a class="code" href="class_chess_clock.html#a2ec3c0ed0a5e9bee6bd0864c5c9e4452">00123</a>     <a class="code" href="class_chess_clock.html" title="Clock of a individual player.">ChessClock</a>* <a class="code" href="class_chess_clock.html#a2ec3c0ed0a5e9bee6bd0864c5c9e4452">another_</a>; 
+<a name="l00125"></a><a class="code" href="class_chess_clock.html#a4ed94dc49d57927eb518c3e7d93718b1">00125</a>     <span class="keywordtype">bool</span> <a class="code" href="class_chess_clock.html#a4ed94dc49d57927eb518c3e7d93718b1" title="Another player&amp;#39;s clock.">loser_</a>;        
+<a name="l00126"></a><a class="code" href="class_chess_clock.html#aba90e7b968a5d27fc8653f7690344f8d">00126</a>     <span class="keywordtype">int</span> <a class="code" href="class_chess_clock.html#aba90e7b968a5d27fc8653f7690344f8d" title="Is player losed because of timeout.">turn_</a>;          
+<a name="l00127"></a><a class="code" href="class_chess_clock.html#ad2d4601fbc0dae0599a95ce7924c9902">00127</a>     <a class="code" href="class_chess_clock.html#a4a819ca828d25e17dd5975a2ea935d28">RunningStatus</a> <a class="code" href="class_chess_clock.html#ad2d4601fbc0dae0599a95ce7924c9902" title="Current turn.">status_</a>;
+<a name="l00128"></a><a class="code" href="class_chess_clock.html#a0eb205f7484c7cf2a0be1f8bec78bf68">00128</a>     <a class="code" href="class_turn_information.html" title="Turn information class.">TurnInformation</a>* <a class="code" href="class_chess_clock.html#a0eb205f7484c7cf2a0be1f8bec78bf68">currentTurn_</a>;
+<a name="l00129"></a>00129 
+<a name="l00130"></a><a class="code" href="class_chess_clock.html#a373e5774a0af5387c76006a1a24d770e">00130</a>     <span class="keywordtype">int</span> <a class="code" href="class_chess_clock.html#a373e5774a0af5387c76006a1a24d770e">timePlayedBeforeTurn_</a>;    
+<a name="l00131"></a><a class="code" href="class_chess_clock.html#abbce62e8c796244cadb1a5413469ca1b">00131</a>     <span class="keywordtype">int</span> <a class="code" href="class_chess_clock.html#abbce62e8c796244cadb1a5413469ca1b" title="Time played in this game BEFORE this turn msecs.">timeAvailableBeforeTurn_</a>; 
+<a name="l00133"></a><a class="code" href="class_chess_clock.html#a844453fc4683c62d24b53b70fb68c1a9">00133</a>     <span class="keywordtype">bool</span> <a class="code" href="class_chess_clock.html#a844453fc4683c62d24b53b70fb68c1a9" title="Time available for play BEFORE this turn msecs !">isWhite_</a>;      
+<a name="l00135"></a><a class="code" href="class_chess_clock.html#ae25ff9bfd3ccb8651b3e7890e712d1be">00135</a>     QTime <a class="code" href="class_chess_clock.html#ae25ff9bfd3ccb8651b3e7890e712d1be" title="True if white player.">clockTime_</a>;
+<a name="l00136"></a><a class="code" href="class_chess_clock.html#a3493e745462457ebf5660754fe333fd2">00136</a>     QTimer <a class="code" href="class_chess_clock.html#a3493e745462457ebf5660754fe333fd2">updateTimer_</a>;
+<a name="l00137"></a>00137 
+<a name="l00138"></a><a class="code" href="class_chess_clock.html#a848e42d72b3470578f0f958106894b4f">00138</a>     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_chess_clock.html#a848e42d72b3470578f0f958106894b4f">UPDATEINTERVAL</a> = 1000; 
+<a name="l00140"></a>00140 };
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142 <span class="preprocessor">#endif // CHESSCLOCK_H</span>
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -147,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Sat Aug 14 01:28:48 2010 for Chess Clock by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Aug 16 21:44:24 2010 for Chess Clock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

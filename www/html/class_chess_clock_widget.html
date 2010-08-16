@@ -18,6 +18,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -55,7 +56,12 @@ Inheritance diagram for ChessClockWidget:</div>
  <div class="center">
   <img src="class_chess_clock_widget.png" usemap="#ChessClockWidget_map" alt=""/>
   <map id="ChessClockWidget_map" name="ChessClockWidget_map">
-<area href="class_chess_clock.html" alt="ChessClock" shape="rect" coords="0,0,117,24"/>
+<area href="class_chess_clock.html" alt="ChessClock" shape="rect" coords="254,0,371,24"/>
+<area href="class_delay_after_clock.html" alt="DelayAfterClock" shape="rect" coords="0,112,117,136"/>
+<area href="class_delay_clock.html" alt="DelayClock" shape="rect" coords="127,112,244,136"/>
+<area href="class_fischer_after_clock.html" alt="FischerAfterClock" shape="rect" coords="254,112,371,136"/>
+<area href="class_fischer_clock.html" alt="FischerClock" shape="rect" coords="381,112,498,136"/>
+<area href="class_hour_glass_clock.html" alt="HourGlassClock" shape="rect" coords="508,112,625,136"/>
 </map>
  </div>
 </div>
@@ -67,6 +73,8 @@ Inheritance diagram for ChessClockWidget:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Refresh clock information.  <a href="#ac61998d19019342ea4ab93651e32a2ad"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a3fc783fbb476ac2350a37ed758159f01">ChessClockWidget</a> (bool white, QWidget *parent=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a0e7ee0766c9684ade44ff548c82d308d">setGreenTime</a> (int msecs)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set time begin of turn shown green.  <a href="#a0e7ee0766c9684ade44ff548c82d308d"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#ac8e5ab41fe2a39435ce6cda4e918a030">initPictures</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Init pictures from resources.  <a href="#ac8e5ab41fe2a39435ce6cda4e918a030"></a><br/></td></tr>
@@ -76,7 +84,8 @@ Inheritance diagram for ChessClockWidget:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Init top: picture, details, loser mark.  <a href="#a1fb6b231f34b1cbd22d63fbbd5fcdfaa"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a76878585557986e4cb287a61426c385d">initBottom</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Init time left in bottom.  <a href="#a76878585557986e4cb287a61426c385d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a2044879e6a098be2f3467234ee6ad8c9">timeString</a> (int msecs)</td></tr>
+<tr><td colspan="2"><h2>Static Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static QString&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a2044879e6a098be2f3467234ee6ad8c9">timeString</a> (int msecs)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Convert msecs to h:mm:ss QString.  <a href="#a2044879e6a098be2f3467234ee6ad8c9"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QPixmap&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a01ed1d1d2c361035a18759d71579cae5">picActive_</a></td></tr>
@@ -86,9 +95,11 @@ Inheritance diagram for ChessClockWidget:</div>
 <tr><td class="memItemLeft" align="right" valign="top">QLabel *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a4185a840e7d461cf84d580c57a1c12f9">timeUsedLabel_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QLabel *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a5dd50d99a38ae15fadf497818d23c249">timeAverageLabel_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QLabel *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a12db89f00b41cc0cff52a231f42cb6a8">turnLabel_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QLabel *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#acdabe9a520cd2933bfc123aa4ca2d4b6">turnTimeLabel_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QLabel *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a6ad3fb59c2e7a22d3a137734cb1b8743">loserLabel_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QLabel *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a31e798ae2b57a3cc8c57cf250765e298">leftLabel_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QVBoxLayout *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#a905b8c74dc718068c6591b303601d2a3">mainLayout</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_widget.html#abb258a7c3b33ef3e89019ac3a2aa5ac8">greenTime_</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Simple chess clock widget. </p>
@@ -145,7 +156,7 @@ Inheritance diagram for ChessClockWidget:</div>
 <p>Init time left in bottom. </p>
 <p>Override to make different bottom area </p>
 
-<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00109">109</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00121">121</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -166,7 +177,7 @@ Inheritance diagram for ChessClockWidget:</div>
 
 <p>Init QLabels. </p>
 
-<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00059">59</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00066">66</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -187,7 +198,7 @@ Inheritance diagram for ChessClockWidget:</div>
 
 <p>Init pictures from resources. </p>
 
-<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00043">43</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00050">50</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -208,7 +219,7 @@ Inheritance diagram for ChessClockWidget:</div>
 
 <p>Init top: picture, details, loser mark. </p>
 
-<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00080">80</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00091">91</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -231,7 +242,36 @@ Inheritance diagram for ChessClockWidget:</div>
 
 <p>Implements <a class="el" href="class_chess_clock.html#a349c7c108551649a9885651c5470e2dd">ChessClock</a>.</p>
 
-<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00121">121</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00133">133</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e7ee0766c9684ade44ff548c82d308d"></a><!-- doxytag: member="ChessClockWidget::setGreenTime" ref="a0e7ee0766c9684ade44ff548c82d308d" args="(int msecs)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ChessClockWidget::setGreenTime </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>msecs</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set time begin of turn shown green. </p>
+<p>Extra time of turn is shown green. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>msecs</em>&nbsp;</td><td>Green time in msecs </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00045">45</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -245,7 +285,7 @@ Inheritance diagram for ChessClockWidget:</div>
           <td class="paramtype">int&nbsp;</td>
           <td class="paramname"> <em>msecs</em></td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [protected]</code></td>
+          <td><code> [static, protected]</code></td>
         </tr>
       </table>
 </div>
@@ -253,11 +293,26 @@ Inheritance diagram for ChessClockWidget:</div>
 
 <p>Convert msecs to h:mm:ss QString. </p>
 
-<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00148">148</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8cpp_source.html#l00167">167</a> of file <a class="el" href="chessclockwidget_8cpp_source.html">chessclockwidget.cpp</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="abb258a7c3b33ef3e89019ac3a2aa5ac8"></a><!-- doxytag: member="ChessClockWidget::greenTime_" ref="abb258a7c3b33ef3e89019ac3a2aa5ac8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_chess_clock_widget.html#abb258a7c3b33ef3e89019ac3a2aa5ac8">ChessClockWidget::greenTime_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00086">86</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a31e798ae2b57a3cc8c57cf250765e298"></a><!-- doxytag: member="ChessClockWidget::leftLabel_" ref="a31e798ae2b57a3cc8c57cf250765e298" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -269,7 +324,7 @@ Inheritance diagram for ChessClockWidget:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00075">75</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00082">82</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
 
 </div>
 </div>
@@ -284,7 +339,7 @@ Inheritance diagram for ChessClockWidget:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00074">74</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00081">81</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
 
 </div>
 </div>
@@ -299,7 +354,7 @@ Inheritance diagram for ChessClockWidget:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00077">77</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00084">84</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
 
 </div>
 </div>
@@ -314,7 +369,7 @@ Inheritance diagram for ChessClockWidget:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00066">66</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00072">72</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
 
 </div>
 </div>
@@ -329,7 +384,7 @@ Inheritance diagram for ChessClockWidget:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00068">68</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00074">74</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
 
 </div>
 </div>
@@ -344,7 +399,7 @@ Inheritance diagram for ChessClockWidget:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00067">67</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00073">73</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
 
 </div>
 </div>
@@ -359,7 +414,7 @@ Inheritance diagram for ChessClockWidget:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00070">70</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00076">76</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
 
 </div>
 </div>
@@ -374,7 +429,7 @@ Inheritance diagram for ChessClockWidget:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00072">72</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00078">78</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
 
 </div>
 </div>
@@ -389,7 +444,7 @@ Inheritance diagram for ChessClockWidget:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00071">71</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00077">77</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
 
 </div>
 </div>
@@ -404,7 +459,22 @@ Inheritance diagram for ChessClockWidget:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00073">73</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00079">79</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acdabe9a520cd2933bfc123aa4ca2d4b6"></a><!-- doxytag: member="ChessClockWidget::turnTimeLabel_" ref="acdabe9a520cd2933bfc123aa4ca2d4b6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QLabel* <a class="el" href="class_chess_clock_widget.html#acdabe9a520cd2933bfc123aa4ca2d4b6">ChessClockWidget::turnTimeLabel_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="chessclockwidget_8h_source.html#l00080">80</a> of file <a class="el" href="chessclockwidget_8h_source.html">chessclockwidget.h</a>.</p>
 
 </div>
 </div>
@@ -427,7 +497,7 @@ Inheritance diagram for ChessClockWidget:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Sat Aug 14 01:28:48 2010 for Chess Clock by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Aug 16 21:44:24 2010 for Chess Clock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

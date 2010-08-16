@@ -18,6 +18,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -77,39 +78,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00041"></a>00041     Q_OBJECT
 <a name="l00042"></a>00042 <span class="keyword">public</span>:
 <a name="l00043"></a>00043     <a class="code" href="class_chess_clock_widget.html#a3fc783fbb476ac2350a37ed758159f01">ChessClockWidget</a>(<span class="keywordtype">bool</span> white, QWidget *parent = 0);
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045 signals:
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="keyword">public</span> slots:
-<a name="l00048"></a>00048     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock_widget.html#ac61998d19019342ea4ab93651e32a2ad" title="Refresh clock information.">repaintClock</a>();
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="keyword">protected</span>:
-<a name="l00052"></a>00052     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock_widget.html#ac8e5ab41fe2a39435ce6cda4e918a030" title="Init pictures from resources.">initPictures</a>();
-<a name="l00054"></a>00054     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock_widget.html#a4fa15ed70f11741d4b19f29f03f33fe1" title="Init QLabels.">initLabels</a>();
-<a name="l00056"></a>00056     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock_widget.html#a1fb6b231f34b1cbd22d63fbbd5fcdfaa" title="Init top: picture, details, loser mark.">initTop</a>();
-<a name="l00059"></a>00059     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock_widget.html#a76878585557986e4cb287a61426c385d" title="Init time left in bottom.">initBottom</a>();
-<a name="l00060"></a>00060 
-<a name="l00062"></a>00062     QString <a class="code" href="class_chess_clock_widget.html#a2044879e6a098be2f3467234ee6ad8c9" title="Convert msecs to h:mm:ss QString.">timeString</a>(<span class="keywordtype">int</span> msecs);
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 <span class="keyword">protected</span>:
-<a name="l00065"></a>00065 
-<a name="l00066"></a><a class="code" href="class_chess_clock_widget.html#a01ed1d1d2c361035a18759d71579cae5">00066</a>     QPixmap <a class="code" href="class_chess_clock_widget.html#a01ed1d1d2c361035a18759d71579cae5">picActive_</a>;
-<a name="l00067"></a><a class="code" href="class_chess_clock_widget.html#a29a634972ab639701db2926b7ba57ebf">00067</a>     QPixmap <a class="code" href="class_chess_clock_widget.html#a29a634972ab639701db2926b7ba57ebf">picPassive_</a>;
-<a name="l00068"></a><a class="code" href="class_chess_clock_widget.html#aae5f8a2e8d543b73cf00b898d151f5e7">00068</a>     QPixmap <a class="code" href="class_chess_clock_widget.html#aae5f8a2e8d543b73cf00b898d151f5e7">picLoser_</a>;
+<a name="l00049"></a>00049     <span class="keywordtype">void</span> <a class="code" href="class_chess_clock_widget.html#a0e7ee0766c9684ade44ff548c82d308d" title="Set time begin of turn shown green.">setGreenTime</a>(<span class="keywordtype">int</span> msecs);
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 signals:
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="keyword">public</span> slots:
+<a name="l00054"></a>00054     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock_widget.html#ac61998d19019342ea4ab93651e32a2ad" title="Refresh clock information.">repaintClock</a>();
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 <span class="keyword">protected</span>:
+<a name="l00058"></a>00058     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock_widget.html#ac8e5ab41fe2a39435ce6cda4e918a030" title="Init pictures from resources.">initPictures</a>();
+<a name="l00060"></a>00060     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock_widget.html#a4fa15ed70f11741d4b19f29f03f33fe1" title="Init QLabels.">initLabels</a>();
+<a name="l00062"></a>00062     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock_widget.html#a1fb6b231f34b1cbd22d63fbbd5fcdfaa" title="Init top: picture, details, loser mark.">initTop</a>();
+<a name="l00065"></a>00065     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_chess_clock_widget.html#a76878585557986e4cb287a61426c385d" title="Init time left in bottom.">initBottom</a>();
+<a name="l00066"></a>00066 
+<a name="l00068"></a>00068    <span class="keyword">static</span> QString <a class="code" href="class_chess_clock_widget.html#a2044879e6a098be2f3467234ee6ad8c9" title="Convert msecs to h:mm:ss QString.">timeString</a>(<span class="keywordtype">int</span> msecs);
 <a name="l00069"></a>00069 
-<a name="l00070"></a><a class="code" href="class_chess_clock_widget.html#a0ccc35d293627ec749f5d59e76a33b8e">00070</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a0ccc35d293627ec749f5d59e76a33b8e">pictureLabel_</a>;
-<a name="l00071"></a><a class="code" href="class_chess_clock_widget.html#a4185a840e7d461cf84d580c57a1c12f9">00071</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a4185a840e7d461cf84d580c57a1c12f9">timeUsedLabel_</a>;
-<a name="l00072"></a><a class="code" href="class_chess_clock_widget.html#a5dd50d99a38ae15fadf497818d23c249">00072</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a5dd50d99a38ae15fadf497818d23c249">timeAverageLabel_</a>;
-<a name="l00073"></a><a class="code" href="class_chess_clock_widget.html#a12db89f00b41cc0cff52a231f42cb6a8">00073</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a12db89f00b41cc0cff52a231f42cb6a8">turnLabel_</a>;
-<a name="l00074"></a><a class="code" href="class_chess_clock_widget.html#a6ad3fb59c2e7a22d3a137734cb1b8743">00074</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a6ad3fb59c2e7a22d3a137734cb1b8743">loserLabel_</a>;
-<a name="l00075"></a><a class="code" href="class_chess_clock_widget.html#a31e798ae2b57a3cc8c57cf250765e298">00075</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a31e798ae2b57a3cc8c57cf250765e298">leftLabel_</a>;
-<a name="l00076"></a>00076 
-<a name="l00077"></a><a class="code" href="class_chess_clock_widget.html#a905b8c74dc718068c6591b303601d2a3">00077</a>     QVBoxLayout* <a class="code" href="class_chess_clock_widget.html#a905b8c74dc718068c6591b303601d2a3">mainLayout</a>;
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080 };
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082 <span class="preprocessor">#endif // CHESSCLOCKWIDGET_H</span>
+<a name="l00070"></a>00070 <span class="keyword">protected</span>:
+<a name="l00071"></a>00071 
+<a name="l00072"></a><a class="code" href="class_chess_clock_widget.html#a01ed1d1d2c361035a18759d71579cae5">00072</a>     QPixmap <a class="code" href="class_chess_clock_widget.html#a01ed1d1d2c361035a18759d71579cae5">picActive_</a>;
+<a name="l00073"></a><a class="code" href="class_chess_clock_widget.html#a29a634972ab639701db2926b7ba57ebf">00073</a>     QPixmap <a class="code" href="class_chess_clock_widget.html#a29a634972ab639701db2926b7ba57ebf">picPassive_</a>;
+<a name="l00074"></a><a class="code" href="class_chess_clock_widget.html#aae5f8a2e8d543b73cf00b898d151f5e7">00074</a>     QPixmap <a class="code" href="class_chess_clock_widget.html#aae5f8a2e8d543b73cf00b898d151f5e7">picLoser_</a>;
+<a name="l00075"></a>00075 
+<a name="l00076"></a><a class="code" href="class_chess_clock_widget.html#a0ccc35d293627ec749f5d59e76a33b8e">00076</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a0ccc35d293627ec749f5d59e76a33b8e">pictureLabel_</a>;
+<a name="l00077"></a><a class="code" href="class_chess_clock_widget.html#a4185a840e7d461cf84d580c57a1c12f9">00077</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a4185a840e7d461cf84d580c57a1c12f9">timeUsedLabel_</a>;
+<a name="l00078"></a><a class="code" href="class_chess_clock_widget.html#a5dd50d99a38ae15fadf497818d23c249">00078</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a5dd50d99a38ae15fadf497818d23c249">timeAverageLabel_</a>;
+<a name="l00079"></a><a class="code" href="class_chess_clock_widget.html#a12db89f00b41cc0cff52a231f42cb6a8">00079</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a12db89f00b41cc0cff52a231f42cb6a8">turnLabel_</a>;
+<a name="l00080"></a><a class="code" href="class_chess_clock_widget.html#acdabe9a520cd2933bfc123aa4ca2d4b6">00080</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#acdabe9a520cd2933bfc123aa4ca2d4b6">turnTimeLabel_</a>;
+<a name="l00081"></a><a class="code" href="class_chess_clock_widget.html#a6ad3fb59c2e7a22d3a137734cb1b8743">00081</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a6ad3fb59c2e7a22d3a137734cb1b8743">loserLabel_</a>;
+<a name="l00082"></a><a class="code" href="class_chess_clock_widget.html#a31e798ae2b57a3cc8c57cf250765e298">00082</a>     QLabel* <a class="code" href="class_chess_clock_widget.html#a31e798ae2b57a3cc8c57cf250765e298">leftLabel_</a>;
+<a name="l00083"></a>00083 
+<a name="l00084"></a><a class="code" href="class_chess_clock_widget.html#a905b8c74dc718068c6591b303601d2a3">00084</a>     QVBoxLayout* <a class="code" href="class_chess_clock_widget.html#a905b8c74dc718068c6591b303601d2a3">mainLayout</a>;
+<a name="l00085"></a>00085 
+<a name="l00086"></a><a class="code" href="class_chess_clock_widget.html#abb258a7c3b33ef3e89019ac3a2aa5ac8">00086</a>     <span class="keywordtype">int</span> <a class="code" href="class_chess_clock_widget.html#abb258a7c3b33ef3e89019ac3a2aa5ac8">greenTime_</a>; 
+<a name="l00089"></a>00089 };
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 <span class="preprocessor">#endif // CHESSCLOCKWIDGET_H</span>
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -125,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Sat Aug 14 01:28:48 2010 for Chess Clock by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Aug 16 21:44:24 2010 for Chess Clock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -18,6 +18,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -55,7 +56,12 @@ Inheritance diagram for ChessClock:</div>
  <div class="center">
   <img src="class_chess_clock.png" usemap="#ChessClock_map" alt=""/>
   <map id="ChessClock_map" name="ChessClock_map">
-<area href="class_chess_clock_widget.html" alt="ChessClockWidget" shape="rect" coords="0,56,117,80"/>
+<area href="class_chess_clock_widget.html" alt="ChessClockWidget" shape="rect" coords="254,56,371,80"/>
+<area href="class_delay_after_clock.html" alt="DelayAfterClock" shape="rect" coords="0,112,117,136"/>
+<area href="class_delay_clock.html" alt="DelayClock" shape="rect" coords="127,112,244,136"/>
+<area href="class_fischer_after_clock.html" alt="FischerAfterClock" shape="rect" coords="254,112,371,136"/>
+<area href="class_fischer_clock.html" alt="FischerClock" shape="rect" coords="381,112,498,136"/>
+<area href="class_hour_glass_clock.html" alt="HourGlassClock" shape="rect" coords="508,112,625,136"/>
 </map>
  </div>
 </div>
@@ -74,6 +80,7 @@ Inheritance diagram for ChessClock:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Update clock information, check looser state and refresh.  <a href="#a2262f5bb09794ef7a40c62c0c28a6979"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Signals</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a9406ad0b60047e6605cf3e41c8a47b13">timeOutLoser</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a832bb1a623c56078c91be7d67b12dea9">turnEnded</a> ()</td></tr>
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#af4d3718b1e746317749bbb992688dcd8">ChessClock</a> (bool white, QWidget *parent=0)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a8ee162da0545410332d3fc1c4696b64a">isLoser</a> () const </td></tr>
@@ -92,8 +99,33 @@ Inheritance diagram for ChessClock:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set another chess clock for connecting.  <a href="#aa19330404a35872591d45d24fb52572e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a8e7d214dcc13dcd1087d2281fe96ce16">getTimeAvailable</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get total time available.  <a href="#a8e7d214dcc13dcd1087d2281fe96ce16"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a90be9c7c27f000e7bcad1420d8f3e8b0">getTimePlayed</a> () const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get total time played.  <a href="#a90be9c7c27f000e7bcad1420d8f3e8b0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a4bc0dedc29db4e121424b83605a3ec1b">getTimePlayed</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get total time played.  <a href="#a4bc0dedc29db4e121424b83605a3ec1b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#af0415d0184abb73d9ee3348635c3e0d8">setTimeAvailable</a> (int msecs)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set time available.  <a href="#af0415d0184abb73d9ee3348635c3e0d8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a7726be810822d28f039252e29e8377d5">addTime</a> (int msecs)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Add time.  <a href="#a7726be810822d28f039252e29e8377d5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a781fff762250f63de87d12f5d88ae5ed">currentTurnPlayed</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get time played current turn.  <a href="#a781fff762250f63de87d12f5d88ae5ed"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_chess_clock.html">ChessClock</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a2ec3c0ed0a5e9bee6bd0864c5c9e4452">another_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a4ed94dc49d57927eb518c3e7d93718b1">loser_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Another player's clock.  <a href="#a4ed94dc49d57927eb518c3e7d93718b1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#aba90e7b968a5d27fc8653f7690344f8d">turn_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Is player losed because of timeout.  <a href="#aba90e7b968a5d27fc8653f7690344f8d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_chess_clock.html#a4a819ca828d25e17dd5975a2ea935d28">RunningStatus</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#ad2d4601fbc0dae0599a95ce7924c9902">status_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Current turn.  <a href="#ad2d4601fbc0dae0599a95ce7924c9902"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_turn_information.html">TurnInformation</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a0eb205f7484c7cf2a0be1f8bec78bf68">currentTurn_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a373e5774a0af5387c76006a1a24d770e">timePlayedBeforeTurn_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#abbce62e8c796244cadb1a5413469ca1b">timeAvailableBeforeTurn_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Time played in this game BEFORE this turn msecs.  <a href="#abbce62e8c796244cadb1a5413469ca1b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a844453fc4683c62d24b53b70fb68c1a9">isWhite_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Time available for play BEFORE this turn msecs !  <a href="#a844453fc4683c62d24b53b70fb68c1a9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QTime&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#ae25ff9bfd3ccb8651b3e7890e712d1be">clockTime_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">True if white player.  <a href="#ae25ff9bfd3ccb8651b3e7890e712d1be"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QTimer&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a3493e745462457ebf5660754fe333fd2">updateTimer_</a></td></tr>
+<tr><td colspan="2"><h2>Static Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a848e42d72b3470578f0f958106894b4f">UPDATEINTERVAL</a> = 1000</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Clock of a individual player. </p>
@@ -163,6 +195,35 @@ Inheritance diagram for ChessClock:</div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a7726be810822d28f039252e29e8377d5"></a><!-- doxytag: member="ChessClock::addTime" ref="a7726be810822d28f039252e29e8377d5" args="(int msecs)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ChessClock::addTime </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>msecs</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Add time. </p>
+<p>Add time to timeAvailableBeforeTurn_ total available time counter.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>msecs</em>&nbsp;</td><td>Time to add in msecs </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00135">135</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ae0686cb1be507be4c7c411898ba52495"></a><!-- doxytag: member="ChessClock::continueTurn" ref="ae0686cb1be507be4c7c411898ba52495" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -180,7 +241,29 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Continue paused game. </p>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00067">67</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00070">70</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a781fff762250f63de87d12f5d88ae5ed"></a><!-- doxytag: member="ChessClock::currentTurnPlayed" ref="a781fff762250f63de87d12f5d88ae5ed" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ChessClock::currentTurnPlayed </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get time played current turn. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Time in msecs </dd></dl>
+
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00140">140</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -203,7 +286,9 @@ Inheritance diagram for ChessClock:</div>
 <p>Player has done his move. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Locked turn information </dd></dl>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00077">77</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Reimplemented in <a class="el" href="class_delay_after_clock.html#a67513894f0749d488e275f26e43008e8">DelayAfterClock</a>, <a class="el" href="class_fischer_after_clock.html#a01047f1c8eea1ca406eaebdaab930daf">FischerAfterClock</a>, and <a class="el" href="class_hour_glass_clock.html#af2c3629621f5ac7c41b41b236c2f1594">HourGlassClock</a>.</p>
+
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00081">81</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -245,11 +330,13 @@ Inheritance diagram for ChessClock:</div>
 <p>Time does't contain delays.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Time available in msecs </dd></dl>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00100">100</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Reimplemented in <a class="el" href="class_delay_clock.html#ad926d5f15903c47092d431cc26b296d4">DelayClock</a>, and <a class="el" href="class_hour_glass_clock.html#a50daaa71c289575f47e1310ce215f45f">HourGlassClock</a>.</p>
+
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00109">109</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a90be9c7c27f000e7bcad1420d8f3e8b0"></a><!-- doxytag: member="ChessClock::getTimePlayed" ref="a90be9c7c27f000e7bcad1420d8f3e8b0" args="() const " -->
+<a class="anchor" id="a4bc0dedc29db4e121424b83605a3ec1b"></a><!-- doxytag: member="ChessClock::getTimePlayed" ref="a4bc0dedc29db4e121424b83605a3ec1b" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -258,7 +345,7 @@ Inheritance diagram for ChessClock:</div>
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [virtual]</code></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -267,7 +354,7 @@ Inheritance diagram for ChessClock:</div>
 <p>Get total time played. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Time played in msecs </dd></dl>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00111">111</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00123">123</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -345,7 +432,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Pause clock. </p>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00059">59</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00061">61</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -394,7 +481,35 @@ Inheritance diagram for ChessClock:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00095">95</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00104">104</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af0415d0184abb73d9ee3348635c3e0d8"></a><!-- doxytag: member="ChessClock::setTimeAvailable" ref="af0415d0184abb73d9ee3348635c3e0d8" args="(int msecs)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ChessClock::setTimeAvailable </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>msecs</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set time available. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>msecs</em>&nbsp;</td><td>Time available in msecs </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00129">129</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -415,7 +530,9 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Start new turn. </p>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00046">46</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Reimplemented in <a class="el" href="class_fischer_clock.html#a57f7d1108e88c04e3c8d9326cc8bb0b6">FischerClock</a>.</p>
+
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00047">47</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -425,6 +542,23 @@ Inheritance diagram for ChessClock:</div>
       <table class="memname">
         <tr>
           <td class="memname">void ChessClock::timeOutLoser </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a832bb1a623c56078c91be7d67b12dea9"></a><!-- doxytag: member="ChessClock::turnEnded" ref="a832bb1a623c56078c91be7d67b12dea9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ChessClock::turnEnded </td>
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
@@ -453,7 +587,187 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Update clock information, check looser state and refresh. </p>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00120">120</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Reimplemented in <a class="el" href="class_hour_glass_clock.html#af4a8ee4fa210f6d9bc08510f614402e6">HourGlassClock</a>.</p>
+
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00156">156</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a2ec3c0ed0a5e9bee6bd0864c5c9e4452"></a><!-- doxytag: member="ChessClock::another_" ref="a2ec3c0ed0a5e9bee6bd0864c5c9e4452" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_chess_clock.html">ChessClock</a>* <a class="el" href="class_chess_clock.html#a2ec3c0ed0a5e9bee6bd0864c5c9e4452">ChessClock::another_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00123">123</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae25ff9bfd3ccb8651b3e7890e712d1be"></a><!-- doxytag: member="ChessClock::clockTime_" ref="ae25ff9bfd3ccb8651b3e7890e712d1be" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTime <a class="el" href="class_chess_clock.html#ae25ff9bfd3ccb8651b3e7890e712d1be">ChessClock::clockTime_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>True if white player. </p>
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00135">135</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0eb205f7484c7cf2a0be1f8bec78bf68"></a><!-- doxytag: member="ChessClock::currentTurn_" ref="a0eb205f7484c7cf2a0be1f8bec78bf68" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_turn_information.html">TurnInformation</a>* <a class="el" href="class_chess_clock.html#a0eb205f7484c7cf2a0be1f8bec78bf68">ChessClock::currentTurn_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00128">128</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a844453fc4683c62d24b53b70fb68c1a9"></a><!-- doxytag: member="ChessClock::isWhite_" ref="a844453fc4683c62d24b53b70fb68c1a9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_chess_clock.html#a844453fc4683c62d24b53b70fb68c1a9">ChessClock::isWhite_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Time available for play BEFORE this turn msecs ! </p>
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00133">133</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4ed94dc49d57927eb518c3e7d93718b1"></a><!-- doxytag: member="ChessClock::loser_" ref="a4ed94dc49d57927eb518c3e7d93718b1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_chess_clock.html#a4ed94dc49d57927eb518c3e7d93718b1">ChessClock::loser_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Another player's clock. </p>
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00125">125</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad2d4601fbc0dae0599a95ce7924c9902"></a><!-- doxytag: member="ChessClock::status_" ref="ad2d4601fbc0dae0599a95ce7924c9902" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_chess_clock.html#a4a819ca828d25e17dd5975a2ea935d28">RunningStatus</a> <a class="el" href="class_chess_clock.html#ad2d4601fbc0dae0599a95ce7924c9902">ChessClock::status_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Current turn. </p>
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00127">127</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abbce62e8c796244cadb1a5413469ca1b"></a><!-- doxytag: member="ChessClock::timeAvailableBeforeTurn_" ref="abbce62e8c796244cadb1a5413469ca1b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_chess_clock.html#abbce62e8c796244cadb1a5413469ca1b">ChessClock::timeAvailableBeforeTurn_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Time played in this game BEFORE this turn msecs. </p>
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00131">131</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a373e5774a0af5387c76006a1a24d770e"></a><!-- doxytag: member="ChessClock::timePlayedBeforeTurn_" ref="a373e5774a0af5387c76006a1a24d770e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_chess_clock.html#a373e5774a0af5387c76006a1a24d770e">ChessClock::timePlayedBeforeTurn_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00130">130</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aba90e7b968a5d27fc8653f7690344f8d"></a><!-- doxytag: member="ChessClock::turn_" ref="aba90e7b968a5d27fc8653f7690344f8d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_chess_clock.html#aba90e7b968a5d27fc8653f7690344f8d">ChessClock::turn_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Is player losed because of timeout. </p>
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00126">126</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a848e42d72b3470578f0f958106894b4f"></a><!-- doxytag: member="ChessClock::UPDATEINTERVAL" ref="a848e42d72b3470578f0f958106894b4f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="class_chess_clock.html#a848e42d72b3470578f0f958106894b4f">ChessClock::UPDATEINTERVAL</a> = 1000<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00138">138</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3493e745462457ebf5660754fe333fd2"></a><!-- doxytag: member="ChessClock::updateTimer_" ref="a3493e745462457ebf5660754fe333fd2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTimer <a class="el" href="class_chess_clock.html#a3493e745462457ebf5660754fe333fd2">ChessClock::updateTimer_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00136">136</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -476,7 +790,7 @@ Inheritance diagram for ChessClock:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Sat Aug 14 01:28:48 2010 for Chess Clock by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Aug 16 21:44:24 2010 for Chess Clock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
