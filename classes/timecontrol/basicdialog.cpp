@@ -29,7 +29,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QSettings>
-
+#include <QDebug>
 
 BasicDialog::BasicDialog(QString timeControlName, QWidget *parent) :
     QDialog(parent)

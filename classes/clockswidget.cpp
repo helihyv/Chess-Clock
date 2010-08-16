@@ -76,6 +76,12 @@ ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent
     delayTimer_.start(); // Initial start
 }
 
+ClocksWidget::~ClocksWidget()
+{
+    delete white_;
+    delete black_;
+}
+
 void ClocksWidget::pause()
 {
     if(status_ == WhiteTurn)

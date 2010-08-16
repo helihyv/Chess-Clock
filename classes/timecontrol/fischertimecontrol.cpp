@@ -45,10 +45,10 @@ ClocksWidget* FischerTimeControl::initGame(bool useLastSettings)
     {
         dialog.store();
         FischerClock* white = new FischerClock( true, dialog.getWhiteAddition(), dialog.getWhitePerTurns());
-        white->addTime(dialog.getWhiteInitial());
+        white->setTimeAvailable(dialog.getWhiteInitial());
 
         FischerClock* black = new FischerClock( false, dialog.getBlackAddition(), dialog.getBlackPerTurns());
-        black->addTime( dialog.getBlackInitial());
+        black->setTimeAvailable( dialog.getBlackInitial());
 
         return( new ClocksWidget(white,black));
 

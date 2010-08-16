@@ -49,7 +49,7 @@ StartWidget::StartWidget(QWidget *parent) :
     leftLayout->addWidget(titleLabel);
     leftLayout->addWidget(copyLabel);
     leftLayout->addWidget(logoLabel);
-    leftLayout->addWidget(introLabel);
+
 
     modeSelect_ = new QListWidget();
     modeSelect_->setViewMode(QListView::IconMode);
@@ -59,9 +59,13 @@ StartWidget::StartWidget(QWidget *parent) :
 
     connect( modeSelect_, SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(selectControl(QListWidgetItem*)));
 
+    QVBoxLayout* rightLayout = new QVBoxLayout;
+    rightLayout->addWidget(introLabel);
+    rightLayout->addWidget(modeSelect_);
+
     QHBoxLayout* layout = new QHBoxLayout;
     layout->addLayout(leftLayout);
-    layout->addWidget(modeSelect_);
+    layout->addLayout(rightLayout);
 
 
     setLayout( layout );

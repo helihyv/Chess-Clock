@@ -96,7 +96,10 @@ void ChessClockWindow::startGame(TimeControl *timecontrol)
     if( newWidget )
     {
         if( clocks_ )
+        {
+            stack_->removeWidget(clocks_);
             delete clocks_;
+        }
         clocks_ = newWidget;
         stack_->addWidget(clocks_);
         stack_->setCurrentWidget(clocks_);
