@@ -46,7 +46,7 @@ ClocksWidget* HourGlassTimeControl::initGame(bool useLastSettings)
 {
     BasicDialog dialog(getName());
     dialog.disableAddition();
-    dialog.init(QTime(0,30),QTime(0,30));
+    dialog.init(QTime(0,0,30),QTime(0,0,30));
 
     if( useLastSettings || dialog.exec() == QDialog::Accepted)
     {

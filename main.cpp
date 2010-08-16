@@ -41,7 +41,7 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
-
+@todo Game log
 
   */
 
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     a.setApplicationName( a.tr("Chess Clock","Application name") );
     a.setOrganizationName("Chess Clock");
     a.setOrganizationDomain("chessclock.garage.maemo.org");
-    a.setApplicationVersion("0.1.1");
+    a.setApplicationVersion("0.2.0");
 
     ChessClockWindow w;
 
