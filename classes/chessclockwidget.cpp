@@ -133,7 +133,7 @@ void ChessClockWidget::initBottom()
 void ChessClockWidget::repaintClock()
 {
     // Set picture
-    if( getStatus() == Running )
+    if( getStatus() == Running || getStatus() == Paused)
         pictureLabel_->setPixmap( picActive_);
     else
         pictureLabel_->setPixmap(picPassive_);

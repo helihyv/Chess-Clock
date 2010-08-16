@@ -26,8 +26,13 @@
 #include "classes/startwidget.h"
 #include "classes/timecontrol.h"
 
+// Time controls
 #include "classes/timecontrol/notimecontrol.h"
 #include "classes/timecontrol/fischertimecontrol.h"
+#include "classes/timecontrol/fischeraftertimecontrol.h"
+#include "classes/timecontrol/delaytimecontrol.h"
+#include "classes/timecontrol/delayaftertimecontrol.h"
+#include "classes/timecontrol/hourglasstimecontrol.h"
 
 #include <QIcon>
 #include <QApplication>
@@ -88,6 +93,10 @@ void ChessClockWindow::initTimeControls()
 {
     start_->addTimeControl( new NoTimeControl );
     start_->addTimeControl( new FischerTimeControl);
+    start_->addTimeControl( new FischerAfterTimeControl);
+    start_->addTimeControl( new DelayTimeControl );
+    start_->addTimeControl( new DelayAfterTimeControl);
+    start_->addTimeControl( new HourGlassTimeControl);
 }
 
 void ChessClockWindow::startGame(TimeControl *timecontrol)

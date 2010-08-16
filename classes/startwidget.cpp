@@ -35,7 +35,7 @@ StartWidget::StartWidget(QWidget *parent) :
     QLabel* titleLabel = new QLabel( qApp->applicationName() );
     titleLabel->setFont(QFont("Helvetica",32,QFont::Bold));
 
-    QLabel* copyLabel = new QLabel( tr("&copy; Arto Hyv&auml;ttinen 2010"));
+    QLabel* copyLabel = new QLabel( tr("&copy; Arto Hyv&auml;ttinen 2010<br>Free software GPL3"));
     copyLabel->setTextFormat(Qt::RichText);
     copyLabel->setWordWrap(true);
 
@@ -47,9 +47,8 @@ StartWidget::StartWidget(QWidget *parent) :
 
     QVBoxLayout* leftLayout = new QVBoxLayout;
     leftLayout->addWidget(titleLabel);
-    leftLayout->addWidget(copyLabel);
     leftLayout->addWidget(logoLabel);
-
+    leftLayout->addWidget(copyLabel);
 
     modeSelect_ = new QListWidget();
     modeSelect_->setViewMode(QListView::IconMode);

@@ -21,7 +21,15 @@ SOURCES += main.cpp\
     classes/timecontrol/notimecontrol.cpp \
     classes/startwidget.cpp \
     classes/timecontrol/fischertimecontrol.cpp \
-    classes/timecontrol/fischerclock.cpp
+    classes/timecontrol/fischerclock.cpp \
+    classes/timecontrol/fischerafterclock.cpp \
+    classes/timecontrol/fischeraftertimecontrol.cpp \
+    classes/timecontrol/delayclock.cpp \
+    classes/timecontrol/delaytimecontrol.cpp \
+    classes/timecontrol/delayafterclock.cpp \
+    classes/timecontrol/delayaftertimecontrol.cpp \
+    classes/timecontrol/hourglassclock.cpp \
+    classes/timecontrol/hourglasstimecontrol.cpp
 
 HEADERS  += chessclockwindow.h \
     classes/turninformation.h \
@@ -34,7 +42,15 @@ HEADERS  += chessclockwindow.h \
     classes/timecontrol/notimecontrol.h \
     classes/startwidget.h \
     classes/timecontrol/fischertimecontrol.h \
-    classes/timecontrol/fischerclock.h
+    classes/timecontrol/fischerclock.h \
+    classes/timecontrol/fischerafterclock.h \
+    classes/timecontrol/fischeraftertimecontrol.h \
+    classes/timecontrol/delayclock.h \
+    classes/timecontrol/delaytimecontrol.h \
+    classes/timecontrol/delayafterclock.h \
+    classes/timecontrol/delayaftertimecontrol.h \
+    classes/timecontrol/hourglasstimecontrol.h \
+    classes/timecontrol/hourglassclock.h
 
 CONFIG += mobility
 MOBILITY = 

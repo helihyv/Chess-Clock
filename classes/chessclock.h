@@ -119,7 +119,7 @@ public slots:
     /*! Update clock information, check looser state and refresh */
     virtual void updateClock();
 
-private:
+protected:
     ChessClock* another_; /*! Another player's clock */
 
     bool loser_;        /*! Is player losed because of timeout */
