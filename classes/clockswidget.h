@@ -47,7 +47,7 @@ class ClocksWidget : public QWidget
     Q_OBJECT
 public:
     ClocksWidget(ChessClock* white, ChessClock* black, QWidget *parent = 0);
-
+    bool isPlayStarted()  { return (status_!=Welcome); }
 
 protected:
     void mouseReleaseEvent(QMouseEvent *event);

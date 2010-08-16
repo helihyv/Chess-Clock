@@ -1,4 +1,4 @@
-/**************************************************************************
+ /**************************************************************************
 
     Chess Clock
 
@@ -19,37 +19,39 @@
 
 **************************************************************************/
 
-#ifndef CHESSCLOCKWINDOW_H
-#define CHESSCLOCKWINDOW_H
+#ifndef STARTWIDGET_H
+#define STARTWIDGET_H
 
-#include <QtGui/QMainWindow>
+#include <QWidget>
+#include <QListWidget>
 
-class ClocksWidget;
-class StartWidget;
+
+class QListWidget;
 class TimeControl;
-class QStackedWidget;
 
-class ChessClockWindow : public QMainWindow
+/*! Start widget to ask for Time control
+
+  @author Arto Hyvättinen
+  @date 2010-08-16
+
+  Time Controls are stored inside Start Widget */
+class StartWidget : public QWidget
 {
     Q_OBJECT
-
 public:
-    ChessClockWindow(QWidget *parent = 0);
-    ~ChessClockWindow();
+    StartWidget(QWidget *parent = 0);
+    void addTimeControl( TimeControl* tc);
+
+signals:
+    void selected(TimeControl* timeControl);
 
 public slots:
-    void startGame( TimeControl* timecontrol);
-    void pause();
-    void newGame();
-
+    void selectControl(QListWidgetItem* item);
 
 protected:
-    void initTimeControls();
+    QListWidget* modeSelect_;
+    QList<TimeControl*> timeControls_;
 
-protected:
-    ClocksWidget*   clocks_;
-    StartWidget* start_;
-    QStackedWidget* stack_;
 };
 
-#endif // CHESSCLOCKWINDOW_H
+#endif // STARTWIDGET_H

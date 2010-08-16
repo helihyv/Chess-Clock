@@ -128,11 +128,13 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
             break;
         case WhitePause:
             // Continue play
+            pauseLabel_->setVisible(false);
             white_->continueTurn();
             status_=WhiteTurn;
             break;
         case BlackPause:
             // Continue play
+            pauseLabel_->setVisible(false);
             black_->continueTurn();
             status_=BlackTurn;
             break;

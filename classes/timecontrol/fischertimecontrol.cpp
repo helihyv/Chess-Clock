@@ -1,4 +1,4 @@
- /**************************************************************************
+ /**************************************************************************;
 
     Chess Clock
 
@@ -19,40 +19,36 @@
 
 **************************************************************************/
 
-#include "notimecontrol.h"
-
-#include "../chessclock.h"
-#include "basicdialog.h"
-#include "../chessclockwidget.h"
+#include "fischertimecontrol.h"
+#include "fischerclock.h"
 #include "../clockswidget.h"
+#include "basicdialog.h"
 
 #include <QApplication>
 
-NoTimeControl::NoTimeControl()
+
+FischerTimeControl::FischerTimeControl()
 {
 }
 
-
-QString NoTimeControl::getDescription()
+QString FischerTimeControl::getDescription()
 {
-    return qApp->translate("NoneTimeControl","Never add time.");
+    return qApp->translate("Fischer","Specified time increment is added to clock before turn.");
 }
 
-ClocksWidget* NoTimeControl::initGame(bool useLastSettings)
+ClocksWidget* FischerTimeControl::initGame(bool useLastSettings)
 {
     BasicDialog dialog(getName());
-
-    dialog.disableAddition();
     dialog.init();
 
     if( useLastSettings || dialog.exec() == QDialog::Accepted)
     {
         dialog.store();
-        ChessClockWidget* white = new ChessClockWidget(true);
-        white->setTimeAvailable(dialog.getWhiteInitial());
+        FischerClock* white = new FischerClock( true, dialog.getWhiteAddition(), dialog.getWhitePerTurns());
+        white->addTime(dialog.getWhiteInitial());
 
-        ChessClockWidget* black = new ChessClockWidget(false);
-        black->setTimeAvailable( dialog.getBlackInitial());
+        FischerClock* black = new FischerClock( false, dialog.getBlackAddition(), dialog.getBlackPerTurns());
+        black->addTime( dialog.getBlackInitial());
 
         return( new ClocksWidget(white,black));
 

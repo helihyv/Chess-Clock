@@ -18,7 +18,10 @@ SOURCES += main.cpp\
     classes/clockswidget.cpp \
     classes/welcomescreenwidget.cpp \
     classes/timecontrol/basicdialog.cpp \
-    classes/timecontrol/notimecontrol.cpp
+    classes/timecontrol/notimecontrol.cpp \
+    classes/startwidget.cpp \
+    classes/timecontrol/fischertimecontrol.cpp \
+    classes/timecontrol/fischerclock.cpp
 
 HEADERS  += chessclockwindow.h \
     classes/turninformation.h \
@@ -28,7 +31,10 @@ HEADERS  += chessclockwindow.h \
     classes/welcomescreenwidget.h \
     classes/timecontrol.h \
     classes/timecontrol/basicdialog.h \
-    classes/timecontrol/notimecontrol.h
+    classes/timecontrol/notimecontrol.h \
+    classes/startwidget.h \
+    classes/timecontrol/fischertimecontrol.h \
+    classes/timecontrol/fischerclock.h
 
 CONFIG += mobility
 MOBILITY = 

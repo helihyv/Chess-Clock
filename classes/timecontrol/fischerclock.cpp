@@ -1,4 +1,4 @@
-/**************************************************************************
+ /**************************************************************************
 
     Chess Clock
 
@@ -19,37 +19,20 @@
 
 **************************************************************************/
 
-#ifndef CHESSCLOCKWINDOW_H
-#define CHESSCLOCKWINDOW_H
+#include "fischerclock.h"
 
-#include <QtGui/QMainWindow>
-
-class ClocksWidget;
-class StartWidget;
-class TimeControl;
-class QStackedWidget;
-
-class ChessClockWindow : public QMainWindow
+FischerClock::FischerClock(bool white, int addition, int perTurns,  QWidget *parent) :
+    ChessClockWidget(white, parent)
 {
-    Q_OBJECT
+    addition_ = addition;
+    perTurns_ = perTurns;
 
-public:
-    ChessClockWindow(QWidget *parent = 0);
-    ~ChessClockWindow();
+    setGreenTime( addition );
+}
 
-public slots:
-    void startGame( TimeControl* timecontrol);
-    void pause();
-    void newGame();
-
-
-protected:
-    void initTimeControls();
-
-protected:
-    ClocksWidget*   clocks_;
-    StartWidget* start_;
-    QStackedWidget* stack_;
-};
-
-#endif // CHESSCLOCKWINDOW_H
+void FischerClock::startTurn()
+{
+    if(getTurn() % perTurns_ == 0 )
+        addTime( addition_ );
+    ChessClock::startTurn();
+}

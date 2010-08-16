@@ -23,9 +23,17 @@
 
 #include "classes/clockswidget.h"
 #include "classes/chessclockwidget.h"
+#include "classes/startwidget.h"
+#include "classes/timecontrol.h"
+
+#include "classes/timecontrol/notimecontrol.h"
+#include "classes/timecontrol/fischertimecontrol.h"
 
 #include <QIcon>
 #include <QApplication>
+#include <QMenuBar>
+#include <QMessageBox>
+#include <QStackedWidget>
 
 ChessClockWindow::ChessClockWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -34,15 +42,67 @@ ChessClockWindow::ChessClockWindow(QWidget *parent)
     setWindowIcon( QIcon(":/rc/pic/chessclock.png"));
     setWindowTitle( QString("%1 %2").arg(qApp->applicationName()).arg(qApp->applicationVersion()) );
 
-    ChessClockWidget* white = new ChessClockWidget(true, this);
-    white->setGreenTime(5000);
-    ChessClockWidget* black = new ChessClockWidget(false, this);
+    // Start widget to select time control
+    start_ = new StartWidget;
+    clocks_ = 0;
 
-    clocks_ = new ClocksWidget( white, black, this );
-    setCentralWidget( clocks_ );
+    initTimeControls();
 
+    stack_ = new QStackedWidget;
+    stack_->addWidget(start_);
+
+    setCentralWidget( stack_ );
+
+    connect( start_, SIGNAL(selected(TimeControl*)), this, SLOT(startGame(TimeControl*)));
+
+    // Set up menu
+    menuBar()->addAction( tr("Pause"), this, SLOT(pause()));
+    menuBar()->addAction( tr("New game"), this, SLOT(newGame()));
 
 }
+
+void ChessClockWindow::pause()
+{
+    if( clocks_ )
+        clocks_->pause();
+}
+
+void ChessClockWindow::newGame()
+{
+    pause();
+    if(  clocks_ == 0 ||  !clocks_->isPlayStarted()  || QMessageBox::question(this, tr("Start new game"),
+                              tr("Really quit current game and start new one with current settings?"),
+                              QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
+    {
+        stack_->setCurrentWidget(start_);
+
+        if( clocks_ )
+        {   stack_->removeWidget(clocks_);
+            delete clocks_;
+        }
+        clocks_=0;
+    }
+}
+
+void ChessClockWindow::initTimeControls()
+{
+    start_->addTimeControl( new NoTimeControl );
+    start_->addTimeControl( new FischerTimeControl);
+}
+
+void ChessClockWindow::startGame(TimeControl *timecontrol)
+{
+    ClocksWidget* newWidget = timecontrol->initGame(false);
+    if( newWidget )
+    {
+        if( clocks_ )
+            delete clocks_;
+        clocks_ = newWidget;
+        stack_->addWidget(clocks_);
+        stack_->setCurrentWidget(clocks_);
+    }
+}
+
 
 ChessClockWindow::~ChessClockWindow()
 {

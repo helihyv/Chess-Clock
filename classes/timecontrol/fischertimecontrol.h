@@ -1,4 +1,4 @@
-/**************************************************************************
+ /**************************************************************************
 
     Chess Clock
 
@@ -19,37 +19,20 @@
 
 **************************************************************************/
 
-#ifndef CHESSCLOCKWINDOW_H
-#define CHESSCLOCKWINDOW_H
+#ifndef FISCHERTIMECONTROL_H
+#define FISCHERTIMECONTROL_H
 
-#include <QtGui/QMainWindow>
+#include "../timecontrol.h"
+#include <QApplication>
 
-class ClocksWidget;
-class StartWidget;
-class TimeControl;
-class QStackedWidget;
-
-class ChessClockWindow : public QMainWindow
+class FischerTimeControl : public TimeControl
 {
-    Q_OBJECT
-
 public:
-    ChessClockWindow(QWidget *parent = 0);
-    ~ChessClockWindow();
+    FischerTimeControl();
 
-public slots:
-    void startGame( TimeControl* timecontrol);
-    void pause();
-    void newGame();
-
-
-protected:
-    void initTimeControls();
-
-protected:
-    ClocksWidget*   clocks_;
-    StartWidget* start_;
-    QStackedWidget* stack_;
+    QString getName() { return qApp->translate("Fischer","Addition before"); }
+    QString getDescription();
+    ClocksWidget* initGame(bool useLastSettings);
 };
 
-#endif // CHESSCLOCKWINDOW_H
+#endif // FISCHERTIMECONTROL_H

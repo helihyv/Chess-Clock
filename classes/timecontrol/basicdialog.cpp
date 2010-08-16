@@ -55,11 +55,10 @@ BasicDialog::BasicDialog(QString timeControlName, QWidget *parent) :
     // Equal times
     equals_ = new QCheckBox( tr("Equal times"));
 
-    connect( equals_, SIGNAL(stateChanged(bool)),blackInitial_,SLOT(setDisabled(bool)));
-    connect( equals_, SIGNAL(stateChanged(bool)),blackAddition_,SLOT(setDisabled(bool)));
-    connect( equals_, SIGNAL(stateChanged(bool)),blackTurns_,SLOT(setDisabled(bool)));
+    connect( equals_, SIGNAL(stateChanged(int)),this,SLOT(setEquals()));
 
     equals_->setChecked(true);
+    setEquals();
 
     whiteLabel_ = new QLabel;
     whiteLabel_->setPixmap(QPixmap(":/rc/pic/white_small.png"));
@@ -86,11 +85,21 @@ BasicDialog::BasicDialog(QString timeControlName, QWidget *parent) :
 
     QPushButton* button = new QPushButton( tr("Start game"));
     connect( button, SIGNAL(clicked()), this, SLOT(accept()));
+    layout->addWidget(button,4,2);
 
     setLayout( layout );
     setWindowTitle( timeControlName_);
 
 }
+
+void BasicDialog::setEquals()
+{
+    blackInitial_->setDisabled( equals_->isChecked());
+    blackAddition_->setDisabled( equals_->isChecked());
+    blackTurns_->setDisabled( equals_->isChecked());
+
+}
+
 
 void BasicDialog::disablePerTurns()
 {
@@ -141,6 +150,7 @@ void BasicDialog::init(QTime whiteInitial, QTime blackInitial, QTime whiteAdditi
     s.beginGroup(timeControlName_);
 
     equals_->setChecked(s.value("Equals",true).toBool() );
+    setEquals();
     whiteInitial_->setTime( s.value("WhiteInitial",whiteInitial).toTime());
     blackInitial_->setTime(s.value("BlackInitial",blackInitial).toTime());
     whiteAddition_->setTime(s.value("WhiteAddition",whiteAddition).toTime());
@@ -196,7 +206,8 @@ int BasicDialog::getBlackPerTurns()
 int BasicDialog::toMsecs(QTimeEdit *timeEdit)
 {
     QTime qtime=timeEdit->time();
-    return 0-qtime.msecsTo(QTime(0,0,0));
+    int msecs=qtime.msecsTo(QTime(0,0,0));;
+    return 0-msecs;
 }
 
 

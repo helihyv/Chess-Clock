@@ -75,6 +75,7 @@ public:
 signals:
 
 public slots:
+    void setEquals();
 
 protected:
     static QTimeEdit* initTimeEdit();
