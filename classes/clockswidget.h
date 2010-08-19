@@ -83,7 +83,10 @@ protected:
     GameStatus status_;
     QTime delayTimer_; /*! To avoid double clicks */
 
-    static int const CLICKDELAY = 500 ; /*! Click delay in msecs */
+    int recentX;
+    int recentY;
+
+    static int const CLICKDELAY = 1500 ; /*! Click delay in msecs */
 
 
 

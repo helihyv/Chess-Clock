@@ -28,7 +28,8 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QFont>
-
+#include <cstdio>
+#include <QMouseEvent>
 
 ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent):
     QWidget(parent)
@@ -74,6 +75,8 @@ ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent
     black_->setAnother(white_);
 
     delayTimer_.start(); // Initial start
+
+    recentX = recentY = -1;
 }
 
 ClocksWidget::~ClocksWidget()
@@ -110,8 +113,16 @@ void ClocksWidget::stopPlay()
 
 void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
 {
-    if( delayTimer_.elapsed() > CLICKDELAY )  // To avoid double clicks
+
+    // To avoid double clicks
+    // a) delay (default 1,2 secs) OR
+    // b) distance more than 90 pixels in axis.
+    if( delayTimer_.elapsed() > CLICKDELAY ||
+        std::abs( event->x() - recentX ) > 90 ||
+        std::abs( event->y() - recentY ) > 90
+        )
     {
+        delayTimer_.start();    // to reset delay timer!
         switch( status_)
         {
         case Welcome :
@@ -150,6 +161,8 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
 
         }
     }
+    recentX = event->x();
+    recentY = event->y();
 }
 
 int const ClocksWidget::CLICKDELAY;
