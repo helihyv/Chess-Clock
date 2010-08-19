@@ -39,6 +39,7 @@
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QStackedWidget>
+#include <QProcess>
 
 ChessClockWindow::ChessClockWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -63,6 +64,7 @@ ChessClockWindow::ChessClockWindow(QWidget *parent)
     // Set up menu
     menuBar()->addAction( tr("Pause"), this, SLOT(pause()));
     menuBar()->addAction( tr("New game"), this, SLOT(newGame()));
+    menuBar()->addAction( tr("Visit web page"), this, SLOT(visitWeb()));
 
 }
 
@@ -88,6 +90,12 @@ void ChessClockWindow::newGame()
         clocks_=0;
     }
 }
+
+void ChessClockWindow::visitWeb()
+{
+    QProcess::execute(QString("browser --url=chessclock.garage.maemo.org"));
+}
+
 
 void ChessClockWindow::initTimeControls()
 {

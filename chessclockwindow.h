@@ -41,6 +41,8 @@ public slots:
     void startGame( TimeControl* timecontrol);
     void pause();
     void newGame();
+    /*! Visit ChessClock web page */
+    void visitWeb();
 
 
 protected:
