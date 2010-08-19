@@ -11,5 +11,9 @@
         <file>pic/black_small.png</file>
         <file>pic/hourglass.png</file>
         <file>pic/oldclock.png</file>
+        <file>pic/addafter.png</file>
+        <file>pic/addbefore.png</file>
+        <file>pic/pauseafter.png</file>
+        <file>pic/pausebefore.png</file>
     </qresource>
 </RCC>

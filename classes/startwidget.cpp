@@ -51,10 +51,10 @@ StartWidget::StartWidget(QWidget *parent) :
     leftLayout->addWidget(copyLabel);
 
     modeSelect_ = new QListWidget();
-    modeSelect_->setViewMode(QListView::IconMode);
+    modeSelect_->setViewMode(QListView::ListMode);
     modeSelect_->setMovement(QListView::Static);
     modeSelect_->setSelectionMode(QAbstractItemView::NoSelection);
-    modeSelect_->setIconSize(QSize(64,64 ));
+    modeSelect_->setIconSize(QSize(40,40 ));
 
     connect( modeSelect_, SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(selectControl(QListWidgetItem*)));
 

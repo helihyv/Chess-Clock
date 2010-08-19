@@ -32,6 +32,7 @@ public:
 
     QString getName() { return qApp->translate("FischerAfter","Addition after"); }
     QString getDescription();
+    QIcon getIcon();
     ClocksWidget* initGame( bool useLastSettings);
 
 };

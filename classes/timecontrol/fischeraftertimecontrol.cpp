@@ -34,6 +34,11 @@ QString FischerAfterTimeControl::getDescription()
     return qApp->translate("FischerAfter","Specified time increment is added to clock after turn.");
 }
 
+QIcon FischerAfterTimeControl::getIcon()
+{
+    return QIcon(":/rc/pic/addafter.png");
+}
+
 ClocksWidget* FischerAfterTimeControl::initGame(bool useLastSettings)
 {
     BasicDialog dialog(getName());

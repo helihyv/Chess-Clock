@@ -30,6 +30,7 @@ public:
     DelayAfterTimeControl();
 
     QString getName();
+    QIcon getIcon();
     QString getDescription();
     ClocksWidget* initGame(bool useLastSettings);
 };

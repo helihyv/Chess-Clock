@@ -36,6 +36,11 @@ QString FischerTimeControl::getDescription()
     return qApp->translate("Fischer","Specified time increment is added to clock before turn.");
 }
 
+QIcon FischerTimeControl::getIcon()
+{
+    return QIcon(":/rc/pic/addbefore.png");
+}
+
 ClocksWidget* FischerTimeControl::initGame(bool useLastSettings)
 {
     BasicDialog dialog(getName());

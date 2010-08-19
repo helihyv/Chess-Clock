@@ -40,6 +40,11 @@ QString DelayAfterTimeControl::getDescription()
     return qApp->translate("Delay","Time up to special increment is added after turn");
 }
 
+QIcon DelayAfterTimeControl::getIcon()
+{
+    return QIcon(":/rc/pic/pauseafter.png");
+}
+
 ClocksWidget* DelayAfterTimeControl::initGame(bool useLastSettings)
 {
     BasicDialog dialog(getName());

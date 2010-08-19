@@ -35,6 +35,11 @@ QString DelayTimeControl::getName()
     return qApp->translate("Delay","Delay");
 }
 
+QIcon DelayTimeControl::getIcon()
+{
+    return QIcon(":/rc/pic/pausebefore.png");
+}
+
 QString DelayTimeControl::getDescription()
 {
     return qApp->translate("Delay","The clock waits for the delay period before starting");
