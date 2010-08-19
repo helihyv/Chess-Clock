@@ -42,11 +42,12 @@ StartWidget::StartWidget(QWidget *parent) :
     QLabel* logoLabel = new QLabel;
     logoLabel->setPixmap( QPixmap(":/rc/pic/logo.png"));
 
-    QLabel* introLabel = new QLabel( tr("Select game mode"));
+    QLabel* introLabel = new QLabel( tr("<b>Select game mode &rarr;</b>"));
     introLabel->setWordWrap(true);
 
     QVBoxLayout* leftLayout = new QVBoxLayout;
     leftLayout->addWidget(titleLabel);
+    leftLayout->addWidget(introLabel);
     leftLayout->addWidget(logoLabel);
     leftLayout->addWidget(copyLabel);
 
@@ -58,13 +59,13 @@ StartWidget::StartWidget(QWidget *parent) :
 
     connect( modeSelect_, SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(selectControl(QListWidgetItem*)));
 
-    QVBoxLayout* rightLayout = new QVBoxLayout;
-    rightLayout->addWidget(introLabel);
-    rightLayout->addWidget(modeSelect_);
+//    QVBoxLayout* rightLayout = new QVBoxLayout;
+//    rightLayout->addWidget(introLabel);
+//    rightLayout->addWidget(modeSelect_);
 
     QHBoxLayout* layout = new QHBoxLayout;
     layout->addLayout(leftLayout);
-    layout->addLayout(rightLayout);
+    layout->addWidget(modeSelect_);
 
 
     setLayout( layout );

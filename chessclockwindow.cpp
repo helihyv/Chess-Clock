@@ -93,7 +93,8 @@ void ChessClockWindow::newGame()
 
 void ChessClockWindow::visitWeb()
 {
-    QProcess::execute(QString("browser --url=chessclock.garage.maemo.org"));
+    QProcess* process = new QProcess(this);
+    process->start(QString("browser --url=chessclock.garage.maemo.org"));
 }
 
 
