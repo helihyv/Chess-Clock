@@ -107,7 +107,7 @@ void ChessClockWindow::about()
                        tr("<h1>Chess Clock %1</h1>"
                           "&copy;Arto Hyv&auml;ttinen 2010"
                           "<p>Chess Clock is free software under the terms of GNU General Public License 3"
-                          "<p>Bugtracker and instructions at <a>checkclock.garage.maemo.org</a>"
+                          "<p>Bugtracker and instructions at <a>http://chessclock.garage.maemo.org</a>"
                           ).arg(qApp->applicationVersion())) ;
 }
 
