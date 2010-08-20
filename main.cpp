@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     a.setApplicationName( a.tr("Chess Clock","Application name") );
     a.setOrganizationName("Chess Clock");
     a.setOrganizationDomain("chessclock.garage.maemo.org");
-    a.setApplicationVersion("0.9.0");
+    a.setApplicationVersion("1.0.0");
 
     ChessClockWindow w;
 
