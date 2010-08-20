@@ -65,6 +65,8 @@ ChessClockWindow::ChessClockWindow(QWidget *parent)
     menuBar()->addAction( tr("Pause"), this, SLOT(pause()));
     menuBar()->addAction( tr("New game"), this, SLOT(newGame()));
     menuBar()->addAction( tr("Visit web page"), this, SLOT(visitWeb()));
+    menuBar()->addAction( tr("About"),this, SLOT(about()));
+    menuBar()->addAction(tr("About Qt"), this, SLOT(aboutQt()))
 
 }
 
@@ -95,6 +97,23 @@ void ChessClockWindow::visitWeb()
 {
     QProcess* process = new QProcess(this);
     process->start(QString("browser --url=chessclock.garage.maemo.org"));
+}
+
+void ChessClockWindow::about()
+{
+    pause();
+    QMessageBox::about(this, tr("About ChessClock"),
+                       tr("<h1>Chess Clock %1</h1>"
+                          "&copy;Arto Hyv&auml;ttinen 2010"
+                          "<p>Chess Clock is free software under the terms of GNU General Public License 3"
+                          "<p>Bugtracker and instructions at <a>checkclock.garage.maemo.org</a>"
+                          ).arg(qApp->applicationVersion()))
+}
+
+void ChessClockWindow::aboutQt()
+{
+    pause();
+    qApp->aboutQt();
 }
 
 

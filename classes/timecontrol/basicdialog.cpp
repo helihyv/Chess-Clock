@@ -45,7 +45,7 @@ BasicDialog::BasicDialog(QString timeControlName, QWidget *parent) :
     whiteAddition_ = initTimeEdit();
     blackAddition_ = initTimeEdit();
     // Turns per addition
-    perTurnLabel_ = new QLabel( tr("Addition per turn"));
+    perTurnLabel_ = new QLabel( tr("Turns per addition"));
     whiteTurns_=new QSpinBox;
     whiteTurns_->setRange(1,99);
 

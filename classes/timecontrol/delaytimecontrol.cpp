@@ -25,6 +25,7 @@
 #include "basicdialog.h"
 
 #include <QApplication>
+#include <QLabel>
 
 DelayTimeControl::DelayTimeControl()
 {
@@ -49,6 +50,7 @@ ClocksWidget* DelayTimeControl::initGame(bool useLastSettings)
 {
     BasicDialog dialog(getName());
     dialog.disablePerTurns();
+    dialog.additionLabel_->setText(qApp->translate("Delay","Delay time"));
     dialog.init();
 
     if( useLastSettings || dialog.exec() == QDialog::Accepted)

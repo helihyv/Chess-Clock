@@ -43,6 +43,8 @@ public slots:
     void newGame();
     /*! Visit ChessClock web page */
     void visitWeb();
+    void about();
+    void aboutQt();
 
 
 protected:
