@@ -80,7 +80,7 @@ void ChessClockWindow::newGame()
 {
     pause();
     if(  clocks_ == 0 ||  !clocks_->isPlayStarted()  || QMessageBox::question(this, tr("Start new game"),
-                              tr("Really quit current game and start new one with current settings?"),
+                              tr("Really quit the current game and start a new one?"),
                               QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
     {
         stack_->setCurrentWidget(start_);
