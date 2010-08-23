@@ -28,7 +28,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QFont>
-#include <cstdio>
+#include <cstdlib>
 #include <QMouseEvent>
 
 ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent):
