@@ -23,7 +23,7 @@
 /*! @mainpage Chess Clock
 
   @author Arto Hyvättinen
-  @version 0.9
+  @version 1.1
 
 
     Chess Clock
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     a.setApplicationName( a.tr("Chess Clock","Application name") );
     a.setOrganizationName("Chess Clock");
     a.setOrganizationDomain("chessclock.garage.maemo.org");
-    a.setApplicationVersion("1.0.0");
+    a.setApplicationVersion("1.1.0");
 
     ChessClockWindow w;
 
