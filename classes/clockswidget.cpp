@@ -22,6 +22,8 @@
 #include "clockswidget.h"
 #include "chessclock.h"
 
+#include "screenlitkeeper.h"
+
 #include <QLabel>
 #include <QPixmap>
 #include <QApplication>
@@ -92,6 +94,9 @@ ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent
     delayTimer_.start(); // Initial start
 
     recentX = recentY = -1;
+
+    // ScreenLitKeeper to keep screen lit when playing
+    keeper_ = new ScreenLitKeeper(this);
 }
 
 ClocksWidget::~ClocksWidget()
@@ -108,6 +113,8 @@ void ClocksWidget::pause()
         white_->pauseTurn();
         pauseLabel_->setVisible(true);
         pauseButton_->setVisible(false);
+        keeper_->keepScreenLit(false);
+
     }
     else if( status_ == BlackTurn)
     {
@@ -115,6 +122,7 @@ void ClocksWidget::pause()
         black_->pauseTurn();
         pauseLabel_->setVisible(true);
         pauseButton_->setVisible(false);
+        keeper_->keepScreenLit(false);
     }
 }
 
@@ -146,6 +154,7 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
             // Start game!
             welcomeLabel_->setVisible(false);
             pauseButton_->setVisible(true);
+            keeper_->keepScreenLit(true);
             white_->startTurn();
             status_ = WhiteTurn;
             break;
@@ -163,6 +172,7 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
             break;
         case WhitePause:
             // Continue play
+            keeper_->keepScreenLit(true);
             pauseLabel_->setVisible(false);
             pauseButton_->setVisible(true);
             white_->continueTurn();
@@ -170,6 +180,7 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
             break;
         case BlackPause:
             // Continue play
+            keeper_->keepScreenLit();
             pauseLabel_->setVisible(false);
             pauseButton_->setVisible(true);
             black_->continueTurn();
