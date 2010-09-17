@@ -30,6 +30,8 @@
 #include <QFont>
 #include <cstdlib>
 #include <QMouseEvent>
+#include <QToolButton>
+#include <QSize>
 
 ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent):
     QWidget(parent)
@@ -57,11 +59,24 @@ ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent
     welcomeLabel_->setAlignment( Qt::AlignCenter);
     welcomeLabel_->setVisible( true );  // Show welcome message
 
+    // Pause button
+    pauseButton_ = new QToolButton;
+    pauseButton_->setIcon( QIcon(":/rc/pic/pausebutton.png"));
+    pauseButton_->setIconSize(QSize(75,75));
+    connect(pauseButton_, SIGNAL(clicked()), this, SLOT(pause()));
+    pauseButton_->setVisible(false);
+
     // Put all in layout
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->addLayout(clockLayout);
     mainLayout->addWidget(pauseLabel_);
     mainLayout->addWidget(welcomeLabel_);
+
+    QHBoxLayout* pbLayout = new QHBoxLayout;
+    pbLayout->addStretch();
+    pbLayout->addWidget(pauseButton_);
+    pbLayout->addStretch();
+    mainLayout->addLayout(pbLayout);
 
     setLayout( mainLayout);
     status_ = Welcome;
@@ -92,12 +107,14 @@ void ClocksWidget::pause()
         status_= WhitePause;
         white_->pauseTurn();
         pauseLabel_->setVisible(true);
+        pauseButton_->setVisible(false);
     }
     else if( status_ == BlackTurn)
     {
         status_ = BlackPause;
         black_->pauseTurn();
         pauseLabel_->setVisible(true);
+        pauseButton_->setVisible(false);
     }
 }
 
@@ -128,6 +145,7 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
         case Welcome :
             // Start game!
             welcomeLabel_->setVisible(false);
+            pauseButton_->setVisible(true);
             white_->startTurn();
             status_ = WhiteTurn;
             break;
@@ -146,12 +164,14 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
         case WhitePause:
             // Continue play
             pauseLabel_->setVisible(false);
+            pauseButton_->setVisible(true);
             white_->continueTurn();
             status_=WhiteTurn;
             break;
         case BlackPause:
             // Continue play
             pauseLabel_->setVisible(false);
+            pauseButton_->setVisible(true);
             black_->continueTurn();
             status_=BlackTurn;
             break;

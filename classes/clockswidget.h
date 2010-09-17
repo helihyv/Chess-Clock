@@ -29,6 +29,7 @@ class QHBoxLayout;
 class QVBoxLayout;
 class QLabel;
 class TurnInformation;
+class QToolButton;
 
 class ChessClock;
 
@@ -70,6 +71,7 @@ protected:
 
     QLabel* pauseLabel_;
     QLabel* welcomeLabel_;
+    QToolButton* pauseButton_;
 
     enum GameStatus {
         Stopped  /*! Not running */,

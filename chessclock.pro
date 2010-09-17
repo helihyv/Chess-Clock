@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     classes/timecontrol/delayafterclock.cpp \
     classes/timecontrol/delayaftertimecontrol.cpp \
     classes/timecontrol/hourglassclock.cpp \
-    classes/timecontrol/hourglasstimecontrol.cpp
+    classes/timecontrol/hourglasstimecontrol.cpp \
+    classes/screenlitkeeper.cpp
 
 HEADERS  += chessclockwindow.h \
     classes/turninformation.h \
@@ -50,10 +51,11 @@ HEADERS  += chessclockwindow.h \
     classes/timecontrol/delayafterclock.h \
     classes/timecontrol/delayaftertimecontrol.h \
     classes/timecontrol/hourglasstimecontrol.h \
-    classes/timecontrol/hourglassclock.h
+    classes/timecontrol/hourglassclock.h \
+    classes/screenlitkeeper.h
 
 CONFIG += mobility
-MOBILITY = 
+MOBILITY += systeminfo 
 
 symbian {
     TARGET.UID3 = 0xeea9c6c5

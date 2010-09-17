@@ -40,6 +40,8 @@
 #include <QMessageBox>
 #include <QStackedWidget>
 #include <QProcess>
+#include <QAction>
+#include "classes/screenlitkeeper.h"
 
 ChessClockWindow::ChessClockWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -61,9 +63,15 @@ ChessClockWindow::ChessClockWindow(QWidget *parent)
 
     connect( start_, SIGNAL(selected(TimeControl*)), this, SLOT(startGame(TimeControl*)));
 
+    ScreenLitKeeper* keeper = new ScreenLitKeeper(this);
+    QAction* keepAction = new QAction( tr("Keep screen lit"), this);
+    keepAction->setCheckable(true);
+    connect( keepAction, SIGNAL(triggered(bool)), keeper, SLOT(keepScreenLit(bool)));
+
     // Set up menu
     menuBar()->addAction( tr("Pause"), this, SLOT(pause()));
     menuBar()->addAction( tr("New game"), this, SLOT(newGame()));
+    menuBar()->addAction( keepAction );
     menuBar()->addAction( tr("Visit web page"), this, SLOT(visitWeb()));
     menuBar()->addAction( tr("About"),this, SLOT(about()));
     menuBar()->addAction(tr("About Qt"), this, SLOT(aboutQt()));
