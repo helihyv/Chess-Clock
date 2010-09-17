@@ -34,6 +34,7 @@
 #include <QMouseEvent>
 #include <QToolButton>
 #include <QSize>
+#include <QWidget>
 
 ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent):
     QWidget(parent)
@@ -49,14 +50,14 @@ ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent
     clockLayout->addWidget( black_ );
 
     // Pause information label
-    pauseLabel_ = new QLabel( tr("<font color=yellow>Paused. Touch to continue.</font>"));
+    pauseLabel_ = new QLabel( tr("<font color=yellow>Paused. Touch to continue.</font>"),this);
     pauseLabel_->setFont( QFont("Helvetica",25));
     pauseLabel_->setAlignment( Qt::AlignCenter);
     pauseLabel_->setVisible( false );
 
     // Welcome label for first touch
     welcomeLabel_ = new QLabel( tr("<font color=green>Welcome! Please touch to start game.<br>"
-                                   "Then touch to end turn.</font>"));
+                                   "Then touch to end turn.</font>"),this);
     welcomeLabel_->setFont( QFont("Helvetica",25));
     welcomeLabel_->setAlignment( Qt::AlignCenter);
     welcomeLabel_->setVisible( true );  // Show welcome message
@@ -71,15 +72,26 @@ ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent
     // Put all in layout
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->addLayout(clockLayout);
-    mainLayout->addWidget(pauseLabel_);
-    mainLayout->addWidget(welcomeLabel_);
+
+    // Extra layout and widget for information
+    QVBoxLayout* extraLayout = new QVBoxLayout;
+    extraLayout->addWidget(pauseLabel_);
+    extraLayout->addWidget(welcomeLabel_);
 
     QHBoxLayout* pbLayout = new QHBoxLayout;
     pbLayout->addStretch();
     pbLayout->addWidget(pauseButton_);
     pbLayout->addStretch();
-    mainLayout->addLayout(pbLayout);
+    extraLayout->addLayout(pbLayout);
 
+    QWidget* extraWidget = new QWidget(this);
+    extraWidget->setLayout(extraLayout);
+    // Some fun event filtering to grap clicking welcome and pause labels...
+    extraWidget->installEventFilter(this);
+    pauseLabel_->installEventFilter(this);
+    welcomeLabel_->installEventFilter(this);
+
+    mainLayout->addWidget(extraWidget);
     setLayout( mainLayout);
     status_ = Welcome;
 
@@ -180,7 +192,7 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
             break;
         case BlackPause:
             // Continue play
-            keeper_->keepScreenLit();
+            keeper_->keepScreenLit(false);
             pauseLabel_->setVisible(false);
             pauseButton_->setVisible(true);
             black_->continueTurn();
@@ -195,5 +207,19 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
     recentX = event->x();
     recentY = event->y();
 }
+
+// to grap clicking pause or welcome label
+bool ClocksWidget::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::MouseButtonRelease) {
+        QMouseEvent *mEvent = static_cast<QMouseEvent *>(event);
+        mouseReleaseEvent( mEvent );
+        return true;
+    } else {
+        // standard event processing
+        return QObject::eventFilter(obj, event);
+    }
+}
+
 
 int const ClocksWidget::CLICKDELAY;

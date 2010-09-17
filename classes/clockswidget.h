@@ -54,6 +54,7 @@ public:
 
 protected:
     void mouseReleaseEvent(QMouseEvent *event);
+    bool eventFilter(QObject *obj, QEvent *event);
 
 
 signals:

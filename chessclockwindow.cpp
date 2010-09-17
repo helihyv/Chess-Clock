@@ -40,7 +40,7 @@
 #include <QMessageBox>
 #include <QStackedWidget>
 #include <QProcess>
-#include <QAction>
+
 
 ChessClockWindow::ChessClockWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -66,7 +66,7 @@ ChessClockWindow::ChessClockWindow(QWidget *parent)
     // Set up menu
 //    menuBar()->addAction( tr("Pause"), this, SLOT(pause()));   // UNUSED - Pause button
     menuBar()->addAction( tr("New game"), this, SLOT(newGame()));
-    menuBar()->addAction( keepAction );
+
     menuBar()->addAction( tr("Visit web page"), this, SLOT(visitWeb()));
     menuBar()->addAction( tr("About"),this, SLOT(about()));
     menuBar()->addAction(tr("About Qt"), this, SLOT(aboutQt()));
