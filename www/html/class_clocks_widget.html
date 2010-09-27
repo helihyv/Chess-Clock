@@ -78,16 +78,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  }</td></tr>
 <tr><td colspan="2"><h2>Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#a1a000c1a617951942ee3b1669a2b026e">mouseReleaseEvent</a> (QMouseEvent *event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#a00be7b731e6ef45d411f236b257d9503">eventFilter</a> (QObject *obj, QEvent *event)</td></tr>
 <tr><td colspan="2"><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_chess_clock.html">ChessClock</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#a657afdf1f48be188451ebd712350cdc3">white_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_chess_clock.html">ChessClock</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#a61a8a254c9a879b0950cde008a825447">black_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QLabel *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#a2e65f80ea1b3d56189f8c94d6b0a972c">pauseLabel_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QLabel *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#a0af8f4235b2b5363173b067cfb54a73b">welcomeLabel_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QToolButton *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#ac260495699eda4c14abd77978bcc146c">pauseButton_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_screen_lit_keeper.html">ScreenLitKeeper</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#a6816c555a8d407402e753f2e7466ed60">keeper_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326">GameStatus</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#a74cd72e41c4c797c4b97027f513752c4">status_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QTime&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#ab86d99a5709a6fd0444f10aec5ede01a">delayTimer_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#a5ea90a0fddcda7d4d2fcc0ba41b0d315">recentX</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">To avoid double clicks.  <a href="#a5ea90a0fddcda7d4d2fcc0ba41b0d315"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#ab95b8bc6920bcb45f81f8f04a494df25">recentY</a></td></tr>
 <tr><td colspan="2"><h2>Static Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static int const&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#a51af7bacc14bc1f276df31a404823e3d">CLICKDELAY</a> = 500</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">To avoid double clicks.  <a href="#a51af7bacc14bc1f276df31a404823e3d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static int const&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clocks_widget.html#a51af7bacc14bc1f276df31a404823e3d">CLICKDELAY</a> = 1500</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Widget with two clocks. </p>
@@ -95,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dl class="date"><dt><b>Date:</b></dt><dd>2010-08-14</dd></dl>
 <p>Central widget of Chess Clock. Needed to create new <a class="el" href="class_clocks_widget.html" title="Widget with two clocks.">ClocksWidget</a> to every new game. </p>
 
-<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00045">45</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00047">47</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
 <hr/><h2>Member Enumeration Documentation</h2>
 <a class="anchor" id="abe19ddcf3d29ca31914819a969af4326"></a><!-- doxytag: member="ClocksWidget::GameStatus" ref="abe19ddcf3d29ca31914819a969af4326" args="" -->
 <div class="memitem">
@@ -125,7 +130,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00074">74</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00079">79</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
 
 </div>
 </div>
@@ -161,7 +166,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="clockswidget_8cpp_source.html#l00033">33</a> of file <a class="el" href="clockswidget_8cpp_source.html">clockswidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8cpp_source.html#l00039">39</a> of file <a class="el" href="clockswidget_8cpp_source.html">clockswidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -180,7 +185,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="clockswidget_8cpp_source.html#l00079">79</a> of file <a class="el" href="clockswidget_8cpp_source.html">clockswidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8cpp_source.html#l00114">114</a> of file <a class="el" href="clockswidget_8cpp_source.html">clockswidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -202,6 +207,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div>
 </div>
+<a class="anchor" id="a00be7b731e6ef45d411f236b257d9503"></a><!-- doxytag: member="ClocksWidget::eventFilter" ref="a00be7b731e6ef45d411f236b257d9503" args="(QObject *obj, QEvent *event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ClocksWidget::eventFilter </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&nbsp;</td>
+          <td class="paramname"> <em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QEvent *&nbsp;</td>
+          <td class="paramname"> <em>event</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="clockswidget_8cpp_source.html#l00212">212</a> of file <a class="el" href="clockswidget_8cpp_source.html">clockswidget.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ae2e2df5f16ea85a5f35b58d8c7e78e33"></a><!-- doxytag: member="ClocksWidget::isPlayStarted" ref="ae2e2df5f16ea85a5f35b58d8c7e78e33" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -217,7 +251,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00051">51</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00053">53</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
 
 </div>
 </div>
@@ -237,7 +271,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="clockswidget_8cpp_source.html#l00111">111</a> of file <a class="el" href="clockswidget_8cpp_source.html">clockswidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8cpp_source.html#l00151">151</a> of file <a class="el" href="clockswidget_8cpp_source.html">clockswidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -258,7 +292,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Pause game. </p>
 
-<p>Definition at line <a class="el" href="clockswidget_8cpp_source.html#l00085">85</a> of file <a class="el" href="clockswidget_8cpp_source.html">clockswidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8cpp_source.html#l00120">120</a> of file <a class="el" href="clockswidget_8cpp_source.html">clockswidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -279,7 +313,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>End the game. </p>
 
-<p>Definition at line <a class="el" href="clockswidget_8cpp_source.html#l00101">101</a> of file <a class="el" href="clockswidget_8cpp_source.html">clockswidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8cpp_source.html#l00141">141</a> of file <a class="el" href="clockswidget_8cpp_source.html">clockswidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -313,7 +347,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00069">69</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00072">72</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
 
 </div>
 </div>
@@ -322,15 +356,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int const <a class="el" href="class_clocks_widget.html#a51af7bacc14bc1f276df31a404823e3d">ClocksWidget::CLICKDELAY</a> = 500<code> [static, protected]</code></td>
+          <td class="memname">int const <a class="el" href="class_clocks_widget.html#a51af7bacc14bc1f276df31a404823e3d">ClocksWidget::CLICKDELAY</a> = 1500<code> [static, protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>To avoid double clicks. </p>
-
-<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00086">86</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00094">94</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
 
 </div>
 </div>
@@ -345,7 +377,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00084">84</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00089">89</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6816c555a8d407402e753f2e7466ed60"></a><!-- doxytag: member="ClocksWidget::keeper_" ref="a6816c555a8d407402e753f2e7466ed60" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_screen_lit_keeper.html">ScreenLitKeeper</a>* <a class="el" href="class_clocks_widget.html#a6816c555a8d407402e753f2e7466ed60">ClocksWidget::keeper_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00077">77</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac260495699eda4c14abd77978bcc146c"></a><!-- doxytag: member="ClocksWidget::pauseButton_" ref="ac260495699eda4c14abd77978bcc146c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QToolButton* <a class="el" href="class_clocks_widget.html#ac260495699eda4c14abd77978bcc146c">ClocksWidget::pauseButton_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00076">76</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
 
 </div>
 </div>
@@ -360,7 +422,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00071">71</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00074">74</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ea90a0fddcda7d4d2fcc0ba41b0d315"></a><!-- doxytag: member="ClocksWidget::recentX" ref="a5ea90a0fddcda7d4d2fcc0ba41b0d315" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_clocks_widget.html#a5ea90a0fddcda7d4d2fcc0ba41b0d315">ClocksWidget::recentX</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>To avoid double clicks. </p>
+
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00091">91</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab95b8bc6920bcb45f81f8f04a494df25"></a><!-- doxytag: member="ClocksWidget::recentY" ref="ab95b8bc6920bcb45f81f8f04a494df25" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_clocks_widget.html#ab95b8bc6920bcb45f81f8f04a494df25">ClocksWidget::recentY</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00092">92</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
 
 </div>
 </div>
@@ -375,7 +469,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00083">83</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00088">88</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
 
 </div>
 </div>
@@ -390,7 +484,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00072">72</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00075">75</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
 
 </div>
 </div>
@@ -405,7 +499,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00068">68</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
+<p>Definition at line <a class="el" href="clockswidget_8h_source.html#l00071">71</a> of file <a class="el" href="clockswidget_8h_source.html">clockswidget.h</a>.</p>
 
 </div>
 </div>
@@ -428,7 +522,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Aug 19 21:04:20 2010 for Chess Clock by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Sep 27 18:30:34 2010 for Chess Clock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

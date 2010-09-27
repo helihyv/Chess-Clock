@@ -80,26 +80,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00036"></a>00036     <span class="keywordflow">return</span> qApp-&gt;translate(<span class="stringliteral">&quot;Fischer&quot;</span>,<span class="stringliteral">&quot;Specified time increment is added to clock before turn.&quot;</span>);
 <a name="l00037"></a>00037 }
 <a name="l00038"></a>00038 
-<a name="l00039"></a><a class="code" href="class_fischer_time_control.html#a8c3b5624318ef5454eadac12c296485f">00039</a> <a class="code" href="class_clocks_widget.html" title="Widget with two clocks.">ClocksWidget</a>* <a class="code" href="class_fischer_time_control.html#a8c3b5624318ef5454eadac12c296485f" title="Init new game.">FischerTimeControl::initGame</a>(<span class="keywordtype">bool</span> useLastSettings)
+<a name="l00039"></a><a class="code" href="class_fischer_time_control.html#a15e2aa5d9a9aa77aa333bb918502eca4">00039</a> QIcon <a class="code" href="class_fischer_time_control.html#a15e2aa5d9a9aa77aa333bb918502eca4" title="Icon of the time control.">FischerTimeControl::getIcon</a>()
 <a name="l00040"></a>00040 {
-<a name="l00041"></a>00041     <a class="code" href="class_basic_dialog.html" title="Basic dialog for Time Control settings.">BasicDialog</a> dialog(<a class="code" href="class_fischer_time_control.html#af01acb7ce90134ec43831df30eef2964" title="Name of the time control.">getName</a>());
-<a name="l00042"></a>00042     dialog.<a class="code" href="class_basic_dialog.html#af0a264bc2fb165a0264777d0b6ace16c" title="Load values from settings, or init to initial values.">init</a>();
+<a name="l00041"></a>00041     <span class="keywordflow">return</span> QIcon(<span class="stringliteral">&quot;:/rc/pic/addbefore.png&quot;</span>);
+<a name="l00042"></a>00042 }
 <a name="l00043"></a>00043 
-<a name="l00044"></a>00044     <span class="keywordflow">if</span>( useLastSettings || dialog.exec() == QDialog::Accepted)
-<a name="l00045"></a>00045     {
-<a name="l00046"></a>00046         dialog.<a class="code" href="class_basic_dialog.html#a39e8d5e6b6bb54da90b48542abf3c5ce" title="Store values to settings.">store</a>();
-<a name="l00047"></a>00047         <a class="code" href="class_fischer_clock.html">FischerClock</a>* white = <span class="keyword">new</span> <a class="code" href="class_fischer_clock.html">FischerClock</a>( <span class="keyword">true</span>, dialog.<a class="code" href="class_basic_dialog.html#a9efd7646f9ca831901f0c0f7db5196b7">getWhiteAddition</a>(), dialog.<a class="code" href="class_basic_dialog.html#ac5aead7114b84e8a6ae9ddba2b1eac8a">getWhitePerTurns</a>());
-<a name="l00048"></a>00048         white-&gt;<a class="code" href="class_chess_clock.html#af0415d0184abb73d9ee3348635c3e0d8" title="Set time available.">setTimeAvailable</a>(dialog.<a class="code" href="class_basic_dialog.html#ac680841face51be8730863bea159bb4e">getWhiteInitial</a>());
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050         <a class="code" href="class_fischer_clock.html">FischerClock</a>* black = <span class="keyword">new</span> <a class="code" href="class_fischer_clock.html">FischerClock</a>( <span class="keyword">false</span>, dialog.<a class="code" href="class_basic_dialog.html#a36de71762cce473db1b68b0d321c2771">getBlackAddition</a>(), dialog.<a class="code" href="class_basic_dialog.html#ad2f683ed2b0596fa2639b46382b03f5f">getBlackPerTurns</a>());
-<a name="l00051"></a>00051         black-&gt;<a class="code" href="class_chess_clock.html#af0415d0184abb73d9ee3348635c3e0d8" title="Set time available.">setTimeAvailable</a>( dialog.<a class="code" href="class_basic_dialog.html#a305905fa63b9a29649d35feda04161ad">getBlackInitial</a>());
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053         <span class="keywordflow">return</span>( <span class="keyword">new</span> <a class="code" href="class_clocks_widget.html" title="Widget with two clocks.">ClocksWidget</a>(white,black));
+<a name="l00044"></a><a class="code" href="class_fischer_time_control.html#a8c3b5624318ef5454eadac12c296485f">00044</a> <a class="code" href="class_clocks_widget.html" title="Widget with two clocks.">ClocksWidget</a>* <a class="code" href="class_fischer_time_control.html#a8c3b5624318ef5454eadac12c296485f" title="Init new game.">FischerTimeControl::initGame</a>(<span class="keywordtype">bool</span> useLastSettings)
+<a name="l00045"></a>00045 {
+<a name="l00046"></a>00046     <a class="code" href="class_basic_dialog.html" title="Basic dialog for Time Control settings.">BasicDialog</a> dialog(<a class="code" href="class_fischer_time_control.html#af01acb7ce90134ec43831df30eef2964" title="Name of the time control.">getName</a>());
+<a name="l00047"></a>00047     dialog.<a class="code" href="class_basic_dialog.html#af0a264bc2fb165a0264777d0b6ace16c" title="Load values from settings, or init to initial values.">init</a>();
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049     <span class="keywordflow">if</span>( useLastSettings || dialog.exec() == QDialog::Accepted)
+<a name="l00050"></a>00050     {
+<a name="l00051"></a>00051         dialog.<a class="code" href="class_basic_dialog.html#a39e8d5e6b6bb54da90b48542abf3c5ce" title="Store values to settings.">store</a>();
+<a name="l00052"></a>00052         <a class="code" href="class_fischer_clock.html">FischerClock</a>* white = <span class="keyword">new</span> <a class="code" href="class_fischer_clock.html">FischerClock</a>( <span class="keyword">true</span>, dialog.<a class="code" href="class_basic_dialog.html#a9efd7646f9ca831901f0c0f7db5196b7">getWhiteAddition</a>(), dialog.<a class="code" href="class_basic_dialog.html#ac5aead7114b84e8a6ae9ddba2b1eac8a">getWhitePerTurns</a>());
+<a name="l00053"></a>00053         white-&gt;<a class="code" href="class_chess_clock.html#af0415d0184abb73d9ee3348635c3e0d8" title="Set time available.">setTimeAvailable</a>(dialog.<a class="code" href="class_basic_dialog.html#ac680841face51be8730863bea159bb4e">getWhiteInitial</a>());
 <a name="l00054"></a>00054 
-<a name="l00055"></a>00055     }
-<a name="l00056"></a>00056     <span class="keywordflow">else</span>
-<a name="l00057"></a>00057         <span class="keywordflow">return</span> 0;
-<a name="l00058"></a>00058 }
+<a name="l00055"></a>00055         <a class="code" href="class_fischer_clock.html">FischerClock</a>* black = <span class="keyword">new</span> <a class="code" href="class_fischer_clock.html">FischerClock</a>( <span class="keyword">false</span>, dialog.<a class="code" href="class_basic_dialog.html#a36de71762cce473db1b68b0d321c2771">getBlackAddition</a>(), dialog.<a class="code" href="class_basic_dialog.html#ad2f683ed2b0596fa2639b46382b03f5f">getBlackPerTurns</a>());
+<a name="l00056"></a>00056         black-&gt;<a class="code" href="class_chess_clock.html#af0415d0184abb73d9ee3348635c3e0d8" title="Set time available.">setTimeAvailable</a>( dialog.<a class="code" href="class_basic_dialog.html#a305905fa63b9a29649d35feda04161ad">getBlackInitial</a>());
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058         <span class="keywordflow">return</span>( <span class="keyword">new</span> <a class="code" href="class_clocks_widget.html" title="Widget with two clocks.">ClocksWidget</a>(white,black));
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060     }
+<a name="l00061"></a>00061     <span class="keywordflow">else</span>
+<a name="l00062"></a>00062         <span class="keywordflow">return</span> 0;
+<a name="l00063"></a>00063 }
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -115,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Aug 19 21:04:20 2010 for Chess Clock by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Sep 27 18:30:33 2010 for Chess Clock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
