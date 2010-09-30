@@ -192,7 +192,7 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
             break;
         case BlackPause:
             // Continue play
-            keeper_->keepScreenLit(false);
+            keeper_->keepScreenLit(true);
             pauseLabel_->setVisible(false);
             pauseButton_->setVisible(true);
             black_->continueTurn();
