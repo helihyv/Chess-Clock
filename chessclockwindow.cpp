@@ -71,6 +71,10 @@ ChessClockWindow::ChessClockWindow(QWidget *parent)
     menuBar()->addAction( tr("About"),this, SLOT(about()));
     menuBar()->addAction(tr("About Qt"), this, SLOT(aboutQt()));
 
+    //set the event filter to grap window deactivate
+
+    installEventFilter(this);
+
 }
 
 void ChessClockWindow::pause()
@@ -147,4 +151,15 @@ void ChessClockWindow::startGame(TimeControl *timecontrol)
 ChessClockWindow::~ChessClockWindow()
 {
 
+}
+
+bool ChessClockWindow::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::WindowDeactivate) {
+        pause();
+        return QObject::eventFilter(obj,event);
+    } else {
+        // standard event processing
+        return QObject::eventFilter(obj, event);
+    }
 }

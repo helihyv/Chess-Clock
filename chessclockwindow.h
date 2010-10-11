@@ -49,6 +49,8 @@ public slots:
 
 protected:
     void initTimeControls();
+    /*! Pauses the game if the application main window is not active e.g. the app is minimized*/
+    bool eventFilter(QObject *obj, QEvent *event);
 
 protected:
     ClocksWidget*   clocks_;
