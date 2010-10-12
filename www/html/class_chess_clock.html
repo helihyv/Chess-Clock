@@ -81,6 +81,8 @@ Inheritance diagram for ChessClock:</div>
 <tr><td colspan="2"><h2>Signals</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a9406ad0b60047e6605cf3e41c8a47b13">timeOutLoser</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a832bb1a623c56078c91be7d67b12dea9">turnEnded</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a663e4cea430d1223d33dbd0bc2aa9ace">dontEatBattery</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Emitted after 30 min played one turn.  <a href="#a663e4cea430d1223d33dbd0bc2aa9ace"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#af4d3718b1e746317749bbb992688dcd8">ChessClock</a> (bool white, QWidget *parent=0)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a8ee162da0545410332d3fc1c4696b64a">isLoser</a> () const </td></tr>
@@ -116,6 +118,7 @@ Inheritance diagram for ChessClock:</div>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_chess_clock.html#a4a819ca828d25e17dd5975a2ea935d28">RunningStatus</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#ad2d4601fbc0dae0599a95ce7924c9902">status_</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Current turn.  <a href="#ad2d4601fbc0dae0599a95ce7924c9902"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_turn_information.html">TurnInformation</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a0eb205f7484c7cf2a0be1f8bec78bf68">currentTurn_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a5a9bcfd2cbf2af4b5785d6ae2d9c84c8">dontEatBatteryEmitted_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a373e5774a0af5387c76006a1a24d770e">timePlayedBeforeTurn_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#abbce62e8c796244cadb1a5413469ca1b">timeAvailableBeforeTurn_</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Time played in this game BEFORE this turn msecs.  <a href="#abbce62e8c796244cadb1a5413469ca1b"></a><br/></td></tr>
@@ -126,6 +129,7 @@ Inheritance diagram for ChessClock:</div>
 <tr><td class="memItemLeft" align="right" valign="top">QTimer&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a3493e745462457ebf5660754fe333fd2">updateTimer_</a></td></tr>
 <tr><td colspan="2"><h2>Static Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#a848e42d72b3470578f0f958106894b4f">UPDATEINTERVAL</a> = 1000</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock.html#ab15d3ca817a996ee4f3427c2d72bd233">DONTEATBATTERYTIME</a> = 30 * 60 * 1000</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Clock of a individual player. </p>
@@ -190,7 +194,7 @@ Inheritance diagram for ChessClock:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00028">28</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00029">29</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,7 +224,7 @@ Inheritance diagram for ChessClock:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00135">135</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00138">138</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -241,7 +245,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Continue paused game. </p>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00070">70</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00073">73</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -263,7 +267,28 @@ Inheritance diagram for ChessClock:</div>
 <p>Get time played current turn. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Time in msecs </dd></dl>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00140">140</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00143">143</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a663e4cea430d1223d33dbd0bc2aa9ace"></a><!-- doxytag: member="ChessClock::dontEatBattery" ref="a663e4cea430d1223d33dbd0bc2aa9ace" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ChessClock::dontEatBattery </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Emitted after 30 min played one turn. </p>
+<p>Will cause screen not to keeped lit. </p>
+<dl class="since"><dt><b>Since:</b></dt><dd>1.1.2 </dd></dl>
 
 </div>
 </div>
@@ -288,7 +313,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Reimplemented in <a class="el" href="class_delay_after_clock.html#a67513894f0749d488e275f26e43008e8">DelayAfterClock</a>, <a class="el" href="class_fischer_after_clock.html#a01047f1c8eea1ca406eaebdaab930daf">FischerAfterClock</a>, and <a class="el" href="class_hour_glass_clock.html#af2c3629621f5ac7c41b41b236c2f1594">HourGlassClock</a>.</p>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00081">81</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00084">84</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -332,7 +357,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Reimplemented in <a class="el" href="class_delay_clock.html#ad926d5f15903c47092d431cc26b296d4">DelayClock</a>, and <a class="el" href="class_hour_glass_clock.html#a50daaa71c289575f47e1310ce215f45f">HourGlassClock</a>.</p>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00109">109</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00112">112</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -354,7 +379,7 @@ Inheritance diagram for ChessClock:</div>
 <p>Get total time played. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Time played in msecs </dd></dl>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00123">123</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00126">126</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -432,7 +457,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Pause clock. </p>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00061">61</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00064">64</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -481,7 +506,7 @@ Inheritance diagram for ChessClock:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00104">104</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00107">107</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -509,7 +534,7 @@ Inheritance diagram for ChessClock:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00129">129</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00132">132</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -532,7 +557,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Reimplemented in <a class="el" href="class_fischer_clock.html#a57f7d1108e88c04e3c8d9326cc8bb0b6">FischerClock</a>.</p>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00047">47</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00049">49</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -589,7 +614,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Reimplemented in <a class="el" href="class_hour_glass_clock.html#af4a8ee4fa210f6d9bc08510f614402e6">HourGlassClock</a>.</p>
 
-<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00156">156</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8cpp_source.html#l00169">169</a> of file <a class="el" href="chessclock_8cpp_source.html">chessclock.cpp</a>.</p>
 
 </div>
 </div>
@@ -605,7 +630,7 @@ Inheritance diagram for ChessClock:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00123">123</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00129">129</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -622,7 +647,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>True if white player. </p>
 
-<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00135">135</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00142">142</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -637,7 +662,38 @@ Inheritance diagram for ChessClock:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00128">128</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00134">134</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5a9bcfd2cbf2af4b5785d6ae2d9c84c8"></a><!-- doxytag: member="ChessClock::dontEatBatteryEmitted_" ref="a5a9bcfd2cbf2af4b5785d6ae2d9c84c8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_chess_clock.html#a5a9bcfd2cbf2af4b5785d6ae2d9c84c8">ChessClock::dontEatBatteryEmitted_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00135">135</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab15d3ca817a996ee4f3427c2d72bd233"></a><!-- doxytag: member="ChessClock::DONTEATBATTERYTIME" ref="ab15d3ca817a996ee4f3427c2d72bd233" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="class_chess_clock.html#ab15d3ca817a996ee4f3427c2d72bd233">ChessClock::DONTEATBATTERYTIME</a> = 30 * 60 * 1000<code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Clock updating interval in msecs </p>
+
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00146">146</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -654,7 +710,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Time available for play BEFORE this turn msecs ! </p>
 
-<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00133">133</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00140">140</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -671,7 +727,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Another player's clock. </p>
 
-<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00125">125</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00131">131</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -688,7 +744,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Current turn. </p>
 
-<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00127">127</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00133">133</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -705,7 +761,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Time played in this game BEFORE this turn msecs. </p>
 
-<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00131">131</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00138">138</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -720,7 +776,7 @@ Inheritance diagram for ChessClock:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00130">130</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00137">137</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -737,7 +793,7 @@ Inheritance diagram for ChessClock:</div>
 
 <p>Is player losed because of timeout. </p>
 
-<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00126">126</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00132">132</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -752,7 +808,7 @@ Inheritance diagram for ChessClock:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00138">138</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00145">145</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -767,7 +823,7 @@ Inheritance diagram for ChessClock:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00136">136</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclock_8h_source.html#l00143">143</a> of file <a class="el" href="chessclock_8h_source.html">chessclock.h</a>.</p>
 
 </div>
 </div>
@@ -790,7 +846,7 @@ Inheritance diagram for ChessClock:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Sep 27 18:30:34 2010 for Chess Clock by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Tue Oct 12 20:52:59 2010 for Chess Clock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

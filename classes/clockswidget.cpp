@@ -109,6 +109,9 @@ ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent
 
     // ScreenLitKeeper to keep screen lit when playing
     keeper_ = new ScreenLitKeeper(this);
+
+    connect( white, SIGNAL(dontEatBattery()), this, SLOT(saveScreen()));
+    connect( black, SIGNAL(dontEatBattery()), this, SLOT(saveScreen()));
 }
 
 ClocksWidget::~ClocksWidget()
@@ -145,6 +148,11 @@ void ClocksWidget::stopPlay()
     else if( status_ == WhiteTurn || status_ == WhitePause )
         emit TurnFinished( white_->endTurn());
     status_ = Stopped;
+}
+
+void ClocksWidget::saveScreen()
+{
+    keeper_->keepScreenLit(false);
 }
 
 

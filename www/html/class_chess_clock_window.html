@@ -58,11 +58,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Visit <a class="el" href="class_chess_clock.html" title="Clock of a individual player.">ChessClock</a> web page.  <a href="#a15c6808b2409afbd724118bf6f229742"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_window.html#ad89b82909aa0d0e36267f63dda7037ff">about</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_window.html#a75b6f84823e87340bce8e11b2055cfdd">aboutQt</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_window.html#a03405591ce4c5fc328805c8daea46529">dontEatMemory</a> (<a class="el" href="class_turn_information.html">TurnInformation</a> *turnInformation)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Delete turn information to avoid memory leaks.  <a href="#a03405591ce4c5fc328805c8daea46529"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_window.html#a570589223bfda26e9818d3f2955e55f8">ChessClockWindow</a> (QWidget *parent=0)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_window.html#a7007da9dea854b3aab86fb36a4cb8c44">~ChessClockWindow</a> ()</td></tr>
 <tr><td colspan="2"><h2>Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_window.html#ac19fabe171848c0b02c533c6b4a9e2ab">initTimeControls</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_window.html#ad3b7644c66f9abda7d26a4d8846d4a52">eventFilter</a> (QObject *obj, QEvent *event)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pauses the game if the application main window is not active e.g.  <a href="#ad3b7644c66f9abda7d26a4d8846d4a52"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_clocks_widget.html">ClocksWidget</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_window.html#a30333fd439f58a235ef14629466bffd3">clocks_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_start_widget.html">StartWidget</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chess_clock_window.html#ad65c7b41fc1e1755af16476f2bda3309">start_</a></td></tr>
@@ -70,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
-<p>Definition at line <a class="el" href="chessclockwindow_8h_source.html#l00032">32</a> of file <a class="el" href="chessclockwindow_8h_source.html">chessclockwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8h_source.html#l00033">33</a> of file <a class="el" href="chessclockwindow_8h_source.html">chessclockwindow.h</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a570589223bfda26e9818d3f2955e55f8"></a><!-- doxytag: member="ChessClockWindow::ChessClockWindow" ref="a570589223bfda26e9818d3f2955e55f8" args="(QWidget *parent=0)" -->
 <div class="memitem">
@@ -88,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00045">45</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00046">46</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -107,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00147">147</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00153">153</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -127,7 +131,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00106">106</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00111">111</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -146,7 +150,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00117">117</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00122">122</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a03405591ce4c5fc328805c8daea46529"></a><!-- doxytag: member="ChessClockWindow::dontEatMemory" ref="a03405591ce4c5fc328805c8daea46529" args="(TurnInformation *turnInformation)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ChessClockWindow::dontEatMemory </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_turn_information.html">TurnInformation</a> *&nbsp;</td>
+          <td class="paramname"> <em>turnInformation</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Delete turn information to avoid memory leaks. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Save turn log and function to show it. </dd></dl>
+<dl class="since"><dt><b>Since:</b></dt><dd>1.1.2 </dd></dl>
+
+<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00169">169</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3b7644c66f9abda7d26a4d8846d4a52"></a><!-- doxytag: member="ChessClockWindow::eventFilter" ref="ad3b7644c66f9abda7d26a4d8846d4a52" args="(QObject *obj, QEvent *event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ChessClockWindow::eventFilter </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&nbsp;</td>
+          <td class="paramname"> <em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QEvent *&nbsp;</td>
+          <td class="paramname"> <em>event</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Pauses the game if the application main window is not active e.g. </p>
+<p>the app is minimized </p>
+
+<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00158">158</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -165,7 +225,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00124">124</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00129">129</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -184,7 +244,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00082">82</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00087">87</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -203,7 +263,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00076">76</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00081">81</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -223,7 +283,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00134">134</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00139">139</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -244,7 +304,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Visit <a class="el" href="class_chess_clock.html" title="Clock of a individual player.">ChessClock</a> web page. </p>
 
-<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00099">99</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8cpp_source.html#l00104">104</a> of file <a class="el" href="chessclockwindow_8cpp_source.html">chessclockwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -260,7 +320,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwindow_8h_source.html#l00054">54</a> of file <a class="el" href="chessclockwindow_8h_source.html">chessclockwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8h_source.html#l00062">62</a> of file <a class="el" href="chessclockwindow_8h_source.html">chessclockwindow.h</a>.</p>
 
 </div>
 </div>
@@ -275,7 +335,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwindow_8h_source.html#l00056">56</a> of file <a class="el" href="chessclockwindow_8h_source.html">chessclockwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8h_source.html#l00064">64</a> of file <a class="el" href="chessclockwindow_8h_source.html">chessclockwindow.h</a>.</p>
 
 </div>
 </div>
@@ -290,7 +350,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="chessclockwindow_8h_source.html#l00055">55</a> of file <a class="el" href="chessclockwindow_8h_source.html">chessclockwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="chessclockwindow_8h_source.html#l00063">63</a> of file <a class="el" href="chessclockwindow_8h_source.html">chessclockwindow.h</a>.</p>
 
 </div>
 </div>
@@ -313,7 +373,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Sep 27 18:30:34 2010 for Chess Clock by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Tue Oct 12 20:52:59 2010 for Chess Clock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

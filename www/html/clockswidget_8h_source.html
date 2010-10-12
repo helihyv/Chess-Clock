@@ -98,34 +98,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00064"></a>00064 <span class="keyword">public</span> slots:
 <a name="l00066"></a>00066     <span class="keywordtype">void</span> <a class="code" href="class_clocks_widget.html#a609a11fc15904a1700f5b82ae2b63228" title="Pause game.">pause</a>();
 <a name="l00068"></a>00068     <span class="keywordtype">void</span> <a class="code" href="class_clocks_widget.html#a13cdf39b9f06ef714a65aaff2111380d" title="End the game.">stopPlay</a>();
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 <span class="keyword">protected</span>:
-<a name="l00071"></a><a class="code" href="class_clocks_widget.html#a657afdf1f48be188451ebd712350cdc3">00071</a>     <a class="code" href="class_chess_clock.html" title="Clock of a individual player.">ChessClock</a>* <a class="code" href="class_clocks_widget.html#a657afdf1f48be188451ebd712350cdc3">white_</a>;
-<a name="l00072"></a><a class="code" href="class_clocks_widget.html#a61a8a254c9a879b0950cde008a825447">00072</a>     <a class="code" href="class_chess_clock.html" title="Clock of a individual player.">ChessClock</a>* <a class="code" href="class_clocks_widget.html#a61a8a254c9a879b0950cde008a825447">black_</a>;
-<a name="l00073"></a>00073 
-<a name="l00074"></a><a class="code" href="class_clocks_widget.html#a2e65f80ea1b3d56189f8c94d6b0a972c">00074</a>     QLabel* <a class="code" href="class_clocks_widget.html#a2e65f80ea1b3d56189f8c94d6b0a972c">pauseLabel_</a>;
-<a name="l00075"></a><a class="code" href="class_clocks_widget.html#a0af8f4235b2b5363173b067cfb54a73b">00075</a>     QLabel* <a class="code" href="class_clocks_widget.html#a0af8f4235b2b5363173b067cfb54a73b">welcomeLabel_</a>;
-<a name="l00076"></a><a class="code" href="class_clocks_widget.html#ac260495699eda4c14abd77978bcc146c">00076</a>     QToolButton* <a class="code" href="class_clocks_widget.html#ac260495699eda4c14abd77978bcc146c">pauseButton_</a>;
-<a name="l00077"></a><a class="code" href="class_clocks_widget.html#a6816c555a8d407402e753f2e7466ed60">00077</a>     <a class="code" href="class_screen_lit_keeper.html" title="Allows keeping the sreen lit by disabling the screensaver.">ScreenLitKeeper</a>* <a class="code" href="class_clocks_widget.html#a6816c555a8d407402e753f2e7466ed60">keeper_</a>;
-<a name="l00078"></a>00078 
-<a name="l00079"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326">00079</a>     <span class="keyword">enum</span> <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326">GameStatus</a> {
-<a name="l00080"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a53acf9aec5f412ddac980ff0019b6062">00080</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a53acf9aec5f412ddac980ff0019b6062" title="Not running.">Stopped</a>  ,
-<a name="l00081"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326ae515f8820df31a265e7a09b885367021">00081</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326ae515f8820df31a265e7a09b885367021">WhiteTurn</a>,
-<a name="l00082"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a54e428aae4bef65f8a66e7619778c190">00082</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a54e428aae4bef65f8a66e7619778c190">BlackTurn</a>,
-<a name="l00083"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326af5c73b5ef2a4289e4c72e37d9524aad3">00083</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326af5c73b5ef2a4289e4c72e37d9524aad3">WhitePause</a>,
-<a name="l00084"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326ac176eeb3fa09dc34152e89c97155806a">00084</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326ac176eeb3fa09dc34152e89c97155806a">BlackPause</a>,
-<a name="l00085"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a6aef315e9e32ab9962b237bd3ddab0ab">00085</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a6aef315e9e32ab9962b237bd3ddab0ab">Welcome</a>
-<a name="l00086"></a>00086         };
-<a name="l00087"></a>00087 
-<a name="l00088"></a><a class="code" href="class_clocks_widget.html#a74cd72e41c4c797c4b97027f513752c4">00088</a>     <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326">GameStatus</a> <a class="code" href="class_clocks_widget.html#a74cd72e41c4c797c4b97027f513752c4">status_</a>;
-<a name="l00089"></a><a class="code" href="class_clocks_widget.html#ab86d99a5709a6fd0444f10aec5ede01a">00089</a>     QTime <a class="code" href="class_clocks_widget.html#ab86d99a5709a6fd0444f10aec5ede01a">delayTimer_</a>; 
-<a name="l00091"></a><a class="code" href="class_clocks_widget.html#a5ea90a0fddcda7d4d2fcc0ba41b0d315">00091</a>     <span class="keywordtype">int</span> <a class="code" href="class_clocks_widget.html#a5ea90a0fddcda7d4d2fcc0ba41b0d315" title="To avoid double clicks.">recentX</a>;
-<a name="l00092"></a><a class="code" href="class_clocks_widget.html#ab95b8bc6920bcb45f81f8f04a494df25">00092</a>     <span class="keywordtype">int</span> <a class="code" href="class_clocks_widget.html#ab95b8bc6920bcb45f81f8f04a494df25">recentY</a>;
-<a name="l00093"></a>00093 
-<a name="l00094"></a><a class="code" href="class_clocks_widget.html#a51af7bacc14bc1f276df31a404823e3d">00094</a>     <span class="keyword">static</span> <span class="keywordtype">int</span> <span class="keyword">const</span> <a class="code" href="class_clocks_widget.html#a51af7bacc14bc1f276df31a404823e3d">CLICKDELAY</a> = 1500 ; 
-<a name="l00098"></a>00098 };
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100 <span class="preprocessor">#endif // CLOCKSWIDGET_H</span>
+<a name="l00070"></a>00070     <span class="keywordtype">void</span> <a class="code" href="class_clocks_widget.html#a6e56ca59dbe989b8a84bf6e4d81a7ed7" title="Not to keep screen lit.">saveScreen</a>();
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="keyword">protected</span>:
+<a name="l00073"></a><a class="code" href="class_clocks_widget.html#a657afdf1f48be188451ebd712350cdc3">00073</a>     <a class="code" href="class_chess_clock.html" title="Clock of a individual player.">ChessClock</a>* <a class="code" href="class_clocks_widget.html#a657afdf1f48be188451ebd712350cdc3">white_</a>;
+<a name="l00074"></a><a class="code" href="class_clocks_widget.html#a61a8a254c9a879b0950cde008a825447">00074</a>     <a class="code" href="class_chess_clock.html" title="Clock of a individual player.">ChessClock</a>* <a class="code" href="class_clocks_widget.html#a61a8a254c9a879b0950cde008a825447">black_</a>;
+<a name="l00075"></a>00075 
+<a name="l00076"></a><a class="code" href="class_clocks_widget.html#a2e65f80ea1b3d56189f8c94d6b0a972c">00076</a>     QLabel* <a class="code" href="class_clocks_widget.html#a2e65f80ea1b3d56189f8c94d6b0a972c">pauseLabel_</a>;
+<a name="l00077"></a><a class="code" href="class_clocks_widget.html#a0af8f4235b2b5363173b067cfb54a73b">00077</a>     QLabel* <a class="code" href="class_clocks_widget.html#a0af8f4235b2b5363173b067cfb54a73b">welcomeLabel_</a>;
+<a name="l00078"></a><a class="code" href="class_clocks_widget.html#ac260495699eda4c14abd77978bcc146c">00078</a>     QToolButton* <a class="code" href="class_clocks_widget.html#ac260495699eda4c14abd77978bcc146c">pauseButton_</a>;
+<a name="l00079"></a><a class="code" href="class_clocks_widget.html#a6816c555a8d407402e753f2e7466ed60">00079</a>     <a class="code" href="class_screen_lit_keeper.html" title="Allows keeping the sreen lit by disabling the screensaver.">ScreenLitKeeper</a>* <a class="code" href="class_clocks_widget.html#a6816c555a8d407402e753f2e7466ed60">keeper_</a>;
+<a name="l00080"></a>00080 
+<a name="l00081"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326">00081</a>     <span class="keyword">enum</span> <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326">GameStatus</a> {
+<a name="l00082"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a53acf9aec5f412ddac980ff0019b6062">00082</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a53acf9aec5f412ddac980ff0019b6062" title="Not running.">Stopped</a>  ,
+<a name="l00083"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326ae515f8820df31a265e7a09b885367021">00083</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326ae515f8820df31a265e7a09b885367021">WhiteTurn</a>,
+<a name="l00084"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a54e428aae4bef65f8a66e7619778c190">00084</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a54e428aae4bef65f8a66e7619778c190">BlackTurn</a>,
+<a name="l00085"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326af5c73b5ef2a4289e4c72e37d9524aad3">00085</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326af5c73b5ef2a4289e4c72e37d9524aad3">WhitePause</a>,
+<a name="l00086"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326ac176eeb3fa09dc34152e89c97155806a">00086</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326ac176eeb3fa09dc34152e89c97155806a">BlackPause</a>,
+<a name="l00087"></a><a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a6aef315e9e32ab9962b237bd3ddab0ab">00087</a>         <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326a6aef315e9e32ab9962b237bd3ddab0ab">Welcome</a>
+<a name="l00088"></a>00088         };
+<a name="l00089"></a>00089 
+<a name="l00090"></a><a class="code" href="class_clocks_widget.html#a74cd72e41c4c797c4b97027f513752c4">00090</a>     <a class="code" href="class_clocks_widget.html#abe19ddcf3d29ca31914819a969af4326">GameStatus</a> <a class="code" href="class_clocks_widget.html#a74cd72e41c4c797c4b97027f513752c4">status_</a>;
+<a name="l00091"></a><a class="code" href="class_clocks_widget.html#ab86d99a5709a6fd0444f10aec5ede01a">00091</a>     QTime <a class="code" href="class_clocks_widget.html#ab86d99a5709a6fd0444f10aec5ede01a">delayTimer_</a>; 
+<a name="l00093"></a><a class="code" href="class_clocks_widget.html#a5ea90a0fddcda7d4d2fcc0ba41b0d315">00093</a>     <span class="keywordtype">int</span> <a class="code" href="class_clocks_widget.html#a5ea90a0fddcda7d4d2fcc0ba41b0d315" title="To avoid double clicks.">recentX</a>;
+<a name="l00094"></a><a class="code" href="class_clocks_widget.html#ab95b8bc6920bcb45f81f8f04a494df25">00094</a>     <span class="keywordtype">int</span> <a class="code" href="class_clocks_widget.html#ab95b8bc6920bcb45f81f8f04a494df25">recentY</a>;
+<a name="l00095"></a>00095 
+<a name="l00096"></a><a class="code" href="class_clocks_widget.html#a51af7bacc14bc1f276df31a404823e3d">00096</a>     <span class="keyword">static</span> <span class="keywordtype">int</span> <span class="keyword">const</span> <a class="code" href="class_clocks_widget.html#a51af7bacc14bc1f276df31a404823e3d">CLICKDELAY</a> = 1500 ; 
+<a name="l00100"></a>00100 };
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="preprocessor">#endif // CLOCKSWIDGET_H</span>
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -141,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Sep 27 18:30:33 2010 for Chess Clock by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Tue Oct 12 20:52:59 2010 for Chess Clock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

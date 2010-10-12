@@ -28,6 +28,7 @@ class ClocksWidget;
 class StartWidget;
 class TimeControl;
 class QStackedWidget;
+class TurnInformation;
 
 class ChessClockWindow : public QMainWindow
 {
@@ -45,6 +46,11 @@ public slots:
     void visitWeb();
     void about();
     void aboutQt();
+    /*! Delete turn information to avoid memory leaks
+
+      @todo Save turn log and function to show it.
+    @since 1.1.2 */
+    void dontEatMemory(TurnInformation* turnInformation);
 
 
 protected:

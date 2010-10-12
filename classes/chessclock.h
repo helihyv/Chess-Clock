@@ -110,6 +110,12 @@ public:
 signals:
     void timeOutLoser();
     void turnEnded();
+    /*! Emitted after 30 min played one turn.
+
+      Will cause screen not to keeped lit.
+      @since 1.1.2
+      */
+    void dontEatBattery();
 
 public slots:    
 
@@ -126,6 +132,7 @@ protected:
     int turn_;          /*! Current turn */
     RunningStatus status_;
     TurnInformation* currentTurn_;
+    bool dontEatBatteryEmitted_;
 
     int timePlayedBeforeTurn_;    /*! Time played in this game BEFORE this turn msecs */
     int timeAvailableBeforeTurn_; /*! Time available for play BEFORE this turn msecs !*/
@@ -136,7 +143,7 @@ protected:
     QTimer updateTimer_;
 
     static const int UPDATEINTERVAL = 1000; /** Clock updating interval in msecs */
-
+    static const int DONTEATBATTERYTIME = 30 * 60 * 1000; /*! Time after screen not to keep lit */
 };
 
 #endif // CHESSCLOCK_H

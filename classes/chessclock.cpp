@@ -24,6 +24,7 @@
 #include "turninformation.h"
 
 const int ChessClock::UPDATEINTERVAL;
+const int ChessClock::DONTEATBATTERYTIME;
 
 ChessClock::ChessClock(bool white, QWidget *parent) :
     QWidget(parent)
@@ -31,6 +32,7 @@ ChessClock::ChessClock(bool white, QWidget *parent) :
     isWhite_ = white;
     loser_ = false;
     turn_ = 0;
+    dontEatBatteryEmitted_ = false;
     timePlayedBeforeTurn_ = 0;
     status_ = NotRunning;
     another_ = 0;
@@ -47,6 +49,7 @@ ChessClock::ChessClock(bool white, QWidget *parent) :
 void ChessClock::startTurn()
 {
     turn_++;
+    dontEatBatteryEmitted_ = false;
 
     // Turn information for this new turn
     currentTurn_ = new TurnInformation(turn_, isWhite_);
@@ -143,7 +146,17 @@ int ChessClock::currentTurnPlayed()
     {
         // Update current time
         if( status_ == Running )
+        {
             currentTurn_->addTime( clockTime_.restart());
+
+            // since 1.1.2
+            // emit dontEatBattery signal when screen should not to be keeped on
+            if ( currentTurn_->getDuration() > DONTEATBATTERYTIME  && dontEatBatteryEmitted_ == false )
+            {
+                dontEatBatteryEmitted_ = true;
+                emit dontEatBattery();
+            }
+        }
 
         // Return current time
         return currentTurn_->getDuration();

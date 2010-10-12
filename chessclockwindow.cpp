@@ -25,6 +25,7 @@
 #include "classes/chessclockwidget.h"
 #include "classes/startwidget.h"
 #include "classes/timecontrol.h"
+#include "classes/turninformation.h"
 
 // Time controls
 #include "classes/timecontrol/notimecontrol.h"
@@ -144,6 +145,7 @@ void ChessClockWindow::startGame(TimeControl *timecontrol)
         clocks_ = newWidget;
         stack_->addWidget(clocks_);
         stack_->setCurrentWidget(clocks_);
+        connect( clocks_, SIGNAL(TurnFinished(TurnInformation*)), this, SLOT(dontEatMemory(TurnInformation*)));
     }
 }
 
@@ -162,4 +164,9 @@ bool ChessClockWindow::eventFilter(QObject *obj, QEvent *event)
         // standard event processing
         return QObject::eventFilter(obj, event);
     }
+}
+
+void ChessClockWindow::dontEatMemory(TurnInformation *turnInformation)
+{
+    delete turnInformation; // hopefully don't cause Segematation Fault
 }

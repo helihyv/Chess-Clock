@@ -66,6 +66,8 @@ public slots:
     void pause();
     /*! End the game */
     void stopPlay();
+    /*! Not to keep screen lit */
+    void saveScreen();
 
 protected:
     ChessClock* white_;
