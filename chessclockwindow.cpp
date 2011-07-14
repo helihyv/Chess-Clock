@@ -47,6 +47,8 @@ ChessClockWindow::ChessClockWindow(QWidget *parent)
     : QMainWindow(parent)
 {
 
+    showFullScreen();
+
     setWindowIcon( QIcon(":/rc/pic/chessclock.png"));
     setWindowTitle( QString("%1 %2").arg(qApp->applicationName()).arg(qApp->applicationVersion()) );
 
