@@ -18,11 +18,53 @@ symbian:TARGET.CAPABILITY += NetworkServices
 
 # If your application uses the Qt Mobility libraries, uncomment the following
 # lines and add the respective components to the MOBILITY variable.
-# CONFIG += mobility
-# MOBILITY +=
+CONFIG += mobility
+MOBILITY += systeminfo
 
 # The .cpp file which was generated for your project. Feel free to hack it.
-SOURCES += main.cpp
+SOURCES += main.cpp \
+        chessclockwindow.cpp \
+    classes/turninformation.cpp \
+    classes/chessclock.cpp \
+    classes/chessclockwidget.cpp \
+    classes/clockswidget.cpp \
+    classes/welcomescreenwidget.cpp \
+    classes/timecontrol/basicdialog.cpp \
+    classes/timecontrol/notimecontrol.cpp \
+    classes/startwidget.cpp \
+    classes/timecontrol/fischertimecontrol.cpp \
+    classes/timecontrol/fischerclock.cpp \
+    classes/timecontrol/fischerafterclock.cpp \
+    classes/timecontrol/fischeraftertimecontrol.cpp \
+    classes/timecontrol/delayclock.cpp \
+    classes/timecontrol/delaytimecontrol.cpp \
+    classes/timecontrol/delayafterclock.cpp \
+    classes/timecontrol/delayaftertimecontrol.cpp \
+    classes/timecontrol/hourglassclock.cpp \
+    classes/timecontrol/hourglasstimecontrol.cpp \
+    classes/screenlitkeeper.cpp
+
+HEADERS  += chessclockwindow.h \
+    classes/turninformation.h \
+    classes/chessclock.h \
+    classes/chessclockwidget.h \
+    classes/clockswidget.h \
+    classes/welcomescreenwidget.h \
+    classes/timecontrol.h \
+    classes/timecontrol/basicdialog.h \
+    classes/timecontrol/notimecontrol.h \
+    classes/startwidget.h \
+    classes/timecontrol/fischertimecontrol.h \
+    classes/timecontrol/fischerclock.h \
+    classes/timecontrol/fischerafterclock.h \
+    classes/timecontrol/fischeraftertimecontrol.h \
+    classes/timecontrol/delayclock.h \
+    classes/timecontrol/delaytimecontrol.h \
+    classes/timecontrol/delayafterclock.h \
+    classes/timecontrol/delayaftertimecontrol.h \
+    classes/timecontrol/hourglasstimecontrol.h \
+    classes/timecontrol/hourglassclock.h \
+    classes/screenlitkeeper.h
 
 
 OTHER_FILES += \
@@ -39,7 +81,8 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/changelog
 
 RESOURCES += \
-    res.qrc
+    res.qrc \
+    chessclock.qrc
 
 # Please do not modify the following two lines. Required for deployment.
 include(deployment.pri)
@@ -49,3 +92,9 @@ qtcAddDeployment()
 CONFIG += qdeclarative-boostable
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic
+
+unix:!symbian:!maemo5 {
+    target.path = /opt/chessclock/bin
+    INSTALLS += target
+}
+
