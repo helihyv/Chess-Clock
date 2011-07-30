@@ -4,8 +4,8 @@ Version=1.0
 Type=Application
 Terminal=false
 Name=chessclock
-Exec=invoker --single-instance --type=d /opt/chessclock/bin/chessclock
-Icon=/usr/share/icons/hicolor/scalable/apps/chessclock.svg
+Exec=/usr/local/bin/chessclock
+Icon=chessclock
 X-Window-Icon=
 X-HildonDesk-ShowInToolbar=true
 X-Osso-Type=application/x-executable
