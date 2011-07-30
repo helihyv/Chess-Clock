@@ -21,7 +21,8 @@ PageStackWindow {
         id: myMenu
         visualParent: pageStack
         MenuLayout {
-            MenuItem { text: "Sample menu item" }
+            MenuItem { text: "Visit web page" }
+            MenuItem { text: "About" }
         }
     }
 }
