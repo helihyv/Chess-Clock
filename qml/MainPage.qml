@@ -20,6 +20,15 @@ Page {
 //        onClicked: newGameDialog.open()
 //    }
 
+    Image
+    {
+        id: bigLogo
+//        anchors.fill: parent
+//        anchors.left: menuList.right
+
+        source: ":/rc/pic/logo.png"
+    }
+
     ListModel
     {
         id: menuModel
@@ -65,7 +74,12 @@ Page {
     ListView
     {
         id: menuList
-        anchors.fill: parent
+
+        anchors.left: bigLogo.right
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+
 
          model: menuModel
 
@@ -84,15 +98,7 @@ Page {
 
     }
 
-//    Image {
-//        id: image1
-//        anchors.centerIn: parent
-//        x: 0
-//        y: 0
-//        width: 100
-//        height: 100
-//        source: ":/pic/logo.png"
-//    }
+
 
 
 
