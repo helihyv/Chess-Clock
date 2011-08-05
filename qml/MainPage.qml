@@ -92,7 +92,7 @@ Page {
             MouseArea
             {
                 anchors.fill: parent
-                onClicked: newGameDialog.open()
+                onClicked: {newGameDialog.name = name; newGameDialog.open()}
             }
         }
 
@@ -105,7 +105,17 @@ Page {
     Dialog
     {
         id:newGameDialog
-        title:Label   { color:"white" ;text:"Normal Clock"}
+
+        property string name
+
+
+        title:Label
+        {
+            color:"white"
+            font.pointSize: 40
+            text: newGameDialog.name
+        }
+
 
         content:
             Row
@@ -120,7 +130,8 @@ Page {
                   height: switchComponent.height
                   verticalAlignment: Text.AlignVCenter
                   text: "Equal times"
-                  color: white
+                  color: "white"
+                  font.pointSize: 16
                 }
 
                 Switch
