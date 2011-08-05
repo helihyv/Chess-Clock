@@ -146,8 +146,8 @@ Page {
             Button
             {
                 id: bOk
-                text: "OK"
-                y: 300
+                text: "Start game"
+                y: 170
 
                 onClicked: newGameDialog.accept()
             }
