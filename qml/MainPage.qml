@@ -126,7 +126,7 @@ Page {
 
                 Text
                 {
-                  width: rowRow.width - rowRow.spacing - switchComponent.width
+                  width: rowRow.width - rowRow.spacing - switchComponent.width - whiteSmall.width - blackSmall.width
                   height: switchComponent.height
                   verticalAlignment: Text.AlignVCenter
                   text: "Equal times"
@@ -138,6 +138,19 @@ Page {
                 {
                     id: switchComponent
                 }
+
+                Image
+                {
+                    id: whiteSmall
+                    source: ":/rc/pic/white_small.png"
+                }
+
+                Image
+                {
+                    id: blackSmall
+                    source: ":/rc/pic/black_small.png"
+                }
+
 
             }
 
