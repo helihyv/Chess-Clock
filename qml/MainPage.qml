@@ -6,18 +6,82 @@ import QtQuick 1.0
 Page {
     id: mainPage
     tools: commonTools
-    Label {
-        id: label
-        anchors.centerIn: parent
-        text: qsTr("Hello world!")
-        visible: false
+//    Label {
+//        id: label
+//        anchors.centerIn: parent
+//        text: qsTr("Hello world!")
+//        visible: false
+//    }
+//    Button{
+//        anchors.horizontalCenter: parent.horizontalCenter
+//        anchors.top: label.bottom
+//        anchors.topMargin: 10
+//        text: qsTr("Click here!")
+//        onClicked: newGameDialog.open()
+//    }
+
+    ListModel
+    {
+        id: menuModel
+
+        ListElement
+        {
+            name: "Normal clock"
+
+
+        }
+
+        ListElement
+        {
+            name: "Addition before"
+        }
+
+        ListElement
+        {
+            name: "Addition after"
+
+
+        }
+
+        ListElement
+        {
+            name: "Delay"
+
+        }
+
+        ListElement
+        {
+            name: "Delay after"
+        }
+
+        ListElement
+        {
+            name:"Hour Glass"
+        }
+
     }
-    Button{
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: label.bottom
-        anchors.topMargin: 10
-        text: qsTr("Click here!")
-        onClicked: newGameDialog.open()
+
+
+    ListView
+    {
+        id: menuList
+        anchors.fill: parent
+
+         model: menuModel
+
+         delegate: Text
+         {
+             text: name
+             font.pointSize: 40
+             anchors.topMargin: 12
+
+            MouseArea
+            {
+                anchors.fill: parent
+                onClicked: newGameDialog.open()
+            }
+        }
+
     }
 
 //    Image {
@@ -30,13 +94,7 @@ Page {
 //        source: ":/pic/logo.png"
 //    }
 
-//    ListView {
-//        id: list_view1
-//        x: 0
-//        y: 0
-//        width: 300
-//        height: 300
-//    }
+
 
     Dialog
     {
@@ -50,25 +108,32 @@ Page {
                 spacing: 10
                 anchors.fill: parent
 
+                Text
+                {
+                  width: rowRow.width - rowRow.spacing - switchComponent.width
+                  height: switchComponent.height
+                  verticalAlignment: Text.AlignVCenter
+                  text: "Equal times"
+                  color: white
+                }
+
                 Switch
                 {
                     id: switchComponent
                 }
 
-//                Text
-//                {
-//                  width: rowRow.width - rowRow.spacing - switchComponent.width
-//                  height: switchComponent.height
-//                  verticalAlignment: Text.AlignVCenter
-//                  text: "Equal times"
-//    //              font.pixelSize: platformStyle.fontSizeMedium
-//                  color: white
-//                }
-
-        content: Row
             }
-  //          Label   { color:"white" ;text:"Content Comes Here"}
-        buttons:Button {id: bOk; text: "OK"; onClicked: newGameDialog.accept()}
+
+        buttons:
+
+            Button
+            {
+                id: bOk
+                text: "OK"
+                y: 300
+
+                onClicked: newGameDialog.accept()
+            }
     }
 
 }

@@ -21,8 +21,16 @@ PageStackWindow {
         id: myMenu
         visualParent: pageStack
         MenuLayout {
-            MenuItem { text: "Visit web page" }
-            MenuItem { text: "About" }
+            MenuItem
+            {
+                text: "Visit web page"
+              //  onClicked:
+            }
+            MenuItem
+            {
+                text: "About"
+                onClicked: pageStack.push(aboutPage)
+            }
         }
     }
 }
