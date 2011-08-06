@@ -36,6 +36,7 @@ Page {
         ListElement
         {
             name: "Normal clock"
+            askAddition: false
 
 
         }
@@ -43,29 +44,31 @@ Page {
         ListElement
         {
             name: "Addition before"
+            askAddition: true
         }
 
         ListElement
         {
             name: "Addition after"
-
-
+            askAddition: true
         }
 
         ListElement
         {
             name: "Delay"
-
+            askAddition: true
         }
 
         ListElement
         {
             name: "Delay after"
+            askAddition: true
         }
 
         ListElement
         {
             name:"Hour Glass"
+            askAddition: false
         }
 
     }
@@ -92,7 +95,7 @@ Page {
             MouseArea
             {
                 anchors.fill: parent
-                onClicked: {newGameDialog.name = name; newGameDialog.open()}
+                onClicked: {newGameDialog.name = name; newGameDialog.askAddition = askAddition; newGameDialog.open()}
             }
         }
 
@@ -107,6 +110,7 @@ Page {
         id:newGameDialog
 
         property string name
+        property bool askAddition
 
 
         title:Label
@@ -118,27 +122,32 @@ Page {
 
 
         content:
-            Row
+            Grid
             {
-                id: rowRow
-                spacing: 10
-                anchors.fill: parent
+                columns: 3
 
-                Text
+                Row
                 {
-                  width: rowRow.width - rowRow.spacing - switchComponent.width - whiteSmall.width - blackSmall.width
-                  height: switchComponent.height
-                  verticalAlignment: Text.AlignVCenter
-                  text: "Equal times"
-                  color: "white"
-                  font.pointSize: 16
-                }
+                    id: rowRow
+                    spacing: 10
+//                    anchors.top: parent.top
+//                    anchors.horizontalCenter: parent.horizontalCenter
 
-                Switch
-                {
-                    id: switchComponent
-                }
+                    Text
+                    {
+ //                     width: rowRow.width - rowRow.spacing - switchComponent.width - whiteSmall.width - blackSmall.width
+ //                     height: switchComponent.height
+                        verticalAlignment: Text.AlignVCenter
+                        text: "Equal times"
+                        color: "white"
+                        font.pointSize: 26
+                    }
 
+                    Switch
+                    {
+                        id: switchComponent
+                    }
+                }
                 Image
                 {
                     id: whiteSmall
@@ -151,8 +160,39 @@ Page {
                     source: ":/rc/pic/black_small.png"
                 }
 
+                Text
+                {
+                    id: initialTimeText
+                    text: "Initial time"
+                    color: "white"
+                    font.pointSize: 26
+//                    anchors.top: rowRow.bottom
+//                    anchors.horizontalCenter: parent.horizontalCenter
+//                    visible: true
+                }
 
-            }
+                Text
+                {
+                    id: additionalTimeText
+                    text: "Additional time"
+                    color: "white"
+                    font.pointSize: 26
+//                    visible: newGameDialog.askAddition
+//                    anchors.top: initialTimeText.bottom
+//                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+
+                Text
+                {
+                    text:  "Turns per addition"
+                    color: "white"
+                    font.pointSize: 26
+//                    visible: newGameDialog.askAddition
+//                    anchors.top: additionalTimeText.bottom
+//                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+    }
+
 
         buttons:
 
