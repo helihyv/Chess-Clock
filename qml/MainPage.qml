@@ -199,6 +199,14 @@ Page {
                 {
                     id: whiteInitialTime
                     inputMask: "000"
+                    readOnly: true
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onClicked: initialTimePicker.open()
+                    }
+
                 }
 
 
@@ -239,36 +247,7 @@ Page {
                     ListElement { value: 2}
                 }
 
-                TumblerColumn
-                {
 
-                    id: hours
-                    selectedIndex: 0
-                    items: hoursList
-
-                    //for (var day = 1; day <= 31; day++) {hoursList.append({"value" : day});
-                }
-
-//                TumblerColumn
-//                {
-//                    id: minutes
-//                    selectedIndex: 0
-//                    items: [0,1,2]
-//                    //for (var day = 1; day <= 31; day++) {minutesList.append({"value" : day});
-//                }
-
-//                TumblerColumn
-//                {
-//                    id: seconds
-//                    selectedIndex:0
-//                    items: [0,1,2]
-//                    //for (var day = 1; day <= 31; day++) {daysList.append({"value" : day});
-//                }
-
-//                Tumbler
-//                {
-//                    columns:[hours]
-//                }
 
         Slider
         {
@@ -327,6 +306,10 @@ Page {
     {
         id: initialTimePicker
         titleText: "Choose initial time"
+        rejectButtonText: "Cancel"
+        acceptButtonText: "Ok"
+        hourMode: DateTime.TwentyFourHours
+        onAccepted: blackInitialTime.text = hour + "h" + minute + "min" + second + "s"
     }
 
 }
