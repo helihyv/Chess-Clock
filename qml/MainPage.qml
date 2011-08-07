@@ -136,11 +136,10 @@ Page {
 
 
 
-
         title:Label
         {
             color:"white"
-            font.pointSize: 40
+            font.pointSize: 64
             text: newGameDialog.name
         }
 

@@ -2,6 +2,7 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>qml/MainPage.qml</file>
-        <file>qml/aboutPage.qml</file>
+        <file>qml/ClocksPage.qml</file>
+        <file>qml/AboutPage.qml</file>
     </qresource>
 </RCC>

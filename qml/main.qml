@@ -10,6 +10,10 @@ PageStackWindow {
 
     MainPage{id: mainPage}
 
+    AboutPage{id: aboutPage}
+
+    ClocksPage{id: clocksPage}
+
     ToolBarLayout {
         id: commonTools
         visible: true
