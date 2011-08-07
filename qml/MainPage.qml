@@ -6,6 +6,12 @@ import QtQuick 1.0
 Page {
     id: mainPage
     tools: commonTools
+
+
+
+
+
+
 //    Label {
 //        id: label
 //        anchors.centerIn: parent
@@ -91,6 +97,7 @@ Page {
              text: name
              font.pointSize: 40
              anchors.topMargin: 12
+             color: "white"
 
             MouseArea
             {
@@ -111,6 +118,8 @@ Page {
 
         property string name
         property bool askAddition
+
+
 
 
         title:Label

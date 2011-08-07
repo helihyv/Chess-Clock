@@ -4,6 +4,8 @@ import com.meego 1.0
 PageStackWindow {
     id: appWindow
 
+    Component.onCompleted: theme.inverted = true
+
     initialPage: mainPage
 
     MainPage{id: mainPage}
