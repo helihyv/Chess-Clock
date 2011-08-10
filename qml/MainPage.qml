@@ -198,25 +198,27 @@ Page {
                 TextField
                 {
                     id: whiteInitialTime
-                    inputMask: "000"
                     readOnly: true
 
                     MouseArea
                     {
                         anchors.fill: parent
-                        onClicked: initialTimePicker.open()
+                        onClicked: {timePicker.timeType = "initial";  timePicker.player = "white"; timePicker.open()}
                     }
-
                 }
 
 
 
-                Button
+                TextField
                 {
                     id: blackInitialTime
-                    text: "pick time"
-  //                  color: "white"
-                    onClicked: initialTimePicker.open()
+                    readOnly: true
+
+                    MouseArea
+                    {
+                    anchors.fill: parent
+                    onClicked: {timePicker.timeType = "initial";  timePicker.player = "black"; timePicker.open()}
+                    }
                 }
 
 
@@ -233,32 +235,30 @@ Page {
                 }
 
 
+
                 TextField
                 {
                     id: whiteAdditionalTime
-                    inputMask: "000"
+                    readOnly: true
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onClicked: {timePicker.timeType = "additional";  timePicker.player = "white"; timePicker.open()}                    }
                 }
 
-                ListModel
+                TextField
                 {
-                    id: hoursList
-                    ListElement { value: 0}
-                    ListElement {value: 1}
-                    ListElement { value: 2}
-                }
+                    id: blackAdditionalTime
+                    readOnly: true
 
-
-
-        Slider
-        {
-            id: blackAdditionalTime
-            minimumValue: 0
-            maximumValue: 100
-            value: 1
-            stepSize: 1
-            valueIndicatorVisible: true
-
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onClicked: {timePicker.timeType = "additional";  timePicker.player = "black"; timePicker.open()}
+                    }
         }
+
 
 
                 Text
@@ -273,19 +273,18 @@ Page {
                 TextField
                 {
                     id: whiteTurnsPerAddition
-                    inputMask: "000"
+                    inputMask: "D00"
+                    text: "1"
                 }
 
-                Slider
+                TextField
                 {
                     id: blackTurnsPerAddition
-                    minimumValue: 0
-                    maximumValue: 100
-                    value: 1
-                    stepSize: 1
-                    valueIndicatorVisible: true
-
+                    inputMask: "D00"
+                    text: "1"
                 }
+
+
 
          }
 
@@ -296,7 +295,7 @@ Page {
             {
                 id: bOk
                 text: "Start game"
-                y: 150
+                y: 45
 
                 onClicked: newGameDialog.accept()
             }
@@ -304,14 +303,33 @@ Page {
 
     TimePickerDialog
     {
-        id: initialTimePicker
-        titleText: "Choose initial time"
+        id: timePicker
+
+        property string timeType
+        property string player
+        property string result
+
+
+        titleText: "Choose " + timeType + " time for " + player
         rejectButtonText: "Cancel"
         acceptButtonText: "Ok"
         hourMode: DateTime.TwentyFourHours
-        onAccepted: blackInitialTime.text = hour + "h" + minute + "min" + second + "s"
-    }
+        onAccepted:
+        {
+            result = hour + " h " + minute + " min " + second + " s"
+            if (timeType == "initial")
+                if (player == "white")
+                    whiteInitialTime.text = result
+                else
+                    blackInitialTime.text = result
 
+            else if (player == "white")
+                    whiteAdditionalTime.text = result
+                else
+                    blackAdditionalTime.text = result
+
+        }
+    }
 }
 
 
