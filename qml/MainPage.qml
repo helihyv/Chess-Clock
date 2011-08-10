@@ -134,6 +134,8 @@ Page {
         property string name
         property bool askAddition
 
+        onAccepted: pageStack.push(clocksPage)
+
 
 
         title:Label
