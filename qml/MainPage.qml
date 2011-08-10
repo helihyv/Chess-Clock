@@ -168,7 +168,17 @@ Page {
 
                     Switch
                     {
-                        id: switchComponent
+                        id: equalTimesSwitch
+                        onCheckedChanged:
+                        {
+                            if (checked)
+                            {
+                                blackInitialTime.text = whiteInitialTime.text
+                                blackAdditionalTime.text = whiteAdditionalTime.text
+                                blackTurnsPerAddition.text = whiteTurnsPerAddition.text
+
+                            }
+                        }
                     }
                 }
                 Image
@@ -200,6 +210,8 @@ Page {
                     id: whiteInitialTime
                     readOnly: true
 
+                    onTextChanged: {if (equalTimesSwitch.checked) blackInitialTime.text = text}
+
                     MouseArea
                     {
                         anchors.fill: parent
@@ -212,7 +224,11 @@ Page {
                 TextField
                 {
                     id: blackInitialTime
+                    enabled: !equalTimesSwitch.checked
+
                     readOnly: true
+
+
 
                     MouseArea
                     {
@@ -242,6 +258,8 @@ Page {
                     visible:  newGameDialog.askAddition
                     readOnly: true
 
+                    onTextChanged: {if (equalTimesSwitch.checked) blackAdditionalTime.text = text}
+
                     MouseArea
                     {
                         anchors.fill: parent
@@ -253,6 +271,7 @@ Page {
                 {
                     id: blackAdditionalTime
                     visible: newGameDialog.askAddition
+                    enabled: !equalTimesSwitch.checked
                     readOnly: true
 
                     MouseArea
@@ -277,14 +296,18 @@ Page {
                 {
                     id: whiteTurnsPerAddition
                     visible: newGameDialog.askAddition
+
                     inputMask: "D00"
                     text: "1"
+
+                    onTextChanged: {if (equalTimesSwitch.checked) blackTurnsPerAddition.text = text}
                 }
 
                 TextField
                 {
                     id: blackTurnsPerAddition
                     visible: newGameDialog.askAddition
+                    enabled: !equalTimesSwitch.checked
                     inputMask: "D00"
                     text: "1"
                 }
