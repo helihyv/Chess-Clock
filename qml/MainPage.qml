@@ -239,17 +239,20 @@ Page {
                 TextField
                 {
                     id: whiteAdditionalTime
+                    visible:  newGameDialog.askAddition
                     readOnly: true
 
                     MouseArea
                     {
                         anchors.fill: parent
-                        onClicked: {timePicker.timeType = "additional";  timePicker.player = "white"; timePicker.open()}                    }
+                        onClicked: {timePicker.timeType = "additional";  timePicker.player = "white"; timePicker.open()}
+                    }
                 }
 
                 TextField
                 {
                     id: blackAdditionalTime
+                    visible: newGameDialog.askAddition
                     readOnly: true
 
                     MouseArea
@@ -273,6 +276,7 @@ Page {
                 TextField
                 {
                     id: whiteTurnsPerAddition
+                    visible: newGameDialog.askAddition
                     inputMask: "D00"
                     text: "1"
                 }
@@ -280,6 +284,7 @@ Page {
                 TextField
                 {
                     id: blackTurnsPerAddition
+                    visible: newGameDialog.askAddition
                     inputMask: "D00"
                     text: "1"
                 }
