@@ -42,7 +42,9 @@ SOURCES += main.cpp \
     classes/timecontrol/delayaftertimecontrol.cpp \
     classes/timecontrol/hourglassclock.cpp \
     classes/timecontrol/hourglasstimecontrol.cpp \
-    classes/screenlitkeeper.cpp
+    classes/screenlitkeeper.cpp \
+    classes/wrappedclockswidget.cpp \
+    classes/clockswidgetplugin.cpp
 
 HEADERS  += chessclockwindow.h \
     classes/turninformation.h \
@@ -64,7 +66,9 @@ HEADERS  += chessclockwindow.h \
     classes/timecontrol/delayaftertimecontrol.h \
     classes/timecontrol/hourglasstimecontrol.h \
     classes/timecontrol/hourglassclock.h \
-    classes/screenlitkeeper.h
+    classes/screenlitkeeper.h \
+    classes/wrappedclockswidget.h \
+    classes/clockswidgetplugin.h
 
 
 OTHER_FILES += \
@@ -80,7 +84,8 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/compat \
     qtc_packaging/debian_harmattan/changelog \
     qml/ClocksPage.qml \
-    qml/AboutPage.qml
+    qml/AboutPage.qml \
+    qml/ClocksWidgetWrapper.qml
 
 RESOURCES += \
     res.qrc \

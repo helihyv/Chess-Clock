@@ -20,30 +20,8 @@
 **************************************************************************/
 
 import QtQuick 1.0
-import com.meego 1.0
-import QtQuick 1.1 
 
-
-
-Page
-{
-    id: clocksPage
-    tools:  commonTools
-
-    property int whiteInitialTime
-    property int blackInitialTime
-    property int whiteAdditionalTime
-    property int blackAdditionalTime
-    property int whiteTurnsPerAddition
-    property int blackTurnsPerAddition
-
-
-
-    ChessClocks
-    {
-
-    }
-
-
-
+ClocksWidgetWrapper {
+    width: 400
+    height: 200
 }
