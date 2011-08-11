@@ -8,6 +8,9 @@
  OBJECTS_DIR = tmp
  MOC_DIR = tmp
 
+TARGET = chessclocksplugin
+target.path = ../lib/
+
 HEADERS += \
     classes/wrappedclockswidget.h \
     classes/clockswidget.h \
@@ -22,8 +25,7 @@ SOURCES += \
     classes/chessclock.cpp \
     classes/clockswidgetplugin.cpp
 
-OTHER_FILES += \
-    qmldir
+
 
 unix:!symbian:!maemo5 {
     target.path = /opt/clockswidgetplugin/lib
