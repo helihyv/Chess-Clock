@@ -24,7 +24,7 @@
 
 #include <QGraphicsProxyWidget>
 #include "clockswidget.h"
-#include "chessclock.h"
+#include "chessclockwidget.h"
 
 /*! A proxy for ClocksWidget for using it from QML
 
@@ -43,7 +43,6 @@ class WrappedClocksWidget : public QGraphicsProxyWidget
     Q_OBJECT
 public:
     explicit WrappedClocksWidget(QObject *parent = 0);
-
     virtual ~WrappedClocksWidget();
 
     void startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition);
@@ -56,8 +55,7 @@ public slots:
 
 private:
 
-    deleteOldWidgets();
-
+    void deleteOldWidgets();
     ClocksWidget * pClocksWidget_;
     ChessClock * pWhiteClock_;
     ChessClock * pBlackClock_;

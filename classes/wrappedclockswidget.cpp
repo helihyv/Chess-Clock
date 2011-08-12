@@ -24,14 +24,14 @@
 
 
 WrappedClocksWidget::WrappedClocksWidget(QObject *parent) :
-    QGraphicsProxyWidget(parent)
+    QGraphicsProxyWidget()
 {
     pClocksWidget_ = NULL;
     pWhiteClock_ = NULL;
     pBlackClock_ = NULL;
 }
 
-WrappedClocksWidget::startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition)
+void WrappedClocksWidget::startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition)
 {
 
     deleteOldWidgets();
@@ -51,12 +51,12 @@ WrappedClocksWidget::startGame(QString timeControl, int whiteInitialTime, int wh
 
 }
 
-WrappedClocksWidget::~WrappedClocksWidget()
+ WrappedClocksWidget::~WrappedClocksWidget()
 {
-    deleteOldWidgets;
+     deleteOldWidgets();
 }
 
-WrappedClocksWidget::isPlayStarted()
+bool WrappedClocksWidget::isPlayStarted()
 {
     if (!pClocksWidget_)
         return false;
@@ -64,7 +64,7 @@ WrappedClocksWidget::isPlayStarted()
     return  pClocksWidget_->isPlayStarted();
 }
 
-WrappedClocksWidget::deleteOldWidgets()
+void WrappedClocksWidget::deleteOldWidgets()
 {
     if (pClocksWidget_)
     {
