@@ -42,6 +42,7 @@ Page
 
     WrappedClocksWidget
     {
+        Component.onCompleted: startGame("",300,30,1,400,40,2)
 
     }
 

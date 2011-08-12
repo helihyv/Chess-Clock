@@ -4,6 +4,8 @@
 
     Copyright (c) Arto Hyvättinen 2010
 
+    Changes made for porting to Harmattan (c) Heli Hyvättinen 2011
+
     This file is part of Chess Clock software.
 
     Chess Clock is free software: you can redistribute it and/or modify
@@ -35,6 +37,7 @@
 #include <QToolButton>
 #include <QSize>
 #include <QWidget>
+#include <QDebug>
 
 ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent):
     QWidget(parent)
@@ -156,9 +159,10 @@ void ClocksWidget::saveScreen()
 }
 
 
-void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
+void ClocksWidget::mousePressEvent(QMouseEvent *event)
 {
 
+    qDebug() << "Mouse released";
     // To avoid double clicks
     // a) delay (default 1,2 secs) OR
     // b) distance more than 90 pixels in axis.
@@ -219,9 +223,10 @@ void ClocksWidget::mouseReleaseEvent(QMouseEvent *event)
 // to grap clicking pause or welcome label
 bool ClocksWidget::eventFilter(QObject *obj, QEvent *event)
 {
-    if (event->type() == QEvent::MouseButtonRelease) {
+//    qDebug() << "Event for pause button or welcome label received " << event->type();
+    if (event->type() == QEvent::MouseButtonPress) {
         QMouseEvent *mEvent = static_cast<QMouseEvent *>(event);
-        mouseReleaseEvent( mEvent );
+        mousePressEvent( mEvent );
         return true;
     } else {
         // standard event processing

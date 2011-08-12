@@ -45,7 +45,7 @@ public:
     explicit WrappedClocksWidget(QObject *parent = 0);
     virtual ~WrappedClocksWidget();
 
-    void startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition);
+    Q_INVOKABLE void startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition);
 
     bool isPlayStarted();
 

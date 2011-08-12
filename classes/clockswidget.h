@@ -53,8 +53,9 @@ public:
     bool isPlayStarted()  { return (status_!=Welcome); }
 
 protected:
-    void mouseReleaseEvent(QMouseEvent *event);
-    bool eventFilter(QObject *obj, QEvent *event);
+    //In Harmattan (PageStackWindow) no mouseReleaseEvents are received. Changed to use mousePressEvent instead
+    void mousePressEvent(QMouseEvent *event);
+    bool eventFilter(QObject *obj, QEvent *event);  //same with eventFilter
 
 
 signals:
