@@ -156,9 +156,17 @@ Page {
         property string name
         property bool askAddition
 
-        onAccepted: pageStack.push(clocksPage)
+        onAccepted:
+        {
+            clocksPage.whiteInitialTime = 60*60*1000*whiteInitialTime.hours+60*1000*whiteInitialTime.minutes+1000*whiteInitialTime.seconds
+            clocksPage.blackInitialTime = 60*60*1000*blackInitialTime.hours+60*1000*blackInitialTime.minutes+1000*blackInitialTime.seconds
+            clocksPage.whiteAdditionalTime = 60*60*1000*whiteAdditionalTime.hours+60*1000*whiteAdditionalTime.minutes+1000*whiteAdditionalTime.seconds
+            clocksPage.blackAdditionalTime = 60*60*1000*blackAdditionalTime.hours+60*1000*blackAdditionalTime.minutes+1000*blackAdditionalTime.seconds
+            clocksPage.whiteTurnsPerAddition = whiteTurnsPerAddition.text
+            clocksPage.blackTurnsPerAddition = blackTurnsPerAddition.text
+            pageStack.push(clocksPage)
 
-
+        }
 
         title:Label
         {
@@ -234,6 +242,12 @@ Page {
                     id: whiteInitialTime
                     readOnly: true
 
+                    property int hours
+                    property int minutes
+                    property int seconds
+
+                    text: {hours + " h " + minutes + " min " + seconds + " s"}
+
                     onTextChanged: {if (equalTimesSwitch.checked) blackInitialTime.text = text}
 
                     MouseArea
@@ -251,6 +265,12 @@ Page {
                     enabled: !equalTimesSwitch.checked
 
                     readOnly: true
+
+                    property int hours
+                    property int minutes
+                    property int seconds
+
+                    text: hours + " h " + minutes + " min " + seconds + " s"
 
 
 
@@ -282,6 +302,12 @@ Page {
                     visible:  newGameDialog.askAddition
                     readOnly: true
 
+                    property int hours
+                    property int minutes
+                    property int seconds
+
+                    text: hours + " h " + minutes + " min " + seconds + " s"
+
                     onTextChanged: {if (equalTimesSwitch.checked) blackAdditionalTime.text = text}
 
                     MouseArea
@@ -297,6 +323,12 @@ Page {
                     visible: newGameDialog.askAddition
                     enabled: !equalTimesSwitch.checked
                     readOnly: true
+
+                    property int hours
+                    property int minutes
+                    property int seconds
+
+                    text: hours + " h " + minutes + " min " + seconds + " s"
 
                     MouseArea
                     {
@@ -359,8 +391,6 @@ Page {
 
         property string timeType
         property string player
-        property string result
-
 
         titleText: "Choose " + timeType + " time for " + player
         rejectButtonText: "Cancel"
@@ -368,17 +398,31 @@ Page {
         hourMode: DateTime.TwentyFourHours
         onAccepted:
         {
-            result = hour + " h " + minute + " min " + second + " s"
             if (timeType == "initial")
                 if (player == "white")
-                    whiteInitialTime.text = result
+                {
+                    whiteInitialTime.hours = hour
+                    whiteInitialTime.minutes = minute
+                    whiteInitialTime.seconds = second
+                }
                 else
-                    blackInitialTime.text = result
-
+                {
+                    blackInitialTime.hours = hour
+                    blackInitialTime.minutes = minute
+                    blackInitialTime.seconds = second
+                }
             else if (player == "white")
-                    whiteAdditionalTime.text = result
+                {
+                    whiteAdditionalTime.hours = hour
+                    whiteAdditionalTime.minutes = minute
+                    whiteAdditionalTime.seconds = second
+                }
                 else
-                    blackAdditionalTime.text = result
+                {
+                    blackAdditionalTime.hours = hour
+                    blackAdditionalTime.minutes = minute
+                    blackAdditionalTime.seconds = second
+                }
 
         }
     }

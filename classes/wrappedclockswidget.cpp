@@ -23,6 +23,7 @@
 #include "wrappedclockswidget.h"
 #include "classes/timecontrol/hourglassclock.h"
 #include "classes/timecontrol/delayclock.h"
+#include <QDebug>
 
 
 WrappedClocksWidget::WrappedClocksWidget(QObject *parent) :
@@ -36,12 +37,14 @@ WrappedClocksWidget::WrappedClocksWidget(QObject *parent) :
 void WrappedClocksWidget::startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition)
 {
 
+    qDebug() << whiteInitialTime << "white initial time";
+
     deleteOldWidgets();
 
     pWhiteClock_ = new DelayClock (true,whiteAdditionalTime);
     pWhiteClock_->setTimeAvailable(whiteInitialTime);
 
-    pBlackClock_ = new DelayClock (false,blackInitialTime);
+    pBlackClock_ = new DelayClock (false,blackAdditionalTime);
     pBlackClock_->setTimeAvailable(blackInitialTime);
 
     pClocksWidget_ = new ClocksWidget(pWhiteClock_, pBlackClock_);

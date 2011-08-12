@@ -46,7 +46,9 @@ signals:
 
 public slots:
 
-    /*! Start a new game */
+    /*! Start a new game
+        Times are in milliseconds!
+    */
      void startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition);
     /*! Pause game */
      void pause();

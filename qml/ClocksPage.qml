@@ -30,6 +30,20 @@ Page
 {
     id: clocksPage
 
+    property int whiteInitialTime
+    property int blackInitialTime
+    property int whiteAdditionalTime
+    property int blackAdditionalTime
+    property int whiteTurnsPerAddition
+    property int blackTurnsPerAddition
+
+    onStatusChanged:
+    {
+        if (status == PageStatus.Activating)
+            wrappedClocksWidget.startGame("",whiteInitialTime,whiteAdditionalTime,whiteTurnsPerAddition,blackInitialTime,blackAdditionalTime,blackTurnsPerAddition)
+    }
+
+
 
     tools: ToolBarLayout
     {
@@ -41,20 +55,12 @@ Page
         }
     }
 
-    property int whiteInitialTime
-    property int blackInitialTime
-    property int whiteAdditionalTime
-    property int blackAdditionalTime
-    property int whiteTurnsPerAddition
-    property int blackTurnsPerAddition
 
 
 
     WrappedClocksWidget
     {
         id: wrappedClocksWidget
-        Component.onCompleted: startGame("",300,30,1,400,40,2)
-
     }
 
 
