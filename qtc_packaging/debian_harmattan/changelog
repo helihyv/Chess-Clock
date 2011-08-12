@@ -1,5 +1,19 @@
-chessclock (0.0.1) unstable; urgency=low
+chessclock (1.1.2-1) unstable; urgency=low
 
-  * Initial Release.
+  * Pauses the game when the application goes to background
+  * If an individual turn lasts 30 minutes the sreen is allowed to go blank	 
 
- -- Heli Hyvättinen <heli@unknown>  Fri, 01 Jul 2011 12:04:47 +0300
+ -- Heli Hyvättinen <heli.hyvattinen@kymp.net>  Wed, 13 Oct 2010 09:41:21 +0300
+
+chessclock (1.1.0-1) unstable; urgency=low
+
+  * Pause moved from menu to a button on clock screen
+  * Keeps the screen on during a ganme if not paused 
+
+ -- Heli Hyvättinen <heli.hyvattinen@kymp.net>  Mon, 27 Sep 2010 16:05:02 +0300
+
+chessclock (1.0.0-1) unstable; urgency=low
+
+  * Initial release
+  * 
+ -- Heli Hyvättinen <heli.hyvattinen@kymp.net>  Sun, 22 Aug 2010 16:01:01 +0300
