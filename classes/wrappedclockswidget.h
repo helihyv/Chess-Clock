@@ -29,12 +29,7 @@
 /*! A proxy for ClocksWidget for using it from QML
 
     @author Heli Hyvättinen
-    @date 2011-08-11
-
-
-    SOLVE:
-    Needed to create new ClocksWidget to
-    every new game.
+    @date 2011-08-12
 
   */
 
@@ -45,13 +40,20 @@ public:
     explicit WrappedClocksWidget(QObject *parent = 0);
     virtual ~WrappedClocksWidget();
 
-    Q_INVOKABLE void startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition);
-
     bool isPlayStarted();
 
 signals:
 
 public slots:
+
+    /*! Start a new game */
+     void startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition);
+    /*! Pause game */
+     void pause();
+     /*! End the game */
+     void stopPlay();
+     /*! Not to keep screen lit */
+     void saveScreen();
 
 private:
 

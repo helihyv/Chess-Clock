@@ -87,3 +87,21 @@ void WrappedClocksWidget::deleteOldWidgets()
     }
 }
 
+void WrappedClocksWidget::pause()
+{
+    if (pClocksWidget_)
+        pClocksWidget_->pause();
+}
+
+void WrappedClocksWidget::stopPlay()
+{
+    if (pClocksWidget_)
+        pClocksWidget_->stopPlay();
+}
+
+void WrappedClocksWidget::saveScreen()
+{
+    if (pClocksWidget_)
+        pClocksWidget_->saveScreen();
+}
+
