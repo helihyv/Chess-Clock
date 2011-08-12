@@ -37,23 +37,30 @@ WrappedClocksWidget::WrappedClocksWidget(QObject *parent) :
 void WrappedClocksWidget::startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition)
 {
 
-    qDebug() << whiteInitialTime << "white initial time";
+//    qDebug() << whiteInitialTime << "white initial time";
 
     deleteOldWidgets();
+
+//    qDebug() << "deleted old widgets";
 
     pWhiteClock_ = new DelayClock (true,whiteAdditionalTime);
     pWhiteClock_->setTimeAvailable(whiteInitialTime);
 
+//    qDebug() << "set white clock";
+
     pBlackClock_ = new DelayClock (false,blackAdditionalTime);
     pBlackClock_->setTimeAvailable(blackInitialTime);
 
+//    qDebug() << "set black clock";
+
     pClocksWidget_ = new ClocksWidget(pWhiteClock_, pBlackClock_);
+
 
 
     pClocksWidget_->setAttribute(Qt::WA_NoSystemBackground);
     setWidget(pClocksWidget_);
 
-
+//    qDebug() << "set clockswidget";
 }
 
  WrappedClocksWidget::~WrappedClocksWidget()
@@ -71,21 +78,23 @@ bool WrappedClocksWidget::isPlayStarted()
 
 void WrappedClocksWidget::deleteOldWidgets()
 {
+
+
     if (pClocksWidget_)
     {
-        delete pClocksWidget_;
+        pClocksWidget_->deleteLater();
         pClocksWidget_ = NULL;
     }
 
     if (pWhiteClock_)
     {
-        delete pWhiteClock_;
+        pWhiteClock_->deleteLater();
         pWhiteClock_ = NULL;
     }
 
     if (pBlackClock_)
     {
-        delete pBlackClock_;
+        pBlackClock_->deleteLater();
         pBlackClock_ = NULL;
     }
 }
