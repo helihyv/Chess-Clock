@@ -29,7 +29,17 @@ import ChessClocks 1.0
 Page
 {
     id: clocksPage
-    tools:  commonTools
+
+
+    tools: ToolBarLayout
+    {
+        ToolButton { iconSource: "toolbar-back"; onClicked: pageStack.pop() }
+        ToolButton
+        {
+            iconSource: ":/rc/pic/pausebutton.png"
+            onClicked: wrappedClocksWidget.pause()
+        }
+    }
 
     property int whiteInitialTime
     property int blackInitialTime
@@ -42,6 +52,7 @@ Page
 
     WrappedClocksWidget
     {
+        id: wrappedClocksWidget
         Component.onCompleted: startGame("",300,30,1,400,40,2)
 
     }
