@@ -34,22 +34,34 @@ Page
         ToolButton { iconSource: "toolbar-back"; onClicked: pageStack.pop() }
     }
 
+    Image {
+        id: logo
+        source: ":/rc/pic/logo.png"
+    }
+
 Text
 {
     id: title
     text: "Chess Clock"
     color: "white"
-    font.pointSize: 64
+    font.pointSize: 42
+
+    anchors.left: logo.right
+    anchors.leftMargin: 50
 }
 
 Text
 {
 
-    text: "text"
+    text: "© Arto Hyvättinen 2010 & Heli Hyvättinen 2011<p>Chess Clock is free software under the terms <br>of GNU General Public License 3 <p> Bugtracker and instructions at <br>http://chessclock.garage.maemo.org"
+
     color: "white"
-    font.pointSize: 32
+    font.pointSize: 22
+
+
     anchors.top: title.bottom
-    anchors.topMargin: 64
+    anchors.topMargin: 50
+    anchors.left: logo.right
 }
 
 }
