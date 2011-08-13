@@ -62,7 +62,6 @@ public slots:
     */
      void startGame(TimeControlType timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition);
 
-  //   void startNormalClockGame(int whiteInitialTime, int blackInitialTime);
      /*! Pause game */
      void pause();
      /*! End the game */

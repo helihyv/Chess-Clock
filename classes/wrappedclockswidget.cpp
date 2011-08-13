@@ -41,11 +41,8 @@ WrappedClocksWidget::WrappedClocksWidget(QObject *parent) :
 void WrappedClocksWidget::startGame(TimeControlType timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition)
 {
 
-   qDebug() << timeControl << " time control";
-
     deleteOldWidgets();
 
-//    qDebug() << "deleted old widgets";
 
     switch (timeControl)
     {
@@ -109,6 +106,26 @@ void WrappedClocksWidget::startGame(TimeControlType timeControl, int whiteInitia
 
             break;
 
+
+        default:
+
+        //QML has no type safety for enums (using int for real!)
+        //So there is possibility of getting invalid values if there is a bug in QML files
+
+        //Defaulting to normal clock
+
+
+        qDebug() << "Invalid time control type. Defaulting to Normal Clock.";
+
+        pWhiteClock_ = new ChessClockWidget (true);
+        pWhiteClock_->setTimeAvailable(whiteInitialTime);
+
+        pBlackClock_ = new ChessClockWidget (false);
+        pBlackClock_->setTimeAvailable(blackInitialTime);
+
+        break;
+
+
     }
 
 
@@ -117,7 +134,6 @@ void WrappedClocksWidget::startGame(TimeControlType timeControl, int whiteInitia
     pClocksWidget_->setAttribute(Qt::WA_NoSystemBackground);
     setWidget(pClocksWidget_);
 
-//    qDebug() << "set clockswidget";
 }
 
  WrappedClocksWidget::~WrappedClocksWidget()

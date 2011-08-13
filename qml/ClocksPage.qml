@@ -31,6 +31,7 @@ Page
     id: clocksPage
 
     property int timeControl //properties cannot be declared as enumerations in QML
+                             //...must be a valid enum from WrappedClocksWidget
     property int whiteInitialTime
     property int blackInitialTime
     property int whiteAdditionalTime
