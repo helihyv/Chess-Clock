@@ -43,8 +43,7 @@ SOURCES += main.cpp \
     classes/timecontrol/hourglassclock.cpp \
     classes/timecontrol/hourglasstimecontrol.cpp \
     classes/screenlitkeeper.cpp \
-    classes/wrappedclockswidget.cpp \
-    classes/clockswidgetplugin.cpp
+    classes/wrappedclockswidget.cpp
 
 HEADERS  += chessclockwindow.h \
     classes/turninformation.h \
@@ -67,8 +66,7 @@ HEADERS  += chessclockwindow.h \
     classes/timecontrol/hourglasstimecontrol.h \
     classes/timecontrol/hourglassclock.h \
     classes/screenlitkeeper.h \
-    classes/wrappedclockswidget.h \
-    classes/clockswidgetplugin.h
+    classes/wrappedclockswidget.h
 
 
 OTHER_FILES += \
@@ -85,7 +83,8 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/changelog \
     qml/ClocksPage.qml \
     qml/AboutPage.qml \
-    qml/ClocksWidgetWrapper.qml
+    qml/NewGameDialog.qml \
+    qml/TimePicker.qml
 
 RESOURCES += \
     res.qrc \
