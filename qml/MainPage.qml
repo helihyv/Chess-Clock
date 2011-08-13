@@ -24,6 +24,7 @@ import QtQuick 1.1
 import com.meego 1.0
 import QtQuick 1.0
 import com.nokia.extras 1.0
+import ChessClocks 1.0
 
 
 Page {
@@ -60,7 +61,9 @@ Page {
         ListElement
         {
             name: "Normal clock"
+            timeControl: WrappedClocksWidget.NormalClock
             askAddition: false
+            askTurnsPerAddition: false
             logoFile: ":/rc/pic/oldclock.png"
 
 
@@ -69,35 +72,45 @@ Page {
         ListElement
         {
             name: "Addition before"
+            timeControl: WrappedClocksWidget.AdditionBefore
             askAddition: true
+            askTurnsPerAddition: true
             logoFile: ":/rc/pic/addbefore.png"
         }
 
         ListElement
         {
             name: "Addition after"
+            timeControl: WrappedClocksWidget.AdditionAfter
             askAddition: true
+            askTurnsPerAddition: true
             logoFile: ":/rc/pic/addafter.png"
         }
 
         ListElement
         {
             name: "Delay"
+            timeControl: WrappedClocksWidget.Delay
             askAddition: true
+            askTurnsPerAddition: false
             logoFile: ":/rc/pic/pausebefore.png"
         }
 
         ListElement
         {
             name: "Delay after"
+            timeControl: WrappedClocksWidget.DelayAfter
             askAddition: true
+            askTurnsPerAddition: false
             logoFile: ":/rc/pic/pauseafter.png"
         }
 
         ListElement
         {
             name:"Hour Glass"
+            timeControl: WrappedClocksWidget.HourGlass
             askAddition: false
+            askTurnsPerAddition: false
             logoFile:":/rc/pic/hourglass.png"
         }
 
@@ -125,7 +138,14 @@ Page {
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {newGameDialog.name = name; newGameDialog.askAddition = askAddition; newGameDialog.open()}
+                    onClicked:
+                    {
+                        newGameDialog.name = name
+                        newGameDialog.timeControl = timeControl
+                        newGameDialog.askAddition = askAddition
+                        newGameDialog.askTurnsPerAddition = askTurnsPerAddition
+                        newGameDialog.open()
+                    }
                 }
             }
 
@@ -139,7 +159,14 @@ Page {
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {newGameDialog.name = name; newGameDialog.askAddition = askAddition; newGameDialog.open()}
+                    onClicked:
+                    {
+                        newGameDialog.name = name
+                        newGameDialog.timeControl = timeControl
+                        newGameDialog.askAddition = askAddition
+                        newGameDialog.askTurnsPerAddition = askTurnsPerAddition
+                        newGameDialog.open()
+                    }
                 }
             }
 
@@ -155,10 +182,13 @@ Page {
         id:newGameDialog
 
         property string name
+        property int timeControl //QML does not allow properties to be declared as enums...
         property bool askAddition
+        property bool askTurnsPerAddition
 
         onAccepted:
         {
+            clocksPage.timeControl = timeControl
             clocksPage.whiteInitialTime = 60*60*1000*whiteInitialTime.hours+60*1000*whiteInitialTime.minutes+1000*whiteInitialTime.seconds
             clocksPage.blackInitialTime = 60*60*1000*blackInitialTime.hours+60*1000*blackInitialTime.minutes+1000*blackInitialTime.seconds
             clocksPage.whiteAdditionalTime = 60*60*1000*whiteAdditionalTime.hours+60*1000*whiteAdditionalTime.minutes+1000*whiteAdditionalTime.seconds
@@ -345,14 +375,14 @@ Page {
                     text:  "Turns per addition"
                     color: "white"
                     font.pointSize: 26
-                    visible: newGameDialog.askAddition
+                    visible: newGameDialog.askTurnsPerAddition
 //                    anchors.top: additionalTimeText.bottom
 //                    anchors.horizontalCenter: parent.horizontalCenter
                 }
                 TextField
                 {
                     id: whiteTurnsPerAddition
-                    visible: newGameDialog.askAddition
+                    visible: newGameDialog.askTurnsPerAddition
 
                     inputMask: "D00"
                     text: "1"
@@ -363,7 +393,7 @@ Page {
                 TextField
                 {
                     id: blackTurnsPerAddition
-                    visible: newGameDialog.askAddition
+                    visible: newGameDialog.askTurnsPerAddition
                     enabled: !equalTimesSwitch.checked
                     inputMask: "D00"
                     text: "1"
@@ -427,6 +457,9 @@ Page {
 
         }
     }
+
+
+
 }
 
 

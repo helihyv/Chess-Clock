@@ -30,6 +30,7 @@ Page
 {
     id: clocksPage
 
+    property int timeControl //properties cannot be declared as enumerations in QML
     property int whiteInitialTime
     property int blackInitialTime
     property int whiteAdditionalTime
@@ -42,7 +43,7 @@ Page
     onStatusChanged:
     {
         if (status == PageStatus.Activating)
-            wrappedClocksWidget.startGame("",whiteInitialTime,whiteAdditionalTime,whiteTurnsPerAddition,blackInitialTime,blackAdditionalTime,blackTurnsPerAddition)
+            wrappedClocksWidget.startGame(timeControl,whiteInitialTime,whiteAdditionalTime,whiteTurnsPerAddition,blackInitialTime,blackAdditionalTime,blackTurnsPerAddition)
     }
 
 

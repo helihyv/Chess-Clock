@@ -23,6 +23,10 @@
 #include "wrappedclockswidget.h"
 #include "classes/timecontrol/hourglassclock.h"
 #include "classes/timecontrol/delayclock.h"
+#include "classes/timecontrol/delayafterclock.h"
+#include "classes/timecontrol/fischerclock.h"
+#include "classes/timecontrol/fischerafterclock.h"
+#include "classes/chessclockwidget.h"
 #include <QDebug>
 
 
@@ -34,28 +38,81 @@ WrappedClocksWidget::WrappedClocksWidget(QObject *parent) :
     pBlackClock_ = NULL;
 }
 
-void WrappedClocksWidget::startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition)
+void WrappedClocksWidget::startGame(TimeControlType timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition)
 {
 
-//    qDebug() << whiteInitialTime << "white initial time";
+   qDebug() << timeControl << " time control";
 
     deleteOldWidgets();
 
 //    qDebug() << "deleted old widgets";
 
-    pWhiteClock_ = new DelayClock (true,whiteAdditionalTime);
-    pWhiteClock_->setTimeAvailable(whiteInitialTime);
+    switch (timeControl)
+    {
+        case NormalClock:
 
-//    qDebug() << "set white clock";
+            pWhiteClock_ = new ChessClockWidget (true);
+            pWhiteClock_->setTimeAvailable(whiteInitialTime);
 
-    pBlackClock_ = new DelayClock (false,blackAdditionalTime);
-    pBlackClock_->setTimeAvailable(blackInitialTime);
+            pBlackClock_ = new ChessClockWidget (false);
+            pBlackClock_->setTimeAvailable(blackInitialTime);
 
-//    qDebug() << "set black clock";
+            break;
+
+        case AdditionBefore:
+
+            pWhiteClock_ = new FischerClock (true,whiteAdditionalTime,whiteTurnsPerAddition);
+            pWhiteClock_->setTimeAvailable(whiteInitialTime);
+
+            pBlackClock_ = new FischerClock (false,blackAdditionalTime,blackTurnsPerAddition);
+            pBlackClock_->setTimeAvailable(blackInitialTime);
+
+            break;
+
+        case AdditionAfter:
+
+            pWhiteClock_ = new FischerAfterClock (true,whiteAdditionalTime,whiteTurnsPerAddition);
+            pWhiteClock_->setTimeAvailable(whiteInitialTime);
+
+            pBlackClock_ = new FischerAfterClock (false,blackAdditionalTime,blackTurnsPerAddition);
+            pBlackClock_->setTimeAvailable(blackInitialTime);
+
+            break;
+
+        case Delay:
+
+            pWhiteClock_ = new DelayClock (true,whiteAdditionalTime);
+            pWhiteClock_->setTimeAvailable(whiteInitialTime);
+
+            pBlackClock_ = new DelayClock (false,blackAdditionalTime);
+            pBlackClock_->setTimeAvailable(blackInitialTime);
+
+            break;
+
+        case DelayAfter:
+
+            pWhiteClock_ = new DelayAfterClock (true,whiteAdditionalTime);
+            pWhiteClock_->setTimeAvailable(whiteInitialTime);
+
+            pBlackClock_ = new DelayAfterClock (false,blackAdditionalTime);
+            pBlackClock_->setTimeAvailable(blackInitialTime);
+
+            break;
+
+        case HourGlass:
+
+            pWhiteClock_ = new HourGlassClock (true);
+            pWhiteClock_->setTimeAvailable(whiteInitialTime);
+
+            pBlackClock_ = new HourGlassClock (false);
+            pBlackClock_->setTimeAvailable(blackInitialTime);
+
+            break;
+
+    }
+
 
     pClocksWidget_ = new ClocksWidget(pWhiteClock_, pBlackClock_);
-
-
 
     pClocksWidget_->setAttribute(Qt::WA_NoSystemBackground);
     setWidget(pClocksWidget_);

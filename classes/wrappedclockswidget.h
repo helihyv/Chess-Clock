@@ -36,11 +36,22 @@
 class WrappedClocksWidget : public QGraphicsProxyWidget
 {
     Q_OBJECT
+    Q_ENUMS (TimeControlType)
 public:
     explicit WrappedClocksWidget(QObject *parent = 0);
     virtual ~WrappedClocksWidget();
 
     bool isPlayStarted();
+
+    enum TimeControlType
+    {
+     NormalClock,
+     AdditionBefore,
+     AdditionAfter,
+     Delay,
+     DelayAfter,
+     HourGlass
+    };
 
 signals:
 
@@ -49,8 +60,10 @@ public slots:
     /*! Start a new game
         Times are in milliseconds!
     */
-     void startGame(QString timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition);
-    /*! Pause game */
+     void startGame(TimeControlType timeControl, int whiteInitialTime, int whiteAdditionalTime, int whiteTurnsPerAddition, int blackInitialTime, int blackAdditionalTime, int blackTurnsPerAddition);
+
+  //   void startNormalClockGame(int whiteInitialTime, int blackInitialTime);
+     /*! Pause game */
      void pause();
      /*! End the game */
      void stopPlay();
