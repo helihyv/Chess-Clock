@@ -168,7 +168,7 @@ void ClocksWidget::saveScreen()
 void ClocksWidget::mousePressEvent(QMouseEvent *event)
 {
 
-    qDebug() << "Mouse released";
+
     // To avoid double clicks
     // a) delay (default 1,2 secs) OR
     // b) distance more than 90 pixels in axis.
