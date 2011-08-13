@@ -29,6 +29,7 @@ import com.nokia.extras 1.0
 Page {
     id: mainPage
     tools: commonTools
+    orientationLock: PageOrientation.LockLandscape
 
 
 

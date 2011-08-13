@@ -37,6 +37,8 @@ Page
     property int whiteTurnsPerAddition
     property int blackTurnsPerAddition
 
+    orientationLock: PageOrientation.LockLandscape
+
     onStatusChanged:
     {
         if (status == PageStatus.Activating)

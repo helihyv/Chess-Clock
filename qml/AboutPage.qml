@@ -28,6 +28,7 @@ Page
 {
     id: aboutPage
 //    tools: commonTools
+    orientationLock: PageOrientation.LockLandscape
 
     tools: ToolBarLayout {
         ToolButton { iconSource: "toolbar-back"; onClicked: pageStack.pop() }
