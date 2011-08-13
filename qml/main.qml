@@ -52,7 +52,7 @@ PageStackWindow {
             MenuItem
             {
                 text: "Visit web page"
-              //  onClicked:
+                onClicked: Qt.openUrlExternally("http://chessclock.garage.maemo.org/")
             }
             MenuItem
             {
