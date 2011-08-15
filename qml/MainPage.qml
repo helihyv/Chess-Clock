@@ -279,7 +279,6 @@ Page {
 
                     text: {hours + " h " + minutes + " min " + seconds + " s"}
 
-                    onTextChanged: {if (equalTimesSwitch.checked) blackInitialTime.text = text}
 
                     MouseArea
                     {
@@ -339,7 +338,6 @@ Page {
 
                     text: hours + " h " + minutes + " min " + seconds + " s"
 
-                    onTextChanged: {if (equalTimesSwitch.checked) blackAdditionalTime.text = text}
 
                     MouseArea
                     {
@@ -379,26 +377,36 @@ Page {
 //                    anchors.top: additionalTimeText.bottom
 //                    anchors.horizontalCenter: parent.horizontalCenter
                 }
+
                 TextField
                 {
                     id: whiteTurnsPerAddition
                     visible: newGameDialog.askTurnsPerAddition
-
-                    inputMask: "D00"
+                    readOnly: true;
                     text: "1"
 
-                    onTextChanged: {if (equalTimesSwitch.checked) blackTurnsPerAddition.text = text}
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onClicked: {turnsDialog.player = "white";  turnsDialog.open()}
+                    }
+
                 }
 
-                TextField
-                {
-                    id: blackTurnsPerAddition
-                    visible: newGameDialog.askTurnsPerAddition
-                    enabled: !equalTimesSwitch.checked
-                    inputMask: "D00"
-                    text: "1"
-                }
+        TextField
+        {
+            id: blackTurnsPerAddition
+            visible: newGameDialog.askTurnsPerAddition
+            readOnly: true;
+            text: "1"
 
+            MouseArea
+            {
+                anchors.fill: parent
+                onClicked: {turnsDialog.player = "black";  turnsDialog.open()}
+            }
+
+        }
 
 
          }
@@ -430,6 +438,7 @@ Page {
         onAccepted:
         {
             if (timeType == "initial")
+            {
                 if (player == "white")
                 {
                     whiteInitialTime.hours = hour
@@ -442,6 +451,7 @@ Page {
                     blackInitialTime.minutes = minute
                     blackInitialTime.seconds = second
                 }
+            }
             else if (player == "white")
                 {
                     whiteAdditionalTime.hours = hour
@@ -460,6 +470,53 @@ Page {
 
 
 
+    TumblerColumn
+    {
+        id: turnsColumn
+        selectedIndex: 1
+        items: turnsList
+
+
+    }
+
+    ListModel
+    {
+        id: turnsList
+
+        Component.onCompleted:
+        {
+            for (var turn = 1; turn <= 99; turn++)
+                  {
+                     turnsList.append({"value" : turn});
+                  }
+
+        }
+
+    }
+
+
+    TumblerDialog
+    {
+        id: turnsDialog
+
+        property string player
+
+        titleText: "Choose turns per addition for " + player
+        acceptButtonText: "Ok"
+        rejectButtonText: "Cancel"
+
+        columns: [turnsColumn]
+
+        onAccepted:
+        {
+            if (player == "white")
+                whiteTurnsPerAddition.text = turnsColumn.selectedIndex+1
+            else if (player == "black")
+                blackTurnsPerAddition.text = turnsColumn.selectedIndex+1
+
+
+        }
+    }
 }
 
 
