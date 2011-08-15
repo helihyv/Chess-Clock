@@ -151,4 +151,10 @@ XB-Maemo-Icon-26: iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfA
 Homepage: http://chessclock.garage.maemo.org/
 XSBC-Bugtracker: https://garage.maemo.org/projects/chessclock/
 XSBC-Maemo-Display-Name: Chess Clock
- 
+XB-Maemo-Flags: visible
+XB-MeeGo-Desktop-Entry-Filename: chessclock
+XB-MeeGo-Desktop-Entry:
+ [Desktop Entry]
+ Type=Application
+ Icon=chessclock
+
