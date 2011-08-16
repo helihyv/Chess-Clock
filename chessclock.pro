@@ -83,8 +83,7 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/changelog \
     qml/ClocksPage.qml \
     qml/AboutPage.qml \
-    qml/NewGameDialog.qml \
-    qml/TimePicker.qml
+
 
 RESOURCES += \
     res.qrc \

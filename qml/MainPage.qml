@@ -177,7 +177,7 @@ Page {
 
 
 
-    Dialog
+    Sheet
     {
         id:newGameDialog
 
@@ -199,18 +199,25 @@ Page {
 
         }
 
-        title:Label
-        {
-            color:"white"
-            font.pointSize: 64
-            text: newGameDialog.name
-        }
+//        title:Label
+//        {
+//            color:"white"
+//            font.pointSize: 64
+//            text: newGameDialog.name
+//        }
 
+        acceptButtonText: "Start game"
+        rejectButtonText: "Cancel"
 
         content:
+
+
+
             Grid
             {
+//                anchors.top: rowRow.bottom
                 columns: 3
+
 
                 Row
                 {
@@ -221,8 +228,8 @@ Page {
 
                     Text
                     {
- //                     width: rowRow.width - rowRow.spacing - switchComponent.width - whiteSmall.width - blackSmall.width
- //                     height: switchComponent.height
+//                     width: rowRow.width - rowRow.spacing - switchComponent.width - whiteSmall.width - blackSmall.width
+//                     height: switchComponent.height
                         verticalAlignment: Text.AlignVCenter
                         text: "Equal times"
                         color: "white"
@@ -236,14 +243,18 @@ Page {
                         {
                             if (checked)
                             {
-                                blackInitialTime.text = whiteInitialTime.text
-                                blackAdditionalTime.text = whiteAdditionalTime.text
-                                blackTurnsPerAddition.text = whiteTurnsPerAddition.text
-
                             }
+
                         }
                     }
                 }
+
+
+                Item
+                {
+                    id: placeholder
+                }
+
                 Image
                 {
                     id: whiteSmall
@@ -408,21 +419,10 @@ Page {
 
         }
 
-
+    }
          }
 
 
-        buttons:
-
-            Button
-            {
-                id: bOk
-                text: "Start game"
-                y: 45
-
-                onClicked: newGameDialog.accept()
-            }
-    }
 
     TimePickerDialog
     {
