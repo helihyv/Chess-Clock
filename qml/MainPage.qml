@@ -189,12 +189,25 @@ Page {
         onAccepted:
         {
             clocksPage.timeControl = timeControl
+
             clocksPage.whiteInitialTime = 60*60*1000*whiteInitialTime.hours+60*1000*whiteInitialTime.minutes+1000*whiteInitialTime.seconds
-            clocksPage.blackInitialTime = 60*60*1000*blackInitialTime.hours+60*1000*blackInitialTime.minutes+1000*blackInitialTime.seconds
             clocksPage.whiteAdditionalTime = 60*60*1000*whiteAdditionalTime.hours+60*1000*whiteAdditionalTime.minutes+1000*whiteAdditionalTime.seconds
-            clocksPage.blackAdditionalTime = 60*60*1000*blackAdditionalTime.hours+60*1000*blackAdditionalTime.minutes+1000*blackAdditionalTime.seconds
             clocksPage.whiteTurnsPerAddition = whiteTurnsPerAddition.text
-            clocksPage.blackTurnsPerAddition = blackTurnsPerAddition.text
+
+            if (equalTimesSwitch.checked)
+            {
+                clocksPage.blackInitialTime = 60*60*1000*whiteInitialTime.hours+60*1000*whiteInitialTime.minutes+1000*whiteInitialTime.seconds
+                clocksPage.blackAdditionalTime = 60*60*1000*whiteAdditionalTime.hours+60*1000*whiteAdditionalTime.minutes+1000*whiteAdditionalTime.seconds
+                clocksPage.blackTurnsPerAddition = whiteTurnsPerAddition.text
+
+            }
+            else
+            {
+                clocksPage.blackInitialTime = 60*60*1000*blackInitialTime.hours+60*1000*blackInitialTime.minutes+1000*blackInitialTime.seconds
+                clocksPage.blackAdditionalTime = 60*60*1000*blackAdditionalTime.hours+60*1000*blackAdditionalTime.minutes+1000*blackAdditionalTime.seconds
+                clocksPage.blackTurnsPerAddition = blackTurnsPerAddition.text
+            }
+
             pageStack.push(clocksPage)
 
         }
