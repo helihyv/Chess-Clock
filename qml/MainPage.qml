@@ -212,12 +212,7 @@ Page {
 
         }
 
-//        title:Label
-//        {
-//            color:"white"
-//            font.pointSize: 64
-//            text: newGameDialog.name
-//        }
+
 
         acceptButtonText: "Start game"
         rejectButtonText: "Cancel"
@@ -226,18 +221,24 @@ Page {
 
 
 
-            Grid
+            Item
             {
-//                anchors.top: rowRow.bottom
-                columns: 3
 
+                Label
+                {
+                    id: title
+
+                    color:"white"
+                    font.pointSize: 64
+                    text: newGameDialog.name
+                }
 
                 Row
                 {
                     id: rowRow
                     spacing: 10
-//                    anchors.top: parent.top
-//                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    anchors.top: title.bottom
 
                     Text
                     {
@@ -263,20 +264,24 @@ Page {
                 }
 
 
-                Item
-                {
-                    id: placeholder
-                }
+
 
                 Image
                 {
                     id: whiteSmall
+
+                    anchors.top: rowRow.bottom
                     source: ":/rc/pic/white_small.png"
                 }
 
                 Image
                 {
+
                     id: blackSmall
+
+                    anchors.top: rowRow.bottom
+                    anchors.left: whiteSmall.right
+
                     source: ":/rc/pic/black_small.png"
                 }
 
@@ -286,16 +291,17 @@ Page {
                     text: "Initial time"
                     color: "white"
                     font.pointSize: 26
-//                    anchors.top: rowRow.bottom
-//                    anchors.horizontalCenter: parent.horizontalCenter
-//                    visible: true
-                }
+                    anchors.top: whiteSmall.bottom
+                  }
 
 
                 TextField
                 {
                     id: whiteInitialTime
                     readOnly: true
+
+                    anchors.top: whiteSmall.bottom
+                    anchors.left: initialTimeText.right
 
                     property int hours
                     property int minutes
@@ -320,6 +326,9 @@ Page {
 
                     readOnly: true
 
+                    anchors.top: whiteSmall.bottom
+                    anchors.left:  whiteInitialTime.right
+
                     property int hours
                     property int minutes
                     property int seconds
@@ -340,6 +349,9 @@ Page {
                 Text
                 {
                     id: additionalTimeText
+
+                    anchors.top: whiteInitialTime.bottom
+
                     text: "Additional time"
                     color: "white"
                     font.pointSize: 26
@@ -352,9 +364,12 @@ Page {
 
                 TextField
                 {
-                    id: whiteAdditionalTime
+                    id: whiteAdditionalTime                                      
                     visible:  newGameDialog.askAddition
                     readOnly: true
+
+                    anchors.top: whiteInitialTime.bottom
+                    anchors.left: additionalTimeText.right
 
                     property int hours
                     property int minutes
@@ -377,6 +392,9 @@ Page {
                     enabled: !equalTimesSwitch.checked
                     readOnly: true
 
+                    anchors.top: whiteInitialTime.bottom
+                    anchors.left: additionalTimeText.right
+
                     property int hours
                     property int minutes
                     property int seconds
@@ -388,18 +406,18 @@ Page {
                         anchors.fill: parent
                         onClicked: {timePicker.timeType = "additional";  timePicker.player = "black"; timePicker.open()}
                     }
-        }
 
 
+                }
 
                 Text
                 {
+                    id: turnsPerAdditionText
                     text:  "Turns per addition"
                     color: "white"
                     font.pointSize: 26
                     visible: newGameDialog.askTurnsPerAddition
-//                    anchors.top: additionalTimeText.bottom
-//                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: additionalTimeText.bottom
                 }
 
                 TextField
@@ -407,6 +425,10 @@ Page {
                     id: whiteTurnsPerAddition
                     visible: newGameDialog.askTurnsPerAddition
                     readOnly: true;
+
+                    anchors.top: additionalTimeText.bottom
+                    anchors.left: turnsPerAdditionText.right
+
                     text: "1"
 
                     MouseArea
@@ -417,23 +439,27 @@ Page {
 
                 }
 
-        TextField
-        {
-            id: blackTurnsPerAddition
-            visible: newGameDialog.askTurnsPerAddition
-            readOnly: true;
-            text: "1"
+                TextField
+                {
+                    id: blackTurnsPerAddition
+                    visible: newGameDialog.askTurnsPerAddition
+                    readOnly: true;
 
-            MouseArea
-            {
-                anchors.fill: parent
-                onClicked: {turnsDialog.player = "black";  turnsDialog.open()}
+                    anchors.top: additionalTimeText.bottom
+                    anchors.right: whiteTurnsPerAddition.left
+
+                    text: "1"
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onClicked: {turnsDialog.player = "black";  turnsDialog.open()}
+                    }
+
+                }
+
             }
-
         }
-
-    }
-         }
 
 
 
