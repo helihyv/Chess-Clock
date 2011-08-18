@@ -36,6 +36,8 @@ PageStackWindow {
 
     ClocksPage{id: clocksPage}
 
+    NewGameDialogPage{id: newGameDialogPage}
+
     ToolBarLayout {
         id: commonTools
         visible: true

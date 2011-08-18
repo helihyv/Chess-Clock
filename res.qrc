@@ -4,5 +4,6 @@
         <file>qml/MainPage.qml</file>
         <file>qml/ClocksPage.qml</file>
         <file>qml/AboutPage.qml</file>
+        <file>qml/NewGameDialogPage.qml</file>
     </qresource>
 </RCC>
