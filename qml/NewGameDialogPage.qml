@@ -30,13 +30,18 @@ import ChessClocks 1.0
 Page
 {
     id: newGameDialogPage
-    tools: commonTools
+
     orientationLock: PageOrientation.LockLandscape
 
     property string name
     property int timeControl //QML does not allow properties to be declared as enums...
     property bool askAddition
     property bool askTurnsPerAddition
+
+    tools: ToolBarLayout
+    {
+        ToolButton { iconSource: "toolbar-back"; onClicked: pageStack.pop() }
+    }
 
 
 
@@ -46,7 +51,7 @@ Page
 
                 color:"white"
                 font.pointSize: 64
-                text: newGameDialog.name
+                text: newGameDialogPage.name
             }
 
             Row
@@ -138,7 +143,7 @@ Page
             TextField
             {
                 id: blackInitialTime
-                enabled: !equalTimesSwitch.checked
+                visible: !equalTimesSwitch.checked
 
                 readOnly: true
 
@@ -204,8 +209,7 @@ Page
             TextField
             {
                 id: blackAdditionalTime
-                visible: newGameDialogPage.askAddition
-                enabled: !equalTimesSwitch.checked
+                visible: newGameDialogPage.askAddition && !equalTimesSwitch.checked
                 readOnly: true
 
                 anchors.top: whiteInitialTime.bottom
@@ -258,7 +262,7 @@ Page
             TextField
             {
                 id: blackTurnsPerAddition
-                visible: newGameDialogPage.askTurnsPerAddition
+                visible: newGameDialogPage.askTurnsPerAddition && !equalTimesSwitch.checked
                 readOnly: true;
 
                 anchors.top: whiteAdditionalTime.bottom
