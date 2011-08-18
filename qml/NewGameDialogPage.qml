@@ -27,7 +27,8 @@ import com.nokia.extras 1.0
 import ChessClocks 1.0
 
 
-Page {
+Page
+{
     id: newGameDialogPage
     tools: commonTools
     orientationLock: PageOrientation.LockLandscape
@@ -170,7 +171,7 @@ Page {
                 text: "Additional time"
                 color: "white"
                 font.pointSize: 26
-                visible: newGameDialog.askAddition
+                visible: newGameDialogPage.askAddition
 //                    anchors.top: initialTimeText.bottom
 //                    anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -180,7 +181,7 @@ Page {
             TextField
             {
                 id: whiteAdditionalTime
-                visible:  newGameDialog.askAddition
+                visible:  newGameDialogPage.askAddition
                 readOnly: true
 
                 anchors.top: whiteInitialTime.bottom
@@ -203,12 +204,12 @@ Page {
             TextField
             {
                 id: blackAdditionalTime
-                visible: newGameDialog.askAddition
+                visible: newGameDialogPage.askAddition
                 enabled: !equalTimesSwitch.checked
                 readOnly: true
 
                 anchors.top: whiteInitialTime.bottom
-                anchors.left: additionalTimeText.right
+                anchors.left: whiteAdditionalTime.right
 
                 property int hours
                 property int minutes
@@ -231,17 +232,17 @@ Page {
                 text:  "Turns per addition"
                 color: "white"
                 font.pointSize: 26
-                visible: newGameDialog.askTurnsPerAddition
-                anchors.top: additionalTimeText.bottom
+                visible: newGameDialogPage.askTurnsPerAddition
+                anchors.top: whiteAdditionalTime.bottom
             }
 
             TextField
             {
                 id: whiteTurnsPerAddition
-                visible: newGameDialog.askTurnsPerAddition
+                visible: newGameDialogPage.askTurnsPerAddition
                 readOnly: true;
 
-                anchors.top: additionalTimeText.bottom
+                anchors.top: whiteAdditionalTime.bottom
                 anchors.left: turnsPerAdditionText.right
 
                 text: "1"
@@ -257,11 +258,11 @@ Page {
             TextField
             {
                 id: blackTurnsPerAddition
-                visible: newGameDialog.askTurnsPerAddition
+                visible: newGameDialogPage.askTurnsPerAddition
                 readOnly: true;
 
-                anchors.top: additionalTimeText.bottom
-                anchors.right: whiteTurnsPerAddition.left
+                anchors.top: whiteAdditionalTime.bottom
+                anchors.left: whiteTurnsPerAddition.right
 
                 text: "1"
 
@@ -278,6 +279,9 @@ Page {
             {
                 id: okButton
                 text:  "Start game"
+
+                anchors.top: whiteTurnsPerAddition.bottom
+
                 onClicked:
                 {
                 clocksPage.timeControl = timeControl

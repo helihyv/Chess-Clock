@@ -83,8 +83,7 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/changelog \
     qml/ClocksPage.qml \
     qml/AboutPage.qml \
-    qml/NewGameDialogPage.qml \
-    qml/NewgamedialogPage.qml
+    qml/NewGameDialogPage.qml
 
 
 RESOURCES += \
