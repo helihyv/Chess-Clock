@@ -78,6 +78,24 @@ Page
                     {
                         if (checked)
                         {
+                            whiteSmall.anchors.horizontalCenter = undefined
+                            whiteSmall.anchors.right = whiteInitialTime.horizontalCenter
+
+                            blackSmall.anchors.horizontalCenter = undefined
+                            blackSmall.anchors.left = whiteInitialTime.horizontalCenter
+
+
+                        }
+
+                        else
+                        {
+
+                            whiteSmall.anchors.right = undefined
+                            whiteSmall.anchors.horizontalCenter = whiteInitialTime.horizontalCenter
+
+                            blackSmall.anchors.left = undefined
+                            blackSmall.anchors.horizontalCenter = blackInitialTime.horizontalCenter
+
                         }
 
                     }
@@ -92,7 +110,16 @@ Page
                 id: whiteSmall
 
                 anchors.top: rowRow.bottom
+
                 source: ":/rc/pic/white_small.png"
+
+                Component.onCompleted:
+                {
+                    if (equalTimesSwitch.checked)
+                        anchors.right = whiteInitialTime.horizontalCenter
+                    else
+                        anchors.horizontalCenter = whiteInitialTime.horizontalCenter
+                }
             }
 
             Image
@@ -101,9 +128,17 @@ Page
                 id: blackSmall
 
                 anchors.top: rowRow.bottom
-                anchors.left: whiteSmall.right
+
 
                 source: ":/rc/pic/black_small.png"
+
+                Component.onCompleted:
+                {
+                    if (equalTimesSwitch.checked)
+                        anchors.left = whiteInitialTime.horizontalCenter
+                    else
+                        anchors.horizontalCenter = blackInitialTime.horizontalCenter
+                }
             }
 
             Text
@@ -285,6 +320,7 @@ Page
                 text:  "Start game"
 
                 anchors.top: whiteTurnsPerAddition.bottom
+                anchors.right: parent.right
 
                 onClicked:
                 {
