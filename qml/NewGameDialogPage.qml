@@ -45,12 +45,14 @@ Page
 
 
 
-           Label
+           Text
             {
                 id: title
 
+                anchors.horizontalCenter: parent.horizontalCenter
+
                 color:"white"
-                font.pointSize: 64
+                font.pointSize: 26
                 text: newGameDialogPage.name
             }
 
@@ -147,7 +149,7 @@ Page
                 text: "Initial time"
                 color: "white"
                 font.pointSize: 26
-                anchors.top: whiteSmall.bottom
+                anchors.verticalCenter: whiteInitialTime.verticalCenter
               }
 
 
@@ -157,7 +159,7 @@ Page
                 readOnly: true
 
                 anchors.top: whiteSmall.bottom
-                anchors.left: initialTimeText.right
+                anchors.left: whiteTurnsPerAddition.left
 
                 property int hours
                 property int minutes
@@ -183,7 +185,7 @@ Page
                 readOnly: true
 
                 anchors.top: whiteSmall.bottom
-                anchors.left:  whiteInitialTime.right
+                anchors.left:  blackTurnsPerAddition.left
 
                 property int hours
                 property int minutes
@@ -192,11 +194,10 @@ Page
                 text: hours + " h " + minutes + " min " + seconds + " s"
 
 
-
                 MouseArea
                 {
-                anchors.fill: parent
-                onClicked: {timePicker.timeType = "initial";  timePicker.player = "black"; timePicker.open()}
+                    anchors.fill: parent
+                    onClicked: {timePicker.timeType = "initial";  timePicker.player = "black"; timePicker.open()}
                 }
             }
 
@@ -206,7 +207,7 @@ Page
             {
                 id: additionalTimeText
 
-                anchors.top: whiteInitialTime.bottom
+                anchors.verticalCenter: whiteAdditionalTime.verticalCenter
 
                 text: "Additional time"
                 color: "white"
@@ -225,8 +226,9 @@ Page
                 readOnly: true
 
                 anchors.top: whiteInitialTime.bottom
-                anchors.left: additionalTimeText.right
-
+                anchors.topMargin: 15
+  //              anchors.left: additionalTimeText.right
+                anchors.left: whiteTurnsPerAddition.left
                 property int hours
                 property int minutes
                 property int seconds
@@ -247,8 +249,8 @@ Page
                 visible: newGameDialogPage.askAddition && !equalTimesSwitch.checked
                 readOnly: true
 
-                anchors.top: whiteInitialTime.bottom
-                anchors.left: whiteAdditionalTime.right
+                anchors.top: whiteAdditionalTime.top
+                anchors.left: blackTurnsPerAddition.left
 
                 property int hours
                 property int minutes
@@ -272,7 +274,7 @@ Page
                 color: "white"
                 font.pointSize: 26
                 visible: newGameDialogPage.askTurnsPerAddition
-                anchors.top: whiteAdditionalTime.bottom
+                anchors.verticalCenter: whiteTurnsPerAddition.verticalCenter
             }
 
             TextField
@@ -282,7 +284,9 @@ Page
                 readOnly: true;
 
                 anchors.top: whiteAdditionalTime.bottom
+                anchors.topMargin: 15
                 anchors.left: turnsPerAdditionText.right
+                anchors.leftMargin: 25
 
                 text: "1"
 
@@ -300,8 +304,9 @@ Page
                 visible: newGameDialogPage.askTurnsPerAddition && !equalTimesSwitch.checked
                 readOnly: true;
 
-                anchors.top: whiteAdditionalTime.bottom
+                anchors.top: whiteTurnsPerAddition.top
                 anchors.left: whiteTurnsPerAddition.right
+                anchors.leftMargin: 25
 
                 text: "1"
 
@@ -320,6 +325,7 @@ Page
                 text:  "Start game"
 
                 anchors.top: whiteTurnsPerAddition.bottom
+                anchors.topMargin: 15
                 anchors.right: parent.right
 
                 onClicked:
