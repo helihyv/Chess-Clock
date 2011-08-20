@@ -56,8 +56,12 @@ Page
         {
             flat:  true //undocumented ToolButton feature: removes button background (showing just the icon)
             iconSource: ":/rc/pic/pausebutton.png"
-            onClicked: wrappedClocksWidget.pause()
+            onClicked:
+            {
+                wrappedClocksWidget.pause()
+            }
         }
+        Item{}  //placeholder needed to put pause button in the middle
     }
 
 
