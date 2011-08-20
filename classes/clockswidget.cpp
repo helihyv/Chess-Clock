@@ -47,6 +47,12 @@ ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent
     black_ = black;
 
     // SET UP UI
+
+
+    //Harmattan specific: brute force the width to a working value. (Adding a stretch didn't work.)
+
+    setMinimumWidth(860);
+
     // Make layout for clocks
     QHBoxLayout* clockLayout = new QHBoxLayout;
     clockLayout->addWidget(white_ );
