@@ -52,15 +52,16 @@ Page
     tools: ToolBarLayout
     {
         ToolIcon { iconId: "toolbar-back"; onClicked: pageStack.pop() }
-        ToolButton
+
+        ToolIcon
         {
-            flat:  true //undocumented ToolButton feature: removes button background (showing just the icon)
-            iconSource: ":/rc/pic/pausebutton.png"
+            iconId: "toolbar-mediacontrol-pause"
             onClicked:
-            {
-                wrappedClocksWidget.pause()
-            }
+                {
+                    wrappedClocksWidget.pause()
+                }
         }
+
         Item{}  //placeholder needed to put pause button in the middle
     }
 
