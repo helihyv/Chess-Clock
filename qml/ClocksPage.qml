@@ -51,7 +51,7 @@ Page
 
     tools: ToolBarLayout
     {
-        ToolButton { iconSource: "toolbar-back"; onClicked: pageStack.pop() }
+        ToolIcon { iconId: "toolbar-back"; onClicked: pageStack.pop() }
         ToolButton
         {
             iconSource: ":/rc/pic/pausebutton.png"
