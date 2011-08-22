@@ -22,6 +22,7 @@
 #include <QtGui/QApplication>
 #include <QtDeclarative>
 #include "classes/wrappedclockswidget.h"
+#include "classes/settings.h"
 
 
 int main(int argc, char *argv[])
@@ -30,6 +31,7 @@ int main(int argc, char *argv[])
     app.setStyleSheet("* {color: white}");
 
     qmlRegisterType<WrappedClocksWidget>("ChessClocks", 1, 0, "WrappedClocksWidget");
+    qmlRegisterType<Settings>("ChessClocks", 1, 0, "Settings");
 
     QDeclarativeView view;
     view.setSource(QUrl("qrc:/qml/main.qml"));

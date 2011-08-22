@@ -38,6 +38,12 @@ Page
     property bool askAddition
     property bool askTurnsPerAddition
 
+    property int test
+
+    Settings {id: settings}
+    Component.onCompleted:
+    {test = settings.value("test") }
+
     tools: ToolBarLayout
     {
         ToolIcon { iconId: "toolbar-back"; onClicked: pageStack.pop() }
