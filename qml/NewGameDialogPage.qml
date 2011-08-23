@@ -171,7 +171,15 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {timePicker.timeType = "initial";  timePicker.player = "white"; timePicker.open()}
+                    onClicked:
+                    {
+                        timePicker.timeType = "initial"
+                        timePicker.player = "white"
+                        timePicker.hour = parent.hours
+                        timePicker.minute = parent.minutes
+                        timePicker.second = parent.seconds
+                        timePicker.open()
+                    }
                 }
             }
 
@@ -197,7 +205,15 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {timePicker.timeType = "initial";  timePicker.player = "black"; timePicker.open()}
+                    onClicked:
+                    {
+                        timePicker.timeType = "initial"
+                        timePicker.player = "black"
+                        timePicker.hour = parent.hours
+                        timePicker.minute = parent.minutes
+                        timePicker.second = parent.seconds
+                        timePicker.open()
+                    }
                 }
             }
 
@@ -239,7 +255,15 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {timePicker.timeType = "additional";  timePicker.player = "white"; timePicker.open()}
+                    onClicked:
+                    {
+                        timePicker.timeType = "additional"
+                        timePicker.player = "white";
+                        timePicker.hour = parent.hours
+                        timePicker.minute = parent.minutes
+                        timePicker.second = parent.seconds
+                        timePicker.open()
+                    }
                 }
             }
 
@@ -261,7 +285,15 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {timePicker.timeType = "additional";  timePicker.player = "black"; timePicker.open()}
+                    onClicked:
+                    {
+                        timePicker.timeType = "additional"
+                        timePicker.player = "black"
+                        timePicker.hour = parent.hours
+                        timePicker.minute = parent.minutes
+                        timePicker.second = parent.seconds
+                        timePicker.open()
+                    }
                 }
 
 
@@ -293,7 +325,12 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {turnsDialog.player = "white";  turnsDialog.open()}
+                    onClicked:
+                    {
+                        turnsDialog.player = "white"
+                        turnsColumn.selectedIndex = parent.text
+                        turnsDialog.open()
+                    }
                 }
 
             }
@@ -313,7 +350,12 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {turnsDialog.player = "black";  turnsDialog.open()}
+                    onClicked:
+                    {
+                        turnsDialog.player = "black"
+                        turnsColumn.selectedIndex = parent.text
+                        turnsDialog.open()
+                    }
                 }
 
             }
