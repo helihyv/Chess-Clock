@@ -161,7 +161,7 @@ Page
                 anchors.top: whiteSmall.bottom
                 anchors.left: whiteTurnsPerAddition.left
 
-                property int hours: 1
+                property int hours: 0
                 property int minutes: 30
                 property int seconds: 0
 
@@ -187,7 +187,7 @@ Page
                 anchors.top: whiteSmall.bottom
                 anchors.left:  blackTurnsPerAddition.left
 
-                property int hours: 1
+                property int hours: 0
                 property int minutes: 30
                 property int seconds: 0
 
