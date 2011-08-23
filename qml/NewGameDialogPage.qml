@@ -161,9 +161,9 @@ Page
                 anchors.top: whiteSmall.bottom
                 anchors.left: whiteTurnsPerAddition.left
 
-                property int hours
-                property int minutes
-                property int seconds
+                property int hours: 1
+                property int minutes: 30
+                property int seconds: 0
 
                 text: {hours + " h " + minutes + " min " + seconds + " s"}
 
@@ -187,9 +187,9 @@ Page
                 anchors.top: whiteSmall.bottom
                 anchors.left:  blackTurnsPerAddition.left
 
-                property int hours
-                property int minutes
-                property int seconds
+                property int hours: 1
+                property int minutes: 30
+                property int seconds: 0
 
                 text: hours + " h " + minutes + " min " + seconds + " s"
 
@@ -229,9 +229,9 @@ Page
                 anchors.topMargin: 15
   //              anchors.left: additionalTimeText.right
                 anchors.left: whiteTurnsPerAddition.left
-                property int hours
-                property int minutes
-                property int seconds
+                property int hours: 0
+                property int minutes: 0
+                property int seconds: 30
 
                 text: hours + " h " + minutes + " min " + seconds + " s"
 
@@ -252,9 +252,9 @@ Page
                 anchors.top: whiteAdditionalTime.top
                 anchors.left: blackTurnsPerAddition.left
 
-                property int hours
-                property int minutes
-                property int seconds
+                property int hours: 0
+                property int minutes: 0
+                property int seconds: 30
 
                 text: hours + " h " + minutes + " min " + seconds + " s"
 
