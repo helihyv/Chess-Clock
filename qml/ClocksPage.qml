@@ -51,7 +51,14 @@ Page
 
     tools: ToolBarLayout
     {
-        ToolIcon { iconId: "toolbar-back"; onClicked: pageStack.pop() }
+        ToolIcon
+        {
+            iconId: "toolbar-back"
+            onClicked:
+            {
+                confirmationDialog.open()
+            }
+        }
 
         ToolIcon
         {
@@ -74,5 +81,15 @@ Page
     }
 
 
+    QueryDialog
+    {
+        id: confirmationDialog
+        titleText: "Quit?"
+        message:  "Are you sure you want to quit the game?"
+        acceptButtonText: "Quit"
+        rejectButtonText: "Continue play"
 
+        onAccepted: pageStack.pop()
+
+    }
 }
