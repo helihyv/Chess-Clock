@@ -56,6 +56,7 @@ Page
             iconId: "toolbar-back"
             onClicked:
             {
+                wrappedClocksWidget.pause()
                 confirmationDialog.open()
             }
         }
@@ -89,7 +90,10 @@ Page
         acceptButtonText: "Quit"
         rejectButtonText: "Continue play"
 
-        onAccepted: pageStack.pop()
+        onAccepted:
+        {
+           pageStack.pop()
+        }
 
     }
 }
