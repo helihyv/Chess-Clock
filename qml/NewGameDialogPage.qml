@@ -328,8 +328,10 @@ Page
                     onClicked:
                     {
                         turnsDialog.player = "white"
-                        turnsColumn.selectedIndex = parent.text
                         turnsDialog.open()
+                        turnsColumn.selectedIndex = parent.text-1 //Needs to be after open(),  or gets overridden by the previous chosen value
+
+
                     }
                 }
 
@@ -353,8 +355,8 @@ Page
                     onClicked:
                     {
                         turnsDialog.player = "black"
-                        turnsColumn.selectedIndex = parent.text
                         turnsDialog.open()
+                        turnsColumn.selectedIndex = parent.text-1 //Needs to be after open(),  or gets overridden by the previous chosen value
                     }
                 }
 
@@ -450,7 +452,6 @@ TimePickerDialog
 TumblerColumn
 {
     id: turnsColumn
-    selectedIndex: 1
     items: turnsList
 
 
