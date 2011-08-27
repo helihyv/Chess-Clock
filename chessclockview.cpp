@@ -14,28 +14,16 @@ bool ChessClockView::event(QEvent *event)
 
     if (event->type() == QEvent::WindowDeactivate)
     {
-        QDeclarativeContext * pContext = new QDeclarativeContext (rootContext());
-        if (pContext)
-        {
-
-//            pContext->setContextProperty("applicationActive", false);
-            qDebug() << "Window deactivated";
-
-//            QDeclarativeEngine * pEngine = engine();
-//            engine()->
-        }
-
         QGraphicsObject *pObject = rootObject();
-        pObject->setProperty("applicationActive",false);
+        if (pObject)
+            pObject->setProperty("applicationActive",false);
     }
 
     else if (event->type() == QEvent::WindowActivate)
     {
-        QDeclarativeContext * pContext = rootContext();
-        if (pContext)
-        {
-            pContext->setContextProperty("clocksPage.applicationActive", true);
-        }
+        QGraphicsObject *pObject = rootObject();
+        if (pObject)
+            pObject->setProperty("applicationActive",true);
     }
 
 

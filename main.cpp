@@ -34,6 +34,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     ChessClockView view;
     view.setSource(QUrl("qrc:/qml/main.qml"));
+
     view.showFullScreen();
     return app.exec();
 }

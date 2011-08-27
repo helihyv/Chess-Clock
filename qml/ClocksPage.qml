@@ -48,7 +48,13 @@ Page
             wrappedClocksWidget.startGame(timeControl,whiteInitialTime,whiteAdditionalTime,whiteTurnsPerAddition,blackInitialTime,blackAdditionalTime,blackTurnsPerAddition)
     }
 
+    property bool appActive: applicationActive
 
+    onAppActiveChanged:
+    {
+        if (appActive == false)
+            wrappedClocksWidget.pause()
+    }
 
     tools: ToolBarLayout
     {
