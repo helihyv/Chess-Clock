@@ -109,18 +109,24 @@ Page {
         id: menuList
 
         anchors.left: bigLogo.right
+        anchors.leftMargin: 40
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 
+        spacing:  10
 
          model: menuModel
 
          delegate: Row
          {
+
+
             Image
             {
                 source: logoFile
+                width:  40
+                height: 40
 
                 MouseArea
                 {
@@ -138,7 +144,7 @@ Page {
             Text
             {
                 text: name
-                font.pointSize: 40
+                font.pointSize: 38
                 anchors.topMargin: 12
                 color: "white"
 
