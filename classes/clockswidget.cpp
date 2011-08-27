@@ -61,7 +61,11 @@ ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent
     // Pause information label
     pauseLabel_ = new QLabel( tr("<font color=yellow>Paused. Touch to continue.</font>"),this);
     pauseLabel_->setFont( QFont("Helvetica",25));
-    pauseLabel_->setAlignment( Qt::AlignCenter);
+ //   For Fremantle:
+//    pauseLabel_->setAlignment( Qt::AlignCenter);
+ //For Harmattan (QML)
+        pauseLabel_->setAlignment( Qt::AlignHCenter | Qt::AlignTop);
+
     pauseLabel_->setVisible( false );
 
     // Welcome label for first touch
