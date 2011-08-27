@@ -29,9 +29,11 @@ PageStackWindow {
 
     property bool applicationActive: true //This is supposed to be set from C++
 
-    onApplicationActiveChanged:
+    property bool appActive: applicationActive
+
+    onAppActiveChanged:
     {
-        if (applicationActive == false)
+        if (appActive == false)
             wrappedClocksWidget.pause()
             theme.inverted = false
     }
