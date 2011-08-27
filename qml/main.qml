@@ -26,6 +26,17 @@ import com.meego 1.0
 PageStackWindow {
     id: appWindow
 
+
+    property bool applicationActive: true //This is supposed to be set from C++
+
+    onApplicationActiveChanged:
+    {
+        if (applicationActive == false)
+            wrappedClocksWidget.pause()
+            theme.inverted = false
+    }
+
+
     Component.onCompleted: theme.inverted = true
 
     initialPage: mainPage

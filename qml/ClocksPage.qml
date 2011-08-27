@@ -30,7 +30,6 @@ Page
 {
     id: clocksPage
 
-    property bool applicationActive: true //This is supposed to be set from C++
 
     property int timeControl //properties cannot be declared as enumerations in QML
                              //...must be a valid enum from WrappedClocksWidget
@@ -49,13 +48,6 @@ Page
             wrappedClocksWidget.startGame(timeControl,whiteInitialTime,whiteAdditionalTime,whiteTurnsPerAddition,blackInitialTime,blackAdditionalTime,blackTurnsPerAddition)
     }
 
-    onApplicationActiveChanged:
-    {
-        if (applicationActive == false)
-            wrappedClocksWidget.pause()
-
-
-    }
 
 
     tools: ToolBarLayout
