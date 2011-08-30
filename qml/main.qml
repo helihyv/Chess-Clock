@@ -26,6 +26,10 @@ import com.meego 1.0
 PageStackWindow {
     id: appWindow
 
+
+    property bool applicationActive: true //This is supposed to be set from C++
+
+
     Component.onCompleted: theme.inverted = true
 
     initialPage: mainPage

@@ -22,6 +22,7 @@
 #include <QtGui/QApplication>
 #include <QtDeclarative>
 #include "classes/wrappedclockswidget.h"
+#include "chessclockview.h"
 
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
@@ -31,8 +32,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     qmlRegisterType<WrappedClocksWidget>("ChessClocks", 1, 0, "WrappedClocksWidget");
 
-    QDeclarativeView view;
+    ChessClockView view;
     view.setSource(QUrl("qrc:/qml/main.qml"));
+
     view.showFullScreen();
     return app.exec();
 }

@@ -30,6 +30,7 @@ Page
 {
     id: clocksPage
 
+
     property int timeControl //properties cannot be declared as enumerations in QML
                              //...must be a valid enum from WrappedClocksWidget
     property int whiteInitialTime
@@ -47,7 +48,13 @@ Page
             wrappedClocksWidget.startGame(timeControl,whiteInitialTime,whiteAdditionalTime,whiteTurnsPerAddition,blackInitialTime,blackAdditionalTime,blackTurnsPerAddition)
     }
 
+    property bool appActive: applicationActive
 
+    onAppActiveChanged:
+    {
+        if (appActive == false)
+            wrappedClocksWidget.pause()
+    }
 
     tools: ToolBarLayout
     {
@@ -71,6 +78,8 @@ Page
         }
 
         Item{}  //placeholder needed to put pause button in the middle
+
+
     }
 
 
