@@ -43,8 +43,6 @@ HEADERS  += \
     classes/chessclock.h \
     classes/chessclockwidget.h \
     classes/clockswidget.h \
-    classes/timecontrol.h \
-    classes/timecontrol/notimecontrol.h \
     classes/timecontrol/fischerclock.h \
     classes/timecontrol/fischerafterclock.h \
     classes/timecontrol/delayclock.h \
