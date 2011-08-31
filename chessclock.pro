@@ -25,48 +25,30 @@ MOBILITY += systeminfo
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-        chessclockwindow.cpp \
     classes/turninformation.cpp \
     classes/chessclock.cpp \
     classes/chessclockwidget.cpp \
     classes/clockswidget.cpp \
-    classes/welcomescreenwidget.cpp \
-    classes/timecontrol/basicdialog.cpp \
-    classes/timecontrol/notimecontrol.cpp \
-    classes/startwidget.cpp \
-    classes/timecontrol/fischertimecontrol.cpp \
     classes/timecontrol/fischerclock.cpp \
     classes/timecontrol/fischerafterclock.cpp \
-    classes/timecontrol/fischeraftertimecontrol.cpp \
     classes/timecontrol/delayclock.cpp \
-    classes/timecontrol/delaytimecontrol.cpp \
     classes/timecontrol/delayafterclock.cpp \
-    classes/timecontrol/delayaftertimecontrol.cpp \
     classes/timecontrol/hourglassclock.cpp \
-    classes/timecontrol/hourglasstimecontrol.cpp \
     classes/screenlitkeeper.cpp \
     classes/wrappedclockswidget.cpp \
     chessclockview.cpp
 
-HEADERS  += chessclockwindow.h \
+HEADERS  += \
     classes/turninformation.h \
     classes/chessclock.h \
     classes/chessclockwidget.h \
     classes/clockswidget.h \
-    classes/welcomescreenwidget.h \
     classes/timecontrol.h \
-    classes/timecontrol/basicdialog.h \
     classes/timecontrol/notimecontrol.h \
-    classes/startwidget.h \
-    classes/timecontrol/fischertimecontrol.h \
     classes/timecontrol/fischerclock.h \
     classes/timecontrol/fischerafterclock.h \
-    classes/timecontrol/fischeraftertimecontrol.h \
     classes/timecontrol/delayclock.h \
-    classes/timecontrol/delaytimecontrol.h \
     classes/timecontrol/delayafterclock.h \
-    classes/timecontrol/delayaftertimecontrol.h \
-    classes/timecontrol/hourglasstimecontrol.h \
     classes/timecontrol/hourglassclock.h \
     classes/screenlitkeeper.h \
     classes/wrappedclockswidget.h \
