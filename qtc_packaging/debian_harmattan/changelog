@@ -1,3 +1,11 @@
+chessclock (1.9.0) unstable; urgency=low
+
+  * First release for Harmattan
+  * User interface partly changed to QML and conforms to Harmattan style
+  * Game settings are not saved
+
+ -- Heli Hyvättinen <heli.hyvattinen@kymp.net> Wed, 31 Aug 2011 18:35:00 +0300
+
 chessclock (1.1.2-1) unstable; urgency=low
 
   * Pauses the game when the application goes to background

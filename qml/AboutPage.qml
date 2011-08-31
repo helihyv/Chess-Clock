@@ -42,7 +42,7 @@ Page
 Text
 {
     id: title
-    text: "Chess Clock"
+    text: "Chess Clock 1.9.0"
     color: "white"
     font.pointSize: 42
 
