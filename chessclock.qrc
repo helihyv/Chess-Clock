@@ -15,6 +15,5 @@
         <file>pic/addbefore.png</file>
         <file>pic/pauseafter.png</file>
         <file>pic/pausebefore.png</file>
-        <file>pic/pausebutton.png</file>
     </qresource>
 </RCC>
