@@ -11,16 +11,22 @@ class Settings : public QObject
 public:
     explicit Settings(QObject *parent = 0);
 
-    Q_INVOKABLE int value(WrappedClocksWidget::TimeControlType timeControl, QString key);
+    Q_INVOKABLE int getTurnsPerAddition(WrappedClocksWidget::TimeControlType timeControl, bool isWhite);
 
-    Q_INVOKABLE int getTurnsPerAddition(WrappedClocksWidget::TimeControlType timeControl, QString player);
+    Q_INVOKABLE int getInitialTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite);
+
+    Q_INVOKABLE int getAdditionalTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite);
 
 
 signals:
 
 public slots:
 
-    void setValue();
+    void setTurnsPerAddition(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int turns);
+
+    void setInitialTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int time);
+
+    void setAdditionalTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int time);
 
 protected:
 

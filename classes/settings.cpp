@@ -7,22 +7,7 @@ Settings::Settings(QObject *parent) :
 {
 }
 
-int Settings::value(WrappedClocksWidget::TimeControlType timeControl, QString key)
-{
 
-
-  QSettings settings;
-
-
-
-settings.beginGroup(getGroupName(timeControl));
-
-}
-
-void Settings::setValue()
-{
-
-}
 
 QString Settings::getGroupName(WrappedClocksWidget::TimeControlType timeControl)
 {
@@ -72,20 +57,39 @@ return groupString;
 
 }
 
-   int Settings::getTurnsPerAddition(WrappedClocksWidget::TimeControlType timeControl, QString player)
+   int Settings::getTurnsPerAddition(WrappedClocksWidget::TimeControlType timeControl, bool isWhite)
    {
 
        QSettings settings;
        settings.beginGroup(getGroupName(timeControl));
 
-       if (player == "white")
+       if (isWhite)
            return settings.value("WhitePerTurns",1).toInt();
 
-       if (player == "black");
+       else
            return settings.value("BlackPerTurns",1).toInt();
 
-       return 0; //for invalid input
+    }
 
-
+   int Settings::getInitialTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite)
+   {
+    return 60*60*1000;
    }
+
+   int Settings::getAdditionalTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite)
+   {
+    return 30*1000;
+   }
+
+   void Settings::setTurnsPerAddition(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int turns)
+   {}
+
+   void Settings::setInitialTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int time)
+   {}
+
+   void Settings::setAdditionalTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int time)
+   {}
+
+
+
 
