@@ -73,23 +73,80 @@ return groupString;
 
    int Settings::getInitialTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite)
    {
-    return 60*60*1000;
+       QSettings settings;
+       settings.beginGroup(getGroupName(timeControl));
+
+       int defaultTime;
+
+       if (timeControl == WrappedClocksWidget::HourGlass)
+           defaultTime = 60*1000; // 1 min
+       else
+           defaultTime = 30*60*1000; //30 min
+
+       if (isWhite)
+           return settings.value("WhiteInitial",defaultTime).toInt();
+        else
+           return settings.value("BlackInitial",defaultTime).toInt();
    }
 
    int Settings::getAdditionalTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite)
    {
-    return 30*1000;
+       QSettings settings;
+       settings.beginGroup(getGroupName(timeControl));
+
+       if (isWhite)
+           return settings.value("WhiteAddition",30*1000).toInt();
+       else
+           return settings.value("BlackAddition",30*100).toInt();
+   }
+
+   bool Settings::isEqualTimes(WrappedClocksWidget::TimeControlType timeControl)
+   {
+       QSettings settings;
+       settings.beginGroup(getGroupName(timeControl));
+
+       return settings.value("Equals",false).toBool();
    }
 
    void Settings::setTurnsPerAddition(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int turns)
-   {}
+   {
+        QSettings settings;
+        settings.beginGroup(getGroupName(timeControl));
+
+        if (isWhite)
+            settings.setValue("WhitePerTurns",turns);
+        else
+            settings.setValue("BlackPerTurns",turns);
+   }
 
    void Settings::setInitialTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int time)
-   {}
+   {
+       QSettings settings;
+       settings.beginGroup(getGroupName(timeControl));
+
+       if (isWhite)
+           settings.setValue("WhiteInitial",time);
+       else
+           settings.setValue("BlackItnitial",time);
+   }
 
    void Settings::setAdditionalTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int time)
-   {}
+   {
+       QSettings settings;
+       settings.beginGroup(getGroupName(timeControl));
 
+       if (isWhite)
+           settings.setValue("WhiteAddition",time);
+       else
+           settings.setValue("BlackAddition",time);
+   }
 
+    void Settings::setEqualTimes(WrappedClocksWidget::TimeControlType timeControl, bool on)
+    {
+        QSettings settings;
+        settings.beginGroup(getGroupName(timeControl));
+
+        settings.setValue("Equals",on);
+    }
 
 
