@@ -42,7 +42,15 @@ Page
 
     Settings {id: settings}
     Component.onCompleted:
-    {test = settings.value("test") }
+    {
+        equalTimesSwitch = settings.isEqualTimes(timeControl)
+        whiteInitialTime = settings.getInitialTime(timeControl,true)
+        blackInitialTime = settings.getInitialTime(timeControl,false)
+        whiteAdditionalTime = settings.getAdditionalTime(timeControl,true)
+        blackAdditionalTime = settings.getAdditionalTime(timeControl,false)
+        whiteTurnsPerAddition = settings.getTurnsPerAddition(timeControl,true)
+        blackTurnsPerAddition = settings.getTurnsPerAddition(timeControl,false)
+    }
 
     tools: ToolBarLayout
     {
@@ -336,25 +344,44 @@ Page
 
                 onClicked:
                 {
+
+
                 clocksPage.timeControl = timeControl
+
 
                 clocksPage.whiteInitialTime = 60*60*1000*whiteInitialTime.hours+60*1000*whiteInitialTime.minutes+1000*whiteInitialTime.seconds
                 clocksPage.whiteAdditionalTime = 60*60*1000*whiteAdditionalTime.hours+60*1000*whiteAdditionalTime.minutes+1000*whiteAdditionalTime.seconds
                 clocksPage.whiteTurnsPerAddition = whiteTurnsPerAddition.text
 
+
+                //Save settings for white
+                settings.setInitialTime(timeControl,true,clocksPage.whiteInitialTime)
+                settings.setAdditionalTime(timeControl,true,clocksPage.whiteAdditionalTime)
+                settings.setTurnsPerAddition(timeControl,true,clocksPage.whiteTurnsPerAddition)
+
                 if (equalTimesSwitch.checked)
                 {
+                    //use same values for white and black
                     clocksPage.blackInitialTime = 60*60*1000*whiteInitialTime.hours+60*1000*whiteInitialTime.minutes+1000*whiteInitialTime.seconds
                     clocksPage.blackAdditionalTime = 60*60*1000*whiteAdditionalTime.hours+60*1000*whiteAdditionalTime.minutes+1000*whiteAdditionalTime.seconds
                     clocksPage.blackTurnsPerAddition = whiteTurnsPerAddition.text
 
+                    //If black values in dialog are not used they are not saved to settings
                 }
                 else
                 {
                     clocksPage.blackInitialTime = 60*60*1000*blackInitialTime.hours+60*1000*blackInitialTime.minutes+1000*blackInitialTime.seconds
                     clocksPage.blackAdditionalTime = 60*60*1000*blackAdditionalTime.hours+60*1000*blackAdditionalTime.minutes+1000*blackAdditionalTime.seconds
                     clocksPage.blackTurnsPerAddition = blackTurnsPerAddition.text
+
+                    //Save settings for black
+                    settings.setInitialTime(timeControl,false,clocksPage.blackInitialTime)
+                    settings.setAdditionalTime(timeControl,false,clocksPage.blackAdditionalTime)
+                    settings.setTurnsPerAddition(timeControl,false,clocksPage.blackTurnsPerAddition)
                 }
+
+
+
 
                 pageStack.push(clocksPage)
 
