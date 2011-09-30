@@ -40,16 +40,36 @@ Page
 
     property int test
 
-    Settings {id: settings}
+    Settings
+    {
+        id: settings
+    }
     Component.onCompleted:
     {
         equalTimesSwitch = settings.isEqualTimes(timeControl)
-        whiteInitialTime = settings.getInitialTime(timeControl,true)
-        blackInitialTime = settings.getInitialTime(timeControl,false)
-        whiteAdditionalTime = settings.getAdditionalTime(timeControl,true)
-        blackAdditionalTime = settings.getAdditionalTime(timeControl,false)
-        whiteTurnsPerAddition = settings.getTurnsPerAddition(timeControl,true)
-        blackTurnsPerAddition = settings.getTurnsPerAddition(timeControl,false)
+
+        var whiteInitial = settings.getInitialTime(timeControl,true)
+        whiteInitialTime.hours = whiteInitial/360
+        whiteInitialTime.minutes = (whiteIntial%360)/60
+        whiteInitialTime.seconds = whiteInitial%60
+
+        var blackInitial = settings.getInitialTime(timeControl,false)
+        blackInitialTime.hours = blackInitial/360
+        blackInitialTime.minutes = (blackInitial%360)/60
+        blackInitialTime.seconds = blackInitial%60
+
+        var whiteAdditional = settings.getAdditionalTime(timeControl,true)
+        whiteAdditionalTime.hours = whiteAdditional/360
+        whiteAdditionalTime.minutes = (whiteAdditional%360)/60
+        whiteAdditionalTime.seconds = whiteAdditional%60
+
+        var blackAdditional = settings.getAdditionalTime(timeControl,false)
+        blackAdditionalTime.hours = blackAdditional/360
+        blackAdditionalTime.minutes = (blackAdditional%360)/60
+        blackAdditionalTime.seconds = blackAdditional%60
+
+        whiteTurnsPerAddition.text = settings.getTurnsPerAddition(timeControl,true)
+        blackTurnsPerAddition.text = settings.getTurnsPerAddition(timeControl,false)
     }
 
     tools: ToolBarLayout
