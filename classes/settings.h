@@ -5,15 +5,17 @@
 #include "classes/wrappedclockswidget.h"
 
 
-/*! A class that gives accedd to settings
+/*! A class that gives access to settings
 
 Used to save the last used dialog settings.
 Uses QSettings internally.
 Note: not compatible with the settings used in the Maemo versions.
 The group names are the same, but the times are saved as ints (milliseconds) rather than QTimes.
+Time Control is passed as int due to QML problem, but *must* be a valid
+WrappedClocksWidget::TimeControlType enum to work. (All other values are interpreted as "Normal Clock"
 
 @author Heli Hyvättinen
-@date 2011-09-28
+@date 2011-10-03
 @version 1.9.1
 
   */
@@ -28,27 +30,27 @@ public:
    @param timeControl Time control for which the setting is queried
    @param isWhite true for white player, false for black
    */
-    Q_INVOKABLE int getTurnsPerAddition(WrappedClocksWidget::TimeControlType timeControl, bool isWhite);
+    Q_INVOKABLE int getTurnsPerAddition(int timeControl, bool isWhite);
 
     /*!
    Returns intitial time (in milliseconds) from settings.
    @param timeControl Time control for which the setting is queried
    @param isWhite true for white player, false for black
    */
-    Q_INVOKABLE int getInitialTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite);
+    Q_INVOKABLE int getInitialTime(int timeControl, bool isWhite);
 
     /*!
    Returns additional time (in milliseconds) from settings.
    @param timeControl Time control for which the setting is queried
    @param isWhite true for white player, false for black
    */
-    Q_INVOKABLE int getAdditionalTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite);
+    Q_INVOKABLE int getAdditionalTime(int timeControl, bool isWhite);
 
     /*!
       Returns whether the equal times is set in the settings
       @param timeControl Time control for which the setting is queried
       */
-    Q_INVOKABLE bool isEqualTimes(WrappedClocksWidget::TimeControlType timeControl);
+    Q_INVOKABLE bool isEqualTimes(int timeControl);
 
 
 
@@ -62,7 +64,7 @@ public slots:
    @param isWhite true for white player, false for black
    @param turns The value to be saved
    */
-    void setTurnsPerAddition(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int turns);
+    void setTurnsPerAddition(int timeControl, bool isWhite, int turns);
 
     /*!
     Sets initial time in settings.
@@ -70,7 +72,7 @@ public slots:
    @param isWhite true for white player, false for black
    @param time The time to be saved, in milliseconds
    */
-    void setInitialTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int time);
+    void setInitialTime(int timeControl, bool isWhite, int time);
 
     /*!
     Sets additional time in settings.
@@ -79,16 +81,16 @@ public slots:
    @param time The time to be saved, in milliseconds
    */
 
-    void setAdditionalTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int time);
+    void setAdditionalTime(int timeControl, bool isWhite, int time);
 
     /*! Sets the equal times setting
       @param timeControl Time control for which the setting is set
     */
-    void setEqualTimes(WrappedClocksWidget::TimeControlType timeControl,bool on);
+    void setEqualTimes(int timeControl,bool on);
 
 protected:
 
-    QString getGroupName(WrappedClocksWidget::TimeControlType timeControl);
+    QString getGroupName(int timeControl);
 
 };
 

@@ -9,7 +9,7 @@ Settings::Settings(QObject *parent) :
 
 
 
-QString Settings::getGroupName(WrappedClocksWidget::TimeControlType timeControl)
+QString Settings::getGroupName(int timeControl)
 {
     //Using same groups and keys in QSettings as the maemo version
     //just in case Maemo version would move to use QML someday
@@ -57,7 +57,7 @@ return groupString;
 
 }
 
-   int Settings::getTurnsPerAddition(WrappedClocksWidget::TimeControlType timeControl, bool isWhite)
+   int Settings::getTurnsPerAddition(int timeControl, bool isWhite)
    {
 
        QSettings settings;
@@ -71,7 +71,7 @@ return groupString;
 
     }
 
-   int Settings::getInitialTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite)
+   int Settings::getInitialTime(int timeControl, bool isWhite)
    {
        QSettings settings;
        settings.beginGroup(getGroupName(timeControl));
@@ -89,7 +89,7 @@ return groupString;
            return settings.value("BlackInitial",defaultTime).toInt();
    }
 
-   int Settings::getAdditionalTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite)
+   int Settings::getAdditionalTime(int timeControl, bool isWhite)
    {
        QSettings settings;
        settings.beginGroup(getGroupName(timeControl));
@@ -97,10 +97,10 @@ return groupString;
        if (isWhite)
            return settings.value("WhiteAddition",30*1000).toInt();
        else
-           return settings.value("BlackAddition",30*100).toInt();
+           return settings.value("BlackAddition",30*1000).toInt();
    }
 
-   bool Settings::isEqualTimes(WrappedClocksWidget::TimeControlType timeControl)
+   bool Settings::isEqualTimes(int timeControl)
    {
        QSettings settings;
        settings.beginGroup(getGroupName(timeControl));
@@ -108,7 +108,7 @@ return groupString;
        return settings.value("Equals",false).toBool();
    }
 
-   void Settings::setTurnsPerAddition(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int turns)
+   void Settings::setTurnsPerAddition(int timeControl, bool isWhite, int turns)
    {
         QSettings settings;
         settings.beginGroup(getGroupName(timeControl));
@@ -119,7 +119,7 @@ return groupString;
             settings.setValue("BlackPerTurns",turns);
    }
 
-   void Settings::setInitialTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int time)
+   void Settings::setInitialTime(int timeControl, bool isWhite, int time)
    {
        QSettings settings;
        settings.beginGroup(getGroupName(timeControl));
@@ -130,7 +130,7 @@ return groupString;
            settings.setValue("BlackItnitial",time);
    }
 
-   void Settings::setAdditionalTime(WrappedClocksWidget::TimeControlType timeControl, bool isWhite, int time)
+   void Settings::setAdditionalTime(int timeControl, bool isWhite, int time)
    {
        QSettings settings;
        settings.beginGroup(getGroupName(timeControl));
@@ -141,7 +141,7 @@ return groupString;
            settings.setValue("BlackAddition",time);
    }
 
-    void Settings::setEqualTimes(WrappedClocksWidget::TimeControlType timeControl, bool on)
+    void Settings::setEqualTimes(int timeControl, bool on)
     {
         QSettings settings;
         settings.beginGroup(getGroupName(timeControl));

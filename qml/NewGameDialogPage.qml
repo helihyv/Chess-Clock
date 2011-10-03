@@ -44,32 +44,33 @@ Page
     {
         id: settings
     }
-    Component.onCompleted:
+    onTimeControlChanged:
     {
         equalTimesSwitch = settings.isEqualTimes(timeControl)
 
         var whiteInitial = settings.getInitialTime(timeControl,true)
-        whiteInitialTime.hours = whiteInitial/360
-        whiteInitialTime.minutes = (whiteIntial%360)/60
-        whiteInitialTime.seconds = whiteInitial%60
+        whiteInitialTime.hours = whiteInitial/(60*60*1000)
+        whiteInitialTime.minutes = (whiteInitial%(60*60*1000))/(60*1000)
+        whiteInitialTime.seconds = whiteInitial%(60*1000)/1000
 
         var blackInitial = settings.getInitialTime(timeControl,false)
-        blackInitialTime.hours = blackInitial/360
-        blackInitialTime.minutes = (blackInitial%360)/60
-        blackInitialTime.seconds = blackInitial%60
+        blackInitialTime.hours = blackInitial/(60*60*1000)
+        blackInitialTime.minutes = (blackInitial%(60*60*1000))/(60*1000)
+        blackInitialTime.seconds = blackInitial%(60*1000)/1000
 
         var whiteAdditional = settings.getAdditionalTime(timeControl,true)
-        whiteAdditionalTime.hours = whiteAdditional/360
-        whiteAdditionalTime.minutes = (whiteAdditional%360)/60
-        whiteAdditionalTime.seconds = whiteAdditional%60
+        whiteAdditionalTime.hours = whiteAdditional/(60*60*1000)
+        whiteAdditionalTime.minutes = (whiteAdditional%(60*60*1000))/(60*1000)
+        whiteAdditionalTime.seconds = whiteAdditional%(60*1000)/1000
 
         var blackAdditional = settings.getAdditionalTime(timeControl,false)
-        blackAdditionalTime.hours = blackAdditional/360
-        blackAdditionalTime.minutes = (blackAdditional%360)/60
-        blackAdditionalTime.seconds = blackAdditional%60
+        blackAdditionalTime.hours = blackAdditional/(60*60*1000)
+        blackAdditionalTime.minutes = (blackAdditional%(60*60*1000))/(60*1000)
+        blackAdditionalTime.seconds = blackAdditional%(60*1000)/1000
 
-        whiteTurnsPerAddition.text = settings.getTurnsPerAddition(timeControl,true)
-        blackTurnsPerAddition.text = settings.getTurnsPerAddition(timeControl,false)
+
+        whiteTurnsPerAddition.text = whiteInitial/(60*60*1000) // settings.getTurnsPerAddition(timeControl,true)
+        blackTurnsPerAddition.text = 3%2//settings.getTurnsPerAddition(timeControl,false)
     }
 
     tools: ToolBarLayout
@@ -322,8 +323,6 @@ Page
                 anchors.left: turnsPerAdditionText.right
                 anchors.leftMargin: 25
 
-                text: "1"
-
                 MouseArea
                 {
                     anchors.fill: parent
@@ -341,8 +340,6 @@ Page
                 anchors.top: whiteTurnsPerAddition.top
                 anchors.left: whiteTurnsPerAddition.right
                 anchors.leftMargin: 25
-
-                text: "1"
 
                 MouseArea
                 {
@@ -374,10 +371,13 @@ Page
                 clocksPage.whiteTurnsPerAddition = whiteTurnsPerAddition.text
 
 
+
                 //Save settings for white
                 settings.setInitialTime(timeControl,true,clocksPage.whiteInitialTime)
                 settings.setAdditionalTime(timeControl,true,clocksPage.whiteAdditionalTime)
                 settings.setTurnsPerAddition(timeControl,true,clocksPage.whiteTurnsPerAddition)
+
+                settings.setEqualTimes(timeControl,equalTimesSwitch.checked) //save equal times setting
 
                 if (equalTimesSwitch.checked)
                 {
