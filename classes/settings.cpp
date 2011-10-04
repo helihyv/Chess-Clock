@@ -71,33 +71,34 @@ return groupString;
 
     }
 
-   int Settings::getInitialTime(int timeControl, bool isWhite)
+   QTime Settings::getInitialTime(int timeControl, bool isWhite)
    {
        QSettings settings;
        settings.beginGroup(getGroupName(timeControl));
 
-       int defaultTime;
+       QTime defaultTime(0,30);
+
+       QTime hourGlassTime(0,1);
 
        if (timeControl == WrappedClocksWidget::HourGlass)
-           defaultTime = 60*1000; // 1 min
-       else
-           defaultTime = 30*60*1000; //30 min
+            defaultTime = hourGlassTime;
 
        if (isWhite)
-           return settings.value("WhiteInitial",defaultTime).toInt();
+           return settings.value("WhiteInitial",defaultTime).toTime();
         else
-           return settings.value("BlackInitial",defaultTime).toInt();
+           return settings.value("BlackInitial",defaultTime).toTime();
    }
 
-   int Settings::getAdditionalTime(int timeControl, bool isWhite)
+   QTime Settings::getAdditionalTime(int timeControl, bool isWhite)
    {
        QSettings settings;
        settings.beginGroup(getGroupName(timeControl));
 
+       QTime defaultTime(0,0,30);
        if (isWhite)
-           return settings.value("WhiteAddition",30*1000).toInt();
+           return settings.value("WhiteAddition",defaultTime).toTime();
        else
-           return settings.value("BlackAddition",30*1000).toInt();
+           return settings.value("BlackAddition",defaultTime).toTime();
    }
 
    bool Settings::isEqualTimes(int timeControl)
@@ -119,7 +120,7 @@ return groupString;
             settings.setValue("BlackPerTurns",turns);
    }
 
-   void Settings::setInitialTime(int timeControl, bool isWhite, int time)
+   void Settings::setInitialTime(int timeControl, bool isWhite, QTime time)
    {
        QSettings settings;
        settings.beginGroup(getGroupName(timeControl));
@@ -130,7 +131,7 @@ return groupString;
            settings.setValue("BlackItnitial",time);
    }
 
-   void Settings::setAdditionalTime(int timeControl, bool isWhite, int time)
+   void Settings::setAdditionalTime(int timeControl, bool isWhite, QTime time)
    {
        QSettings settings;
        settings.beginGroup(getGroupName(timeControl));

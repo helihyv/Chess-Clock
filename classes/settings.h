@@ -37,14 +37,14 @@ public:
    @param timeControl Time control for which the setting is queried
    @param isWhite true for white player, false for black
    */
-    Q_INVOKABLE int getInitialTime(int timeControl, bool isWhite);
+    Q_INVOKABLE QTime getInitialTime(int timeControl, bool isWhite);
 
     /*!
    Returns additional time (in milliseconds) from settings.
    @param timeControl Time control for which the setting is queried
    @param isWhite true for white player, false for black
    */
-    Q_INVOKABLE int getAdditionalTime(int timeControl, bool isWhite);
+    Q_INVOKABLE QTime getAdditionalTime(int timeControl, bool isWhite);
 
     /*!
       Returns whether the equal times is set in the settings
@@ -72,7 +72,7 @@ public slots:
    @param isWhite true for white player, false for black
    @param time The time to be saved, in milliseconds
    */
-    void setInitialTime(int timeControl, bool isWhite, int time);
+    void setInitialTime(int timeControl, bool isWhite, QTime time);
 
     /*!
     Sets additional time in settings.
@@ -81,7 +81,7 @@ public slots:
    @param time The time to be saved, in milliseconds
    */
 
-    void setAdditionalTime(int timeControl, bool isWhite, int time);
+    void setAdditionalTime(int timeControl, bool isWhite, QTime time);
 
     /*! Sets the equal times setting
       @param timeControl Time control for which the setting is set

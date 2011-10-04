@@ -43,34 +43,35 @@ Page
     Settings
     {
         id: settings
+
     }
     onTimeControlChanged:
     {
         equalTimesSwitch = settings.isEqualTimes(timeControl)
 
         var whiteInitial = settings.getInitialTime(timeControl,true)
-        whiteInitialTime.hours = whiteInitial/(60*60*1000)
-        whiteInitialTime.minutes = (whiteInitial%(60*60*1000))/(60*1000)
-        whiteInitialTime.seconds = whiteInitial%(60*1000)/1000
+        whiteInitialTime.hours = Qt.formatTime(whiteInitial,"h")
+        whiteInitialTime.minutes = Qt.formatTime(whiteInitial,"m")
+        whiteInitialTime.seconds = Qt.formatTime(whiteInitial,"s")
 
         var blackInitial = settings.getInitialTime(timeControl,false)
-        blackInitialTime.hours = blackInitial/(60*60*1000)
-        blackInitialTime.minutes = (blackInitial%(60*60*1000))/(60*1000)
-        blackInitialTime.seconds = blackInitial%(60*1000)/1000
+        blackInitialTime.hours = Qt.formatTime(blackInitial,"h")
+        blackInitialTime.minutes = Qt.formatTime(blackInitial,"m")
+        blackInitialTime.seconds = Qt.formatTime(blackInitial,"s")
 
         var whiteAdditional = settings.getAdditionalTime(timeControl,true)
-        whiteAdditionalTime.hours = whiteAdditional/(60*60*1000)
-        whiteAdditionalTime.minutes = (whiteAdditional%(60*60*1000))/(60*1000)
-        whiteAdditionalTime.seconds = whiteAdditional%(60*1000)/1000
+        whiteAdditionalTime.hours = Qt.formatTime(whiteAdditional,"h")
+        whiteAdditionalTime.minutes = Qt.formatTime(whiteAdditional,"m")
+        whiteAdditionalTime.seconds = Qt.formatTime(whiteAdditional,"s")
 
         var blackAdditional = settings.getAdditionalTime(timeControl,false)
-        blackAdditionalTime.hours = blackAdditional/(60*60*1000)
-        blackAdditionalTime.minutes = (blackAdditional%(60*60*1000))/(60*1000)
-        blackAdditionalTime.seconds = blackAdditional%(60*1000)/1000
+        blackAdditionalTime.hours = Qt.formatTime(blackAdditional,"h")
+        blackAdditionalTime.minutes = Qt.formatTime(blackAdditional,"m")
+        blackAdditionalTime.seconds = Qt.formatTime(blackAdditional,"s")
 
 
-        whiteTurnsPerAddition.text = whiteInitial/(60*60*1000) // settings.getTurnsPerAddition(timeControl,true)
-        blackTurnsPerAddition.text = 3%2//settings.getTurnsPerAddition(timeControl,false)
+        whiteTurnsPerAddition.text = settings.getTurnsPerAddition(timeControl,true)
+        blackTurnsPerAddition.text = settings.getTurnsPerAddition(timeControl,false)
     }
 
     tools: ToolBarLayout
@@ -372,12 +373,12 @@ Page
 
 
 
-                //Save settings for white
-                settings.setInitialTime(timeControl,true,clocksPage.whiteInitialTime)
-                settings.setAdditionalTime(timeControl,true,clocksPage.whiteAdditionalTime)
-                settings.setTurnsPerAddition(timeControl,true,clocksPage.whiteTurnsPerAddition)
+//                //Save settings for white
+//                settings.setInitialTime(timeControl,true,clocksPage.whiteInitialTime)
+//                settings.setAdditionalTime(timeControl,true,clocksPage.whiteAdditionalTime)
+//                settings.setTurnsPerAddition(timeControl,true,clocksPage.whiteTurnsPerAddition)
 
-                settings.setEqualTimes(timeControl,equalTimesSwitch.checked) //save equal times setting
+//                settings.setEqualTimes(timeControl,equalTimesSwitch.checked) //save equal times setting
 
                 if (equalTimesSwitch.checked)
                 {
@@ -394,10 +395,10 @@ Page
                     clocksPage.blackAdditionalTime = 60*60*1000*blackAdditionalTime.hours+60*1000*blackAdditionalTime.minutes+1000*blackAdditionalTime.seconds
                     clocksPage.blackTurnsPerAddition = blackTurnsPerAddition.text
 
-                    //Save settings for black
-                    settings.setInitialTime(timeControl,false,clocksPage.blackInitialTime)
-                    settings.setAdditionalTime(timeControl,false,clocksPage.blackAdditionalTime)
-                    settings.setTurnsPerAddition(timeControl,false,clocksPage.blackTurnsPerAddition)
+//                    //Save settings for black
+//                    settings.setInitialTime(timeControl,false,clocksPage.blackInitialTime)
+//                    settings.setAdditionalTime(timeControl,false,clocksPage.blackAdditionalTime)
+//                    settings.setTurnsPerAddition(timeControl,false,clocksPage.blackTurnsPerAddition)
                 }
 
 
