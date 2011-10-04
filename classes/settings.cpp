@@ -1,5 +1,6 @@
 #include "settings.h"
 #include <QSettings>
+#include <QDebug>
 
 
 Settings::Settings(QObject *parent) :
@@ -135,6 +136,7 @@ return groupString;
    {
        QTime  time (hours,minutes,seconds);
        setInitialTime(timeControl,isWhite,time);
+       qDebug () << "Saved initial time setting: "<< time;
    }
 
    void Settings::setAdditionalTime(int timeControl, bool isWhite, QTime time)
@@ -152,6 +154,7 @@ return groupString;
    {
        QTime time(hours,minutes,seconds);
        setAdditionalTime(timeControl,isWhite,time);
+       qDebug() << "Saved additional time setting: " << time;
    }
 
     void Settings::setEqualTimes(int timeControl, bool on)
@@ -160,6 +163,7 @@ return groupString;
         settings.beginGroup(getGroupName(timeControl));
 
         settings.setValue("Equals",on);
+        qDebug() << "Saved Equal times setting: " << on;
     }
 
 

@@ -28,6 +28,10 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+
+    app.setApplicationName("Chess Clock");
+    app.setOrganizationName("Chess Clock");
+
     app.setStyleSheet("* {color: white}");
 
     qmlRegisterType<WrappedClocksWidget>("ChessClocks", 1, 0, "WrappedClocksWidget");
