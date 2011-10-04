@@ -131,6 +131,12 @@ return groupString;
            settings.setValue("BlackItnitial",time);
    }
 
+   void Settings::setInitialTime(int timeControl, bool isWhite, int hours, int minutes, int seconds)
+   {
+       QTime  time (hours,minutes,seconds);
+       setInitialTime(timeControl,isWhite,time);
+   }
+
    void Settings::setAdditionalTime(int timeControl, bool isWhite, QTime time)
    {
        QSettings settings;
@@ -142,6 +148,12 @@ return groupString;
            settings.setValue("BlackAddition",time);
    }
 
+   void Settings::setAdditionalTime(int timeControl, bool isWhite, int hours, int minutes, int seconds)
+   {
+       QTime time(hours,minutes,seconds);
+       setAdditionalTime(timeControl,isWhite,time);
+   }
+
     void Settings::setEqualTimes(int timeControl, bool on)
     {
         QSettings settings;
@@ -149,5 +161,6 @@ return groupString;
 
         settings.setValue("Equals",on);
     }
+
 
 

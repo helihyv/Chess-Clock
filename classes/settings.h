@@ -9,13 +9,12 @@
 
 Used to save the last used dialog settings.
 Uses QSettings internally.
-Note: not compatible with the settings used in the Maemo versions.
-The group names are the same, but the times are saved as ints (milliseconds) rather than QTimes.
-Time Control is passed as int due to QML problem, but *must* be a valid
-WrappedClocksWidget::TimeControlType enum to work. (All other values are interpreted as "Normal Clock"
+Compatible with the settings used in the Maemo versions.
+Time Control is passed as int due to a QML problem, but *must* be a valid WrappedClocksWidget::TimeControlType enum to work.
+(All other values are interpreted as "Normal Clock")
 
 @author Heli Hyvättinen
-@date 2011-10-03
+@date 2011-10-04
 @version 1.9.1
 
   */
@@ -66,27 +65,48 @@ public slots:
    */
     void setTurnsPerAddition(int timeControl, bool isWhite, int turns);
 
-    /*!
+      /*!
     Sets initial time in settings.
    @param timeControl Time control for which the setting is set
    @param isWhite true for white player, false for black
-   @param time The time to be saved, in milliseconds
+   @param time The time to be saved
    */
     void setInitialTime(int timeControl, bool isWhite, QTime time);
+
+    /*! Sets initial time in settings
+   @param timeControl Time control for which the setting is set
+   @param isWhite true for white player, false for black
+   @param hours Hour component of the time to be saved
+   @param minutes Minutes component of the time to be saved
+   @param seconds Seconds component of the time to be saved
+   */
+    void setInitialTime(int timeControl, bool isWhite, int hours, int minutes, int seconds);
 
     /*!
     Sets additional time in settings.
    @param timeControl Time control for which the setting is set
    @param isWhite true for white player, false for black
-   @param time The time to be saved, in milliseconds
+   @param time The time to be saved
    */
-
     void setAdditionalTime(int timeControl, bool isWhite, QTime time);
+
+    /*! Sets additional time in settings
+   @param timeControl Time control for which the setting is set
+   @param isWhite true for white player, false for black
+   @param hours Hour component of the time to be saved
+   @param minutes Minutes component of the time to be saved
+   @param seconds Seconds component of the time to be saved
+   */
+   void setAdditionalTime(int timeControl, bool isWhite, int hours, int minutes, int seconds);
+
 
     /*! Sets the equal times setting
       @param timeControl Time control for which the setting is set
     */
     void setEqualTimes(int timeControl,bool on);
+
+
+
 
 protected:
 

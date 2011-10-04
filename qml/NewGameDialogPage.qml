@@ -207,7 +207,15 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {timePicker.timeType = "initial";  timePicker.player = "white"; timePicker.open()}
+                    onClicked:
+                    {
+                        timePicker.timeType = "initial"
+                        timePicker.player = "white"
+                        timePicker.hour = parent.hours
+                        timePicker.minute = parent.minutes
+                        timePicker.second = parent.seconds
+                        timePicker.open()
+                    }
                 }
             }
 
@@ -233,7 +241,15 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {timePicker.timeType = "initial";  timePicker.player = "black"; timePicker.open()}
+                    onClicked:
+                    {
+                        timePicker.timeType = "initial"
+                        timePicker.player = "black"
+                        timePicker.hour = parent.hours
+                        timePicker.minute = parent.minutes
+                        timePicker.second = parent.seconds
+                        timePicker.open()
+                    }
                 }
             }
 
@@ -275,7 +291,15 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {timePicker.timeType = "additional";  timePicker.player = "white"; timePicker.open()}
+                    onClicked:
+                    {
+                        timePicker.timeType = "additional"
+                        timePicker.player = "white"
+                        timePicker.hour = parent.hours
+                        timePicker.minute = parent.minutes
+                        timePicker.second = parent.seconds
+                        timePicker.open()
+                    }
                 }
             }
 
@@ -297,7 +321,15 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {timePicker.timeType = "additional";  timePicker.player = "black"; timePicker.open()}
+                    onClicked:
+                    {
+                        timePicker.timeType = "additional"
+                        timePicker.player = "black"
+                        timePicker.hour = parent.hours
+                        timePicker.minute = parent.minutes
+                        timePicker.second = parent.seconds
+                        timePicker.open()
+                    }
                 }
 
 
@@ -327,7 +359,12 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {turnsDialog.player = "white";  turnsDialog.open()}
+                    onClicked:
+                    {
+                        turnsDialog.player = "white"
+                        turnsColumn.selectedIndex = parent.text-1
+                        turnsDialog.open()
+                    }
                 }
 
             }
@@ -345,7 +382,12 @@ Page
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked: {turnsDialog.player = "black";  turnsDialog.open()}
+                    onClicked:
+                    {
+                        turnsDialog.player = "black"
+                        turnsColumn.selectedIndex = parent.text-1
+                        turnsDialog.open()
+                    }
                 }
 
             }
@@ -373,12 +415,12 @@ Page
 
 
 
-//                //Save settings for white
-//                settings.setInitialTime(timeControl,true,clocksPage.whiteInitialTime)
-//                settings.setAdditionalTime(timeControl,true,clocksPage.whiteAdditionalTime)
-//                settings.setTurnsPerAddition(timeControl,true,clocksPage.whiteTurnsPerAddition)
+                //Save settings for white
+                settings.setInitialTime(timeControl,whiteInitialTime.hours,whiteInitialTime.minutes,whiteInitialTime.seconds)
+                settings.setAdditionalTime(timeControl,true,whiteAdditionalTime.hours,whiteAdditionalTime.minutes,whiteAdditionalTime.seconds)
+                settings.setTurnsPerAddition(timeControl,true,whiteTurnsPerAddition.text)
 
-//                settings.setEqualTimes(timeControl,equalTimesSwitch.checked) //save equal times setting
+                settings.setEqualTimes(timeControl,equalTimesSwitch.checked) //save equal times setting
 
                 if (equalTimesSwitch.checked)
                 {
@@ -395,10 +437,10 @@ Page
                     clocksPage.blackAdditionalTime = 60*60*1000*blackAdditionalTime.hours+60*1000*blackAdditionalTime.minutes+1000*blackAdditionalTime.seconds
                     clocksPage.blackTurnsPerAddition = blackTurnsPerAddition.text
 
-//                    //Save settings for black
-//                    settings.setInitialTime(timeControl,false,clocksPage.blackInitialTime)
-//                    settings.setAdditionalTime(timeControl,false,clocksPage.blackAdditionalTime)
-//                    settings.setTurnsPerAddition(timeControl,false,clocksPage.blackTurnsPerAddition)
+                    //Save settings for black
+                    settings.setInitialTime(timeControl,false,blackInitialTime.hours,blackInitialTime.minutes,blackInitialTime.seconds)
+                    settings.setAdditionalTime(timeControl,false,blackAdditionalTime.hours,blackAdditionalTime.minutes,blackAdditionalTime.seconds)
+                    settings.setTurnsPerAddition(timeControl,false,blackTurnsPerAddition.text)
                 }
 
 
