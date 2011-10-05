@@ -34,7 +34,12 @@ Page
     orientationLock: PageOrientation.LockLandscape
 
     property string name
-    property int timeControl //QML does not allow properties to be declared as enums...
+
+    //QML does not allow properties to be declared as enums...
+    //Initializing to invalid value to make sure picking *any* time control will trigger OnTimeControlChanged
+    property int timeControl: 1000
+
+
     property bool askAddition
     property bool askTurnsPerAddition
 
@@ -47,7 +52,7 @@ Page
     }
     onTimeControlChanged:
     {
-        equalTimesSwitch = settings.isEqualTimes(timeControl)
+        equalTimesSwitch.checked = settings.isEqualTimes(timeControl)
 
         var whiteInitial = settings.getInitialTime(timeControl,true)
         whiteInitialTime.hours = Qt.formatTime(whiteInitial,"h")
@@ -416,7 +421,7 @@ Page
 
 
                 //Save settings for white
-                settings.setInitialTime(timeControl,whiteInitialTime.hours,whiteInitialTime.minutes,whiteInitialTime.seconds)
+                settings.setInitialTime(timeControl,true,whiteInitialTime.hours,whiteInitialTime.minutes,whiteInitialTime.seconds)
                 settings.setAdditionalTime(timeControl,true,whiteAdditionalTime.hours,whiteAdditionalTime.minutes,whiteAdditionalTime.seconds)
                 settings.setTurnsPerAddition(timeControl,true,whiteTurnsPerAddition.text)
 

@@ -84,10 +84,21 @@ return groupString;
        if (timeControl == WrappedClocksWidget::HourGlass)
             defaultTime = hourGlassTime;
 
+//       if (isWhite)
+//           return settings.value("WhiteInitial",defaultTime).toTime();
+//        else
+//           return settings.value("BlackInitial",defaultTime).toTime();
+
+       QTime result;
+
        if (isWhite)
-           return settings.value("WhiteInitial",defaultTime).toTime();
+           result = settings.value("WhiteInitial",defaultTime).toTime();
         else
-           return settings.value("BlackInitial",defaultTime).toTime();
+           result = settings.value("BlackInitial",defaultTime).toTime();
+
+       qDebug() << "Initial time is: " << result;
+
+       return result;
    }
 
    QTime Settings::getAdditionalTime(int timeControl, bool isWhite)
@@ -96,10 +107,21 @@ return groupString;
        settings.beginGroup(getGroupName(timeControl));
 
        QTime defaultTime(0,0,30);
+
+
+//       if (isWhite)
+//           return settings.value("WhiteAddition",defaultTime).toTime();
+//       else
+//           return settings.value("BlackAddition",defaultTime).toTime();
+
+       QTime result;
        if (isWhite)
-           return settings.value("WhiteAddition",defaultTime).toTime();
+           result = settings.value("WhiteAddition",defaultTime).toTime();
        else
-           return settings.value("BlackAddition",defaultTime).toTime();
+           result = settings.value("BlackAddition",defaultTime).toTime();
+
+       qDebug() << "Additional time is: " << result;
+       return result;
    }
 
    bool Settings::isEqualTimes(int timeControl)
@@ -129,7 +151,7 @@ return groupString;
        if (isWhite)
            settings.setValue("WhiteInitial",time);
        else
-           settings.setValue("BlackItnitial",time);
+           settings.setValue("BlackInitial",time);
    }
 
    void Settings::setInitialTime(int timeControl, bool isWhite, int hours, int minutes, int seconds)
