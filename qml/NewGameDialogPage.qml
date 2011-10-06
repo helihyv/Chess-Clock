@@ -194,13 +194,13 @@ Page
               }
 
 
-            TextField
+            Button
             {
                 id: whiteInitialTime
-                readOnly: true
 
                 anchors.top: whiteSmall.bottom
                 anchors.left: whiteTurnsPerAddition.left
+                anchors.right: whiteTurnsPerAddition.right
 
                 property int hours: 0
                 property int minutes: 30
@@ -209,32 +209,29 @@ Page
                 text: {hours + " h " + minutes + " min " + seconds + " s"}
 
 
-                MouseArea
-                {
-                    anchors.fill: parent
+
                     onClicked:
                     {
                         timePicker.timeType = "initial"
                         timePicker.player = "white"
-                        timePicker.hour = parent.hours
-                        timePicker.minute = parent.minutes
-                        timePicker.second = parent.seconds
+                        timePicker.hour = hours
+                        timePicker.minute = minutes
+                        timePicker.second = seconds
                         timePicker.open()
                     }
-                }
+
             }
 
 
 
-            TextField
+            Button
             {
                 id: blackInitialTime
                 visible: !equalTimesSwitch.checked
 
-                readOnly: true
-
                 anchors.top: whiteSmall.bottom
                 anchors.left:  blackTurnsPerAddition.left
+                anchors.right: blackTurnsPerAddition.right
 
                 property int hours: 0
                 property int minutes: 30
@@ -243,19 +240,17 @@ Page
                 text: hours + " h " + minutes + " min " + seconds + " s"
 
 
-                MouseArea
-                {
-                    anchors.fill: parent
+
                     onClicked:
                     {
                         timePicker.timeType = "initial"
                         timePicker.player = "black"
-                        timePicker.hour = parent.hours
-                        timePicker.minute = parent.minutes
-                        timePicker.second = parent.seconds
+                        timePicker.hour = hours
+                        timePicker.minute = minutes
+                        timePicker.second = seconds
                         timePicker.open()
                     }
-                }
+
             }
 
 
