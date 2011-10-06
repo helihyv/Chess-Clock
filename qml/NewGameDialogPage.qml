@@ -34,9 +34,50 @@ Page
     orientationLock: PageOrientation.LockLandscape
 
     property string name
-    property int timeControl //QML does not allow properties to be declared as enums...
+
+    //QML does not allow properties to be declared as enums...
+    //Initializing to invalid value to make sure picking *any* time control will trigger OnTimeControlChanged
+    property int timeControl: 1000
+
+
     property bool askAddition
     property bool askTurnsPerAddition
+
+    property int test
+
+    Settings
+    {
+        id: settings
+
+    }
+    onTimeControlChanged:
+    {
+        equalTimesSwitch.checked = settings.isEqualTimes(timeControl)
+
+        var whiteInitial = settings.getInitialTime(timeControl,true)
+        whiteInitialTime.hours = Qt.formatTime(whiteInitial,"h")
+        whiteInitialTime.minutes = Qt.formatTime(whiteInitial,"m")
+        whiteInitialTime.seconds = Qt.formatTime(whiteInitial,"s")
+
+        var blackInitial = settings.getInitialTime(timeControl,false)
+        blackInitialTime.hours = Qt.formatTime(blackInitial,"h")
+        blackInitialTime.minutes = Qt.formatTime(blackInitial,"m")
+        blackInitialTime.seconds = Qt.formatTime(blackInitial,"s")
+
+        var whiteAdditional = settings.getAdditionalTime(timeControl,true)
+        whiteAdditionalTime.hours = Qt.formatTime(whiteAdditional,"h")
+        whiteAdditionalTime.minutes = Qt.formatTime(whiteAdditional,"m")
+        whiteAdditionalTime.seconds = Qt.formatTime(whiteAdditional,"s")
+
+        var blackAdditional = settings.getAdditionalTime(timeControl,false)
+        blackAdditionalTime.hours = Qt.formatTime(blackAdditional,"h")
+        blackAdditionalTime.minutes = Qt.formatTime(blackAdditional,"m")
+        blackAdditionalTime.seconds = Qt.formatTime(blackAdditional,"s")
+
+
+        whiteTurnsPerAddition.text = settings.getTurnsPerAddition(timeControl,true)
+        blackTurnsPerAddition.text = settings.getTurnsPerAddition(timeControl,false)
+    }
 
     tools: ToolBarLayout
     {
@@ -258,7 +299,7 @@ Page
                     onClicked:
                     {
                         timePicker.timeType = "additional"
-                        timePicker.player = "white";
+                        timePicker.player = "white"
                         timePicker.hour = parent.hours
                         timePicker.minute = parent.minutes
                         timePicker.second = parent.seconds
@@ -320,8 +361,6 @@ Page
                 anchors.left: turnsPerAdditionText.right
                 anchors.leftMargin: 25
 
-                text: "1"
-
                 MouseArea
                 {
                     anchors.fill: parent
@@ -346,8 +385,6 @@ Page
                 anchors.top: whiteTurnsPerAddition.top
                 anchors.left: whiteTurnsPerAddition.right
                 anchors.leftMargin: 25
-
-                text: "1"
 
                 MouseArea
                 {
@@ -374,25 +411,47 @@ Page
 
                 onClicked:
                 {
+
+
                 clocksPage.timeControl = timeControl
+
 
                 clocksPage.whiteInitialTime = 60*60*1000*whiteInitialTime.hours+60*1000*whiteInitialTime.minutes+1000*whiteInitialTime.seconds
                 clocksPage.whiteAdditionalTime = 60*60*1000*whiteAdditionalTime.hours+60*1000*whiteAdditionalTime.minutes+1000*whiteAdditionalTime.seconds
                 clocksPage.whiteTurnsPerAddition = whiteTurnsPerAddition.text
 
+
+
+                //Save settings for white
+                settings.setInitialTime(timeControl,true,whiteInitialTime.hours,whiteInitialTime.minutes,whiteInitialTime.seconds)
+                settings.setAdditionalTime(timeControl,true,whiteAdditionalTime.hours,whiteAdditionalTime.minutes,whiteAdditionalTime.seconds)
+                settings.setTurnsPerAddition(timeControl,true,whiteTurnsPerAddition.text)
+
+                settings.setEqualTimes(timeControl,equalTimesSwitch.checked) //save equal times setting
+
                 if (equalTimesSwitch.checked)
                 {
+                    //use same values for white and black
                     clocksPage.blackInitialTime = 60*60*1000*whiteInitialTime.hours+60*1000*whiteInitialTime.minutes+1000*whiteInitialTime.seconds
                     clocksPage.blackAdditionalTime = 60*60*1000*whiteAdditionalTime.hours+60*1000*whiteAdditionalTime.minutes+1000*whiteAdditionalTime.seconds
                     clocksPage.blackTurnsPerAddition = whiteTurnsPerAddition.text
 
+                    //If black values in dialog are not used they are not saved to settings
                 }
                 else
                 {
                     clocksPage.blackInitialTime = 60*60*1000*blackInitialTime.hours+60*1000*blackInitialTime.minutes+1000*blackInitialTime.seconds
                     clocksPage.blackAdditionalTime = 60*60*1000*blackAdditionalTime.hours+60*1000*blackAdditionalTime.minutes+1000*blackAdditionalTime.seconds
                     clocksPage.blackTurnsPerAddition = blackTurnsPerAddition.text
+
+                    //Save settings for black
+                    settings.setInitialTime(timeControl,false,blackInitialTime.hours,blackInitialTime.minutes,blackInitialTime.seconds)
+                    settings.setAdditionalTime(timeControl,false,blackAdditionalTime.hours,blackAdditionalTime.minutes,blackAdditionalTime.seconds)
+                    settings.setTurnsPerAddition(timeControl,false,blackTurnsPerAddition.text)
                 }
+
+
+
 
                 pageStack.push(clocksPage)
 

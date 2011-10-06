@@ -23,14 +23,20 @@
 #include <QtDeclarative>
 #include "classes/wrappedclockswidget.h"
 #include "chessclockview.h"
+#include "classes/settings.h"
 
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+
+    app.setApplicationName("Chess Clock");
+    app.setOrganizationName("Chess Clock");
+
     app.setStyleSheet("* {color: white}");
 
     qmlRegisterType<WrappedClocksWidget>("ChessClocks", 1, 0, "WrappedClocksWidget");
+    qmlRegisterType<Settings>("ChessClocks", 1, 0, "Settings");
 
     ChessClockView view;
     view.setSource(QUrl("qrc:/qml/main.qml"));
