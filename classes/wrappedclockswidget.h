@@ -43,6 +43,7 @@ public:
 
     bool isPlayStarted();
 
+
     enum TimeControlType
     {
      NormalClock,
@@ -54,6 +55,8 @@ public:
     };
 
 signals:
+
+    void unPaused();
 
 public slots:
 

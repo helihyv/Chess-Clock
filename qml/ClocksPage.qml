@@ -70,10 +70,12 @@ Page
 
         ToolIcon
         {
+            id: pauseButton
             iconId: "toolbar-mediacontrol-pause"
             onClicked:
                 {
                     wrappedClocksWidget.pause()
+                    visible = false
                 }
         }
 
@@ -88,6 +90,7 @@ Page
     WrappedClocksWidget
     {
         id: wrappedClocksWidget
+        onUnPaused: pauseButton.visible = true
     }
 
 

@@ -131,6 +131,8 @@ void WrappedClocksWidget::startGame(TimeControlType timeControl, int whiteInitia
 
     pClocksWidget_ = new ClocksWidget(pWhiteClock_, pBlackClock_);
 
+    connect(pClocksWidget_,SIGNAL(unPaused()),this,(SIGNAL(unPaused())));
+
     pClocksWidget_->setAttribute(Qt::WA_NoSystemBackground);
     setWidget(pClocksWidget_);
 

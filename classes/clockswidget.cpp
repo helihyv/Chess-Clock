@@ -219,6 +219,7 @@ void ClocksWidget::mousePressEvent(QMouseEvent *event)
 //            pauseButton_->setVisible(true);
             white_->continueTurn();
             status_=WhiteTurn;
+            emit unPaused(); //For Harmattan, to inform QML
             break;
         case BlackPause:
             // Continue play
@@ -228,6 +229,7 @@ void ClocksWidget::mousePressEvent(QMouseEvent *event)
 //            pauseButton_->setVisible(true);
             black_->continueTurn();
             status_=BlackTurn;
+            emit unPaused(); //For Harmattan, to inform QML
             break;
         case Stopped:
             emit ClickedWhenStopped();
