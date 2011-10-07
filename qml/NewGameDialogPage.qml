@@ -344,7 +344,8 @@ Page
                 anchors.topMargin: 15
                 anchors.left: turnsPerAdditionText.right
                 anchors.leftMargin: 25
-                anchors.rightMargin: 25
+//                anchors.rightMargin: 25
+                width: 250  //The width of all white buttons are indirectly defined by this value, and the width of black buttons is defined by the space available.
 
 
                 onClicked:
