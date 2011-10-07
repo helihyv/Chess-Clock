@@ -27,7 +27,7 @@ PageStackWindow {
     id: appWindow
 
 
-    property bool applicationActive: true //This is supposed to be set from C++
+    property bool applicationActive: Qt.application.active
 
 
     Component.onCompleted: theme.inverted = true
