@@ -195,6 +195,7 @@ void ClocksWidget::mousePressEvent(QMouseEvent *event)
             welcomeLabel_->setVisible(false);
  //For Harmattan pause button is moved to the toolbar (in QML)
 //            pauseButton_->setVisible(true);
+            emit unPaused(); //To tell QML that game is going (used to show pause button)
             keeper_->keepScreenLit(true);
             white_->startTurn();
             status_ = WhiteTurn;
