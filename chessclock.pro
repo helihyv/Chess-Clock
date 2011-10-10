@@ -36,7 +36,6 @@ SOURCES += main.cpp \
     classes/timecontrol/hourglassclock.cpp \
     classes/screenlitkeeper.cpp \
     classes/wrappedclockswidget.cpp \
-    chessclockview.cpp \
     classes/settings.cpp
 
 HEADERS  += \
@@ -51,7 +50,6 @@ HEADERS  += \
     classes/timecontrol/hourglassclock.h \
     classes/screenlitkeeper.h \
     classes/wrappedclockswidget.h \
-    chessclockview.h \
     classes/settings.h
 
 

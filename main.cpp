@@ -23,23 +23,25 @@
 #include <QtDeclarative>
 #include "classes/wrappedclockswidget.h"
 #include "classes/settings.h"
+#include <MDeclarativeCache>
+
 
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QApplication * pApp = MDeclarativeCache::qApplication(argc, argv);
 
-    app.setApplicationName("Chess Clock");
-    app.setOrganizationName("Chess Clock");
+    pApp->setApplicationName("Chess Clock");
+    pApp->setOrganizationName("Chess Clock");
 
-    app.setStyleSheet("* {color: white}");
+    pApp->setStyleSheet("* {color: white}");
 
     qmlRegisterType<WrappedClocksWidget>("ChessClocks", 1, 0, "WrappedClocksWidget");
     qmlRegisterType<Settings>("ChessClocks", 1, 0, "Settings");
 
-    QDeclarativeView view;
-    view.setSource(QUrl("qrc:/qml/main.qml"));
+    QDeclarativeView * pView = MDeclarativeCache::qDeclarativeView();
+    pView->setSource(QUrl("qrc:/qml/main.qml"));
 
-    view.showFullScreen();
-    return app.exec();
+    pView->showFullScreen();
+    return pApp->exec();
 }
