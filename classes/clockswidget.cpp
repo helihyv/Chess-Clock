@@ -69,7 +69,7 @@ ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent
     pauseLabel_->setVisible( false );
 
     // Welcome label for first touch
-    welcomeLabel_ = new QLabel( tr("<font color=green>Welcome! Please touch to start game.<br>"
+    welcomeLabel_ = new QLabel( tr("<font color=green>Welcome! Touch to start game. "
                                    "Then touch to end turn.</font>"),this);
     welcomeLabel_->setFont( QFont("Helvetica",25));
     welcomeLabel_->setAlignment( Qt::AlignCenter);
