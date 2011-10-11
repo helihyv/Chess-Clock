@@ -45,7 +45,10 @@ Page
     onStatusChanged:
     {
         if (status == PageStatus.Activating)
+        {
               wrappedClocksWidget.startGame(timeControl,whiteInitialTime,whiteAdditionalTime,whiteTurnsPerAddition,blackInitialTime,blackAdditionalTime,blackTurnsPerAddition)
+              pauseButton.visible = false
+        }
     }
 
     property bool appActive: applicationActive
