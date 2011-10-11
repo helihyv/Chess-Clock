@@ -36,8 +36,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     pApp->setStyleSheet("* {color: white}");
 
-    qmlRegisterType<WrappedClocksWidget>("ChessClocks", 1, 0, "WrappedClocksWidget");
-    qmlRegisterType<Settings>("ChessClocks", 1, 0, "Settings");
+    qmlRegisterType<WrappedClocksWidget>("ChessClocks", 1, 1, "WrappedClocksWidget");
+    qmlRegisterType<Settings>("ChessClocks", 1, 1, "Settings");
 
     QDeclarativeView * pView = MDeclarativeCache::qDeclarativeView();
     pView->setSource(QUrl("qrc:/qml/main.qml"));

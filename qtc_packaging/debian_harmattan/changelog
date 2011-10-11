@@ -1,4 +1,16 @@
-chessclock (1.9.0) unstable; urgency=low
+chessclock (1.9.1) unstable; urgency=low
+
+  * Uses buttons instead of text fields to trigger change value dialogs in
+    the start game dialog page, no longer need to tap twice to launch a
+    subdialog
+  * Game settings are saved
+  * Starts faster, uses MDeclarativeCacheBoost
+  * Pause button visible only if the game has started and is not paused
+  * "Then touch to end turn" help text in the start of game is visible
+
+ -- Heli Hyvättinen <heli.hyvattinen@kymp.net>  Thu, 13 Oct 2011 11:57:00 +0300
+
+chessclock (1.9.1) unstable; urgency=low
 
   * First release for Harmattan
   * User interface partly changed to QML and conforms to Harmattan style

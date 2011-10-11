@@ -6,7 +6,7 @@ QML_IMPORT_PATH =
 QT+= declarative
 symbian:TARGET.UID3 = 0xE00C40B5
 
-VERSION = 1.9.0
+VERSION = 1.9.1
 
 # Smart Installer package's UID
 # This UID is from the protected range and therefore the package will
@@ -25,7 +25,6 @@ MOBILITY += systeminfo
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    classes/turninformation.cpp \
     classes/chessclock.cpp \
     classes/chessclockwidget.cpp \
     classes/clockswidget.cpp \
@@ -36,7 +35,8 @@ SOURCES += main.cpp \
     classes/timecontrol/hourglassclock.cpp \
     classes/screenlitkeeper.cpp \
     classes/wrappedclockswidget.cpp \
-    classes/settings.cpp
+    classes/settings.cpp \
+    classes/turninformation.cpp
 
 HEADERS  += \
     classes/turninformation.h \
@@ -57,7 +57,6 @@ OTHER_FILES += \
     qml/MainPage.qml \
     qml/main.qml \
     chessclock.desktop \
-    chessclock.svg \
     chessclock.png \
     qtc_packaging/debian_harmattan/rules \
     qtc_packaging/debian_harmattan/README \
@@ -87,3 +86,6 @@ unix:!symbian:!maemo5 {
     target.path = /opt/chessclock/bin
     INSTALLS += target
 }
+
+
+

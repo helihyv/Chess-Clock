@@ -1,3 +1,24 @@
+/**************************************************************************
+
+   Chess Clock
+
+   This file is part of Chess Clock software.
+
+   (This file) Copyright (c) Heli Hyvättinen 2011
+
+   Chess Clock is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   Chess Clock is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+
+**************************************************************************/
+
 #include "settings.h"
 #include <QSettings>
 #include <QDebug>
@@ -96,7 +117,7 @@ return groupString;
         else
            result = settings.value("BlackInitial",defaultTime).toTime();
 
-       qDebug() << "Initial time is: " << result;
+//       qDebug() << "Initial time is: " << result;
 
        return result;
    }
@@ -120,7 +141,7 @@ return groupString;
        else
            result = settings.value("BlackAddition",defaultTime).toTime();
 
-       qDebug() << "Additional time is: " << result;
+//       qDebug() << "Additional time is: " << result;
        return result;
    }
 
@@ -158,7 +179,7 @@ return groupString;
    {
        QTime  time (hours,minutes,seconds);
        setInitialTime(timeControl,isWhite,time);
-       qDebug () << "Saved initial time setting: "<< time;
+//       qDebug () << "Saved initial time setting: "<< time;
    }
 
    void Settings::setAdditionalTime(int timeControl, bool isWhite, QTime time)
@@ -176,7 +197,7 @@ return groupString;
    {
        QTime time(hours,minutes,seconds);
        setAdditionalTime(timeControl,isWhite,time);
-       qDebug() << "Saved additional time setting: " << time;
+//       qDebug() << "Saved additional time setting: " << time;
    }
 
     void Settings::setEqualTimes(int timeControl, bool on)
@@ -185,7 +206,7 @@ return groupString;
         settings.beginGroup(getGroupName(timeControl));
 
         settings.setValue("Equals",on);
-        qDebug() << "Saved Equal times setting: " << on;
+//        qDebug() << "Saved Equal times setting: " << on;
     }
 
 
