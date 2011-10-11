@@ -194,13 +194,13 @@ Page
               }
 
 
-            TextField
+            Button
             {
                 id: whiteInitialTime
-                readOnly: true
 
                 anchors.top: whiteSmall.bottom
                 anchors.left: whiteTurnsPerAddition.left
+                anchors.right: whiteTurnsPerAddition.right
 
                 property int hours: 0
                 property int minutes: 30
@@ -208,33 +208,28 @@ Page
 
                 text: {hours + " h " + minutes + " min " + seconds + " s"}
 
-
-                MouseArea
+                onClicked:
                 {
-                    anchors.fill: parent
-                    onClicked:
-                    {
-                        timePicker.timeType = "initial"
-                        timePicker.player = "white"
-                        timePicker.hour = parent.hours
-                        timePicker.minute = parent.minutes
-                        timePicker.second = parent.seconds
-                        timePicker.open()
-                    }
+                    timePicker.timeType = "initial"
+                    timePicker.player = "white"
+                    timePicker.hour = hours
+                    timePicker.minute = minutes
+                    timePicker.second = seconds
+                    timePicker.open()
                 }
+
             }
 
 
 
-            TextField
+            Button
             {
                 id: blackInitialTime
                 visible: !equalTimesSwitch.checked
 
-                readOnly: true
-
                 anchors.top: whiteSmall.bottom
                 anchors.left:  blackTurnsPerAddition.left
+                anchors.right: blackTurnsPerAddition.right
 
                 property int hours: 0
                 property int minutes: 30
@@ -242,20 +237,16 @@ Page
 
                 text: hours + " h " + minutes + " min " + seconds + " s"
 
-
-                MouseArea
+                onClicked:
                 {
-                    anchors.fill: parent
-                    onClicked:
-                    {
-                        timePicker.timeType = "initial"
-                        timePicker.player = "black"
-                        timePicker.hour = parent.hours
-                        timePicker.minute = parent.minutes
-                        timePicker.second = parent.seconds
-                        timePicker.open()
-                    }
+                    timePicker.timeType = "initial"
+                    timePicker.player = "black"
+                    timePicker.hour = hours
+                    timePicker.minute = minutes
+                    timePicker.second = seconds
+                    timePicker.open()
                 }
+
             }
 
 
@@ -276,46 +267,42 @@ Page
 
 
 
-            TextField
+            Button
             {
                 id: whiteAdditionalTime
                 visible:  newGameDialogPage.askAddition
-                readOnly: true
 
                 anchors.top: whiteInitialTime.bottom
                 anchors.topMargin: 15
   //              anchors.left: additionalTimeText.right
                 anchors.left: whiteTurnsPerAddition.left
+                anchors.right: whiteTurnsPerAddition.right
                 property int hours: 0
                 property int minutes: 0
                 property int seconds: 30
 
                 text: hours + " h " + minutes + " min " + seconds + " s"
 
-
-                MouseArea
+                onClicked:
                 {
-                    anchors.fill: parent
-                    onClicked:
-                    {
-                        timePicker.timeType = "additional"
-                        timePicker.player = "white"
-                        timePicker.hour = parent.hours
-                        timePicker.minute = parent.minutes
-                        timePicker.second = parent.seconds
-                        timePicker.open()
-                    }
+                    timePicker.timeType = "additional"
+                    timePicker.player = "white"
+                    timePicker.hour = hours
+                    timePicker.minute = minutes
+                    timePicker.second = seconds
+                    timePicker.open()
                 }
+
             }
 
-            TextField
+            Button
             {
                 id: blackAdditionalTime
                 visible: newGameDialogPage.askAddition && !equalTimesSwitch.checked
-                readOnly: true
 
                 anchors.top: whiteAdditionalTime.top
                 anchors.left: blackTurnsPerAddition.left
+                anchors.right: blackTurnsPerAddition.right
 
                 property int hours: 0
                 property int minutes: 0
@@ -323,19 +310,17 @@ Page
 
                 text: hours + " h " + minutes + " min " + seconds + " s"
 
-                MouseArea
+
+                onClicked:
                 {
-                    anchors.fill: parent
-                    onClicked:
-                    {
-                        timePicker.timeType = "additional"
-                        timePicker.player = "black"
-                        timePicker.hour = parent.hours
-                        timePicker.minute = parent.minutes
-                        timePicker.second = parent.seconds
-                        timePicker.open()
-                    }
+                    timePicker.timeType = "additional"
+                    timePicker.player = "black"
+                    timePicker.hour = hours
+                    timePicker.minute = minutes
+                    timePicker.second = seconds
+                    timePicker.open()
                 }
+
 
 
             }
@@ -350,53 +335,48 @@ Page
                 anchors.verticalCenter: whiteTurnsPerAddition.verticalCenter
             }
 
-            TextField
+            Button
             {
                 id: whiteTurnsPerAddition
                 visible: newGameDialogPage.askTurnsPerAddition
-                readOnly: true;
 
                 anchors.top: whiteAdditionalTime.bottom
                 anchors.topMargin: 15
                 anchors.left: turnsPerAdditionText.right
                 anchors.leftMargin: 25
+//                anchors.rightMargin: 25
+                width: 250  //The width of all white buttons are indirectly defined by this value, and the width of black buttons is defined by the space available.
 
-                MouseArea
+
+                onClicked:
                 {
-                    anchors.fill: parent
-                    onClicked:
-                    {
-                        turnsDialog.player = "white"
-                        turnsDialog.open()
-                        turnsColumn.selectedIndex = parent.text-1 //Needs to be after open(),  or gets overridden by the previous chosen value
+                    turnsDialog.player = "white"
+                    turnsDialog.open()
+                    turnsColumn.selectedIndex = text-1 //Needs to be after open(),  or gets overridden by the previous chosen value
 
-
-                    }
                 }
+
 
             }
 
-            TextField
+            Button
             {
                 id: blackTurnsPerAddition
                 visible: newGameDialogPage.askTurnsPerAddition && !equalTimesSwitch.checked
-                readOnly: true;
+
 
                 anchors.top: whiteTurnsPerAddition.top
                 anchors.left: whiteTurnsPerAddition.right
                 anchors.leftMargin: 25
+                anchors.right: parent.right
+                anchors.rightMargin: 25
 
-                MouseArea
+                onClicked:
                 {
-                    anchors.fill: parent
-                    onClicked:
-                    {
-                        turnsDialog.player = "black"
-                        turnsDialog.open()
-                        turnsColumn.selectedIndex = parent.text-1 //Needs to be after open(),  or gets overridden by the previous chosen value
-                    }
+                    turnsDialog.player = "black"
+                    turnsDialog.open()
+                    turnsColumn.selectedIndex = parent.text-1 //Needs to be after open(),  or gets overridden by the previous chosen value
                 }
-
             }
 
 
@@ -408,6 +388,7 @@ Page
                 anchors.top: whiteTurnsPerAddition.bottom
                 anchors.topMargin: 15
                 anchors.right: parent.right
+                anchors.rightMargin: 5
 
                 onClicked:
                 {
