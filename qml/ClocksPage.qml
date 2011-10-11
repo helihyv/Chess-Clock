@@ -45,7 +45,7 @@ Page
     onStatusChanged:
     {
         if (status == PageStatus.Activating)
-            wrappedClocksWidget.startGame(timeControl,whiteInitialTime,whiteAdditionalTime,whiteTurnsPerAddition,blackInitialTime,blackAdditionalTime,blackTurnsPerAddition)
+              wrappedClocksWidget.startGame(timeControl,whiteInitialTime,whiteAdditionalTime,whiteTurnsPerAddition,blackInitialTime,blackAdditionalTime,blackTurnsPerAddition)
     }
 
     property bool appActive: applicationActive
@@ -53,7 +53,10 @@ Page
     onAppActiveChanged:
     {
         if (appActive == false)
+        {
             wrappedClocksWidget.pause()
+            pauseButton.visible = false
+        }
     }
 
     tools: ToolBarLayout
@@ -70,10 +73,12 @@ Page
 
         ToolIcon
         {
+            id: pauseButton
             iconId: "toolbar-mediacontrol-pause"
             onClicked:
                 {
                     wrappedClocksWidget.pause()
+                    visible = false
                 }
         }
 
@@ -88,6 +93,7 @@ Page
     WrappedClocksWidget
     {
         id: wrappedClocksWidget
+        onUnPaused: pauseButton.visible = true
     }
 
 

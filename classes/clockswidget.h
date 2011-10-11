@@ -3,6 +3,7 @@
     Chess Clock
 
     Copyright (c) Arto Hyvättinen 2010
+    Changes for porting to Harmattan(c) Heli Hyvättinen 2011
 
     This file is part of Chess Clock software.
 
@@ -36,8 +37,10 @@ class ChessClock;
 
 /*! Widget with two clocks
 
-    @author Arto Hyvättinen
-    @date 2010-08-14
+    @author Arto Hyvättinen (& Heli Hyvättinen)
+    @date 2011-10-07
+
+
 
     Central widget of Chess Clock.
     Needed to create new ClocksWidget to
@@ -61,6 +64,7 @@ protected:
 signals:
    void TurnFinished(TurnInformation* turnInfo);
    void ClickedWhenStopped();
+   void unPaused(); //For Harmattan, to inform QML
 
 public slots:
    /*! Pause game */
