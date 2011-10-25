@@ -70,6 +70,7 @@ Page
             onClicked:
             {
                 wrappedClocksWidget.pause()
+                pauseButton.visible = false
                 confirmationDialog.open()
             }
         }
