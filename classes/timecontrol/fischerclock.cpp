@@ -3,6 +3,8 @@
     Chess Clock
 
     Copyright (c) Arto Hyvättinen 2010
+    Fix that prevents time to be added at first turn if perTurns > 1
+    (c) Heli Hyvättinen 2011
 
     This file is part of Chess Clock software.
 
@@ -32,7 +34,14 @@ FischerClock::FischerClock(bool white, int addition, int perTurns,  QWidget *par
 
 void FischerClock::startTurn()
 {
-    if(getTurn() % perTurns_ == 0 )
+    //The turn number is incremented in ChessClock::startTurn(), here it is real - 1!
+    //The +1 is needed to compensate for that.
+    //Otherwise it always increments at the first turn as 0 % x is always 0.
+    //(And increments at right interval but wrong turns for the rest of the game).
+    //Added by Heli Hyvättinen 25 Oct 2011
+
+
+    if(getTurn()+1 % perTurns_ == 0)
         addTime( addition_ );
     ChessClock::startTurn();
 }
