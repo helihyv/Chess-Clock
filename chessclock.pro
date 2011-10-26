@@ -66,12 +66,18 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/changelog \
     qml/ClocksPage.qml \
     qml/AboutPage.qml \
-    qml/NewGameDialogPage.qml
+    qml/NewGameDialogPage.qml \
+    chessclock_splashscreen.png
 
 
 RESOURCES += \
     res.qrc \
     chessclock.qrc
+
+splash.files = chessclock_splashscreen.png
+splash.path = /opt/chessclock/images
+INSTALLS += splash
+
 
 # Please do not modify the following two lines. Required for deployment.
 include(deployment.pri)
@@ -85,7 +91,14 @@ QMAKE_LFLAGS += -pie -rdynamic
 unix:!symbian:!maemo5 {
     target.path = /opt/chessclock/bin
     INSTALLS += target
+
+
 }
+
+
+
+
+
 
 
 
