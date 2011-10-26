@@ -41,7 +41,7 @@ void FischerClock::startTurn()
     //Added by Heli Hyvättinen 25 Oct 2011
 
 
-    if(getTurn()+1 % perTurns_ == 0)
+    if((getTurn()+1) % perTurns_ == 0)
         addTime( addition_ );
     ChessClock::startTurn();
 }
