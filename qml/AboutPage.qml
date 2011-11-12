@@ -53,7 +53,7 @@ Text
 Text
 {
 
-    text: "© Arto Hyvättinen 2010 & Heli Hyvättinen 2011<p>Chess Clock is free software under the terms <br>of GNU General Public License 3 <p> Bugtracker and instructions at <br>http://chessclock.garage.maemo.org"
+    text: "© Heli Hyvättinen 2011<br>© Arto Hyvättinen 2010 <p>Chess Clock is free software under the terms <br>of GNU General Public License 3 <p> Bugtracker, instructions and source code at <br>http://chessclock.garage.maemo.org"
 
     color: "white"
     font.pointSize: 22
