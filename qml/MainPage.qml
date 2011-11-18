@@ -22,7 +22,7 @@
 
 import QtQuick 1.1
 import com.nokia.meego 1.0
-import ChessClocks 1.1
+import ChessClocks 1.2
 
 
 

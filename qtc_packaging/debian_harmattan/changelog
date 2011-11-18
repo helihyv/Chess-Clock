@@ -1,4 +1,14 @@
-chessclock (1.9.1) unstable; urgency=low
+chessclock (2.0.0) unstable; urgency=low
+
+  * Addition before now works correctly also when 'turns per addition' is greater
+    than one
+  * Pause button is hidden when the game is paused for the confirm quit dialog
+  * Uses splashscreen
+  * Uses com.nokia.meego instead of com.meego as the include for Harmattan components
+
+ -- Heli Hyvättinen <heli.hyvattinen@kymp.net>  Fri, 18 Nov 2011 13:00:00 +0200
+
+chessclock (2.0.0) unstable; urgency=low
 
   * Uses buttons instead of text fields to trigger change value dialogs in
     the start game dialog page, no longer need to tap twice to launch a
@@ -10,7 +20,7 @@ chessclock (1.9.1) unstable; urgency=low
 
  -- Heli Hyvättinen <heli.hyvattinen@kymp.net>  Thu, 13 Oct 2011 11:57:00 +0300
 
-chessclock (1.9.1) unstable; urgency=low
+chessclock (2.0.0) unstable; urgency=low
 
   * First release for Harmattan
   * User interface partly changed to QML and conforms to Harmattan style
