@@ -1,9 +1,8 @@
 Source: chessclock
-Section: user/games
+Section: user/hidden
 Priority: optional
 Maintainer: Heli Hyvättinen <heli.hyvattinen@kymp.net>
-Build-Depends: debhelper (>= 5), libqt4-dev, libqtm-dev, pkg-config
-#, applauncherd-dev
+Build-Depends: debhelper (>= 5), libqt4-dev, libqtm-dev
 #Uncomment the previous line and join it with the one before it for building in the Meego community OBS
 Standards-Version: 3.7.3
 Homepage: http://chessclock.garage.maemo.org/ 
