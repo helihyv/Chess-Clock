@@ -385,8 +385,10 @@ Page
                 id: okButton
                 text:  "Start game"
 
-                anchors.top: whiteTurnsPerAddition.bottom
-                anchors.topMargin: 15
+//                anchors.top: whiteTurnsPerAddition.bottom
+                anchors.bottom: parent.bottom
+//                anchors.topMargin: 15
+                anchors.bottomMargin: 2
                 anchors.right: parent.right
                 anchors.rightMargin: 5
 

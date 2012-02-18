@@ -1,3 +1,9 @@
+chessclock (2.0.2) unstable; urgency=low
+
+    *Cosmetical changes due to the changed font metrics in the PR 1.2 firmware
+
+ -- Heli Hyvättinen <heli.hyvattinen@kymp.net>  Fri, 12 Feb 2011 14:29:00 +0200
+
 chessclock (2.0.1) unstable; urgency=low
 
     *Installs .desktop and icon again (deployement.pri was missing from source

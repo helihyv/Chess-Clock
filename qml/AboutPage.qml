@@ -42,7 +42,7 @@ Page
 Text
 {
     id: title
-    text: "Chess Clock 2.0.1"
+    text: "Chess Clock 2.0.2"        //Changes for PR 1.2
     color: "white"
     font.pointSize: 42
 
@@ -59,9 +59,10 @@ Text
     font.pointSize: 22
 
 
-    anchors.top: title.bottom
-    anchors.topMargin: 50
+//    anchors.top: title.bottom
+//    anchors.topMargin: 50
     anchors.left: logo.right
+    anchors.bottom: parent.bottom
 }
 
 }

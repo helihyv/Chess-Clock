@@ -114,7 +114,7 @@ Page {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 
-        spacing:  10
+//        spacing:  10
 
          model: menuModel
 
@@ -127,6 +127,7 @@ Page {
                 source: logoFile
                 width:  40
                 height: 40
+                anchors.verticalCenter: parent.verticalCenter
 
                 MouseArea
                 {
@@ -144,8 +145,8 @@ Page {
             Text
             {
                 text: name
-                font.pointSize: 38
-                anchors.topMargin: 12
+                font.pointSize: 36
+//                anchors.topMargin: 12
                 color: "white"
 
                 MouseArea
