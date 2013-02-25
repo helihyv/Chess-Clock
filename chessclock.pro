@@ -30,8 +30,7 @@ SOURCES += main.cpp \
     classes/timecontrol/hourglassclock.cpp \
     classes/wrappedclockswidget.cpp \
     classes/settings.cpp \
-    classes/turninformation.cpp \
-    sailfishapplication/sailfishapplication.cpp
+    classes/turninformation.cpp
 
 HEADERS  += \
     classes/turninformation.h \
@@ -44,8 +43,7 @@ HEADERS  += \
     classes/timecontrol/delayafterclock.h \
     classes/timecontrol/hourglassclock.h \
     classes/wrappedclockswidget.h \
-    classes/settings.h \
-    sailfishapplication/sailfishapplication.h
+    classes/settings.h
 
 
 OTHER_FILES += \
@@ -57,7 +55,7 @@ OTHER_FILES += \
     qml/AboutPage.qml \
     qml/NewGameDialogPage.qml \
     chessclock_splashscreen.png \
-    rpm/EkaSailfishTesti.yaml
+    rpm/ChessClock.yaml
 
 
 
