@@ -102,18 +102,27 @@ Page
     }
 
 
-//    QueryDialog
-//    {
-//        id: confirmationDialog
-//        titleText: "Quit?"
-//        message:  "Are you sure you want to quit the game?"
+    Dialog
+    {
+        id: confirmationDialog
+        DialogHeader
+        {
+
+            acceptText: "Quit?"
+        }
+
+        Label
+        {
+            text:  "Are you sure you want to quit the game?"
+        }
 //        acceptButtonText: "Quit"
 //        rejectButtonText: "Continue play"
 
-//        onAccepted:
-//        {
-//           pageStack.pop()
-//        }
 
-//    }
+        onAccepted:
+        {
+           pageStack.pop()
+        }
+
+    }
 }

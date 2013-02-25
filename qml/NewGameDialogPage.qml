@@ -446,7 +446,7 @@ Page
 
 
 
-
+//TimePickerDialog in Silica does not support seconds!! Need to use customized Dialog!!
 TimePickerDialog
 {
     id: timePicker
@@ -515,6 +515,8 @@ ListModel
     }
 
 }
+
+//Silica does not have a tumbler dialog!
 
 
 //TumblerDialog
