@@ -33,6 +33,8 @@ Page
 
 //    orientationLock: PageOrientation.LockLandscape
 
+    allowedOrientations: Orientation.Landscape
+
     property string name
 
     //QML does not allow properties to be declared as enums...

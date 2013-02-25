@@ -30,6 +30,7 @@ Page {
     id: mainPage
 //    tools: commonTools
 //    orientationLock: PageOrientation.LockLandscape
+    allowedOrientations: Orientation.Landscape
 
 
     Image

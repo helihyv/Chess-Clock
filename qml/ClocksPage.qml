@@ -41,6 +41,7 @@ Page
     property int blackTurnsPerAddition
 
 //    orientationLock: PageOrientation.LockLandscape
+    allowedOrientations: Orientation.Landscape
 
     onStatusChanged:
     {

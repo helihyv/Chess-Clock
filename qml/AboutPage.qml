@@ -29,6 +29,7 @@ Page
     id: aboutPage
 //    tools: commonTools
 //    orientationLock: PageOrientation.LockLandscape
+    allowedOrientations: Orientation.Landscape
 
 //    tools: ToolBarLayout {
 //        ToolIcon { iconId: "toolbar-back"; onClicked: pageStack.pop() }
