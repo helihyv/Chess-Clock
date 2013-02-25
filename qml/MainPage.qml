@@ -28,8 +28,8 @@ import ChessClocks 1.2
 
 Page {
     id: mainPage
-    tools: commonTools
-    orientationLock: PageOrientation.LockLandscape
+//    tools: commonTools
+//    orientationLock: PageOrientation.LockLandscape
 
 
     Image

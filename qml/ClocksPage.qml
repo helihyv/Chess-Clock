@@ -40,7 +40,7 @@ Page
     property int whiteTurnsPerAddition
     property int blackTurnsPerAddition
 
-    orientationLock: PageOrientation.LockLandscape
+//    orientationLock: PageOrientation.LockLandscape
 
     onStatusChanged:
     {
@@ -62,34 +62,34 @@ Page
         }
     }
 
-    tools: ToolBarLayout
-    {
-        ToolIcon
-        {
-            iconId: "toolbar-back"
-            onClicked:
-            {
-                wrappedClocksWidget.pause()
-                pauseButton.visible = false
-                confirmationDialog.open()
-            }
-        }
+//    tools: ToolBarLayout
+//    {
+//        ToolIcon
+//        {
+//            iconId: "toolbar-back"
+//            onClicked:
+//            {
+//                wrappedClocksWidget.pause()
+//                pauseButton.visible = false
+//                confirmationDialog.open()
+//            }
+//        }
 
-        ToolIcon
-        {
-            id: pauseButton
-            iconId: "toolbar-mediacontrol-pause"
-            onClicked:
-                {
-                    wrappedClocksWidget.pause()
-                    visible = false
-                }
-        }
+//        ToolIcon
+//        {
+//            id: pauseButton
+//            iconId: "toolbar-mediacontrol-pause"
+//            onClicked:
+//                {
+//                    wrappedClocksWidget.pause()
+//                    visible = false
+//                }
+//        }
 
-        Item{}  //placeholder needed to put pause button in the middle
+//        Item{}  //placeholder needed to put pause button in the middle
 
 
-    }
+//    }
 
 
 
@@ -101,18 +101,18 @@ Page
     }
 
 
-    QueryDialog
-    {
-        id: confirmationDialog
-        titleText: "Quit?"
-        message:  "Are you sure you want to quit the game?"
-        acceptButtonText: "Quit"
-        rejectButtonText: "Continue play"
+//    QueryDialog
+//    {
+//        id: confirmationDialog
+//        titleText: "Quit?"
+//        message:  "Are you sure you want to quit the game?"
+//        acceptButtonText: "Quit"
+//        rejectButtonText: "Continue play"
 
-        onAccepted:
-        {
-           pageStack.pop()
-        }
+//        onAccepted:
+//        {
+//           pageStack.pop()
+//        }
 
-    }
+//    }
 }

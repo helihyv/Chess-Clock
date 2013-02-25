@@ -22,17 +22,17 @@
 import QtQuick 1.1
 import Sailfish.Silica 1.0
 import QtQuick 1.0
-import com.nokia.extras 1.0
+//import com.nokia.extras 1.0
 
 Page
 {
     id: aboutPage
 //    tools: commonTools
-    orientationLock: PageOrientation.LockLandscape
+//    orientationLock: PageOrientation.LockLandscape
 
-    tools: ToolBarLayout {
-        ToolIcon { iconId: "toolbar-back"; onClicked: pageStack.pop() }
-    }
+//    tools: ToolBarLayout {
+//        ToolIcon { iconId: "toolbar-back"; onClicked: pageStack.pop() }
+//    }
 
     Image {
         id: logo

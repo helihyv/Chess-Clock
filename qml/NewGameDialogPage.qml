@@ -23,7 +23,7 @@
 import QtQuick 1.1
 import Sailfish.Silica 1.0
 import QtQuick 1.0
-import com.nokia.extras 1.0
+//import com.nokia.extras 1.0
 import ChessClocks 1.2
 
 
@@ -31,7 +31,7 @@ Page
 {
     id: newGameDialogPage
 
-    orientationLock: PageOrientation.LockLandscape
+//    orientationLock: PageOrientation.LockLandscape
 
     property string name
 
@@ -79,10 +79,10 @@ Page
         blackTurnsPerAddition.text = settings.getTurnsPerAddition(timeControl,false)
     }
 
-    tools: ToolBarLayout
-    {
-        ToolIcon { iconId: "toolbar-back"; onClicked: pageStack.pop() }
-    }
+//    tools: ToolBarLayout
+//    {
+//        ToolIcon { iconId: "toolbar-back"; onClicked: pageStack.pop() }
+//    }
 
 
 
@@ -452,9 +452,9 @@ TimePickerDialog
     property string timeType
     property string player
 
-    titleText: "Choose " + timeType + " time for " + player
-    rejectButtonText: "Cancel"
-    acceptButtonText: "Ok"
+//    titleText: "Choose " + timeType + " time for " + player
+//    rejectButtonText: "Cancel"
+//    acceptButtonText: "Ok"
     hourMode: DateTime.TwentyFourHours
     onAccepted:
     {
@@ -491,13 +491,13 @@ TimePickerDialog
 
 
 
-TumblerColumn
-{
-    id: turnsColumn
-    items: turnsList
+//TumblerColumn
+//{
+//    id: turnsColumn
+//    items: turnsList
 
 
-}
+//}
 
 ListModel
 {
@@ -515,27 +515,27 @@ ListModel
 }
 
 
-TumblerDialog
-{
-    id: turnsDialog
+//TumblerDialog
+//{
+//    id: turnsDialog
 
-    property string player
+//    property string player
 
-    titleText: "Choose turns per addition for " + player
-    acceptButtonText: "Ok"
-    rejectButtonText: "Cancel"
+//    titleText: "Choose turns per addition for " + player
+//    acceptButtonText: "Ok"
+//    rejectButtonText: "Cancel"
 
-    columns: [turnsColumn]
+//    columns: [turnsColumn]
 
-    onAccepted:
-    {
-        if (player == "white")
-            whiteTurnsPerAddition.text = turnsColumn.selectedIndex+1
-        else if (player == "black")
-            blackTurnsPerAddition.text = turnsColumn.selectedIndex+1
+//    onAccepted:
+//    {
+//        if (player == "white")
+//            whiteTurnsPerAddition.text = turnsColumn.selectedIndex+1
+//        else if (player == "black")
+//            blackTurnsPerAddition.text = turnsColumn.selectedIndex+1
 
 
-    }
-}
+//    }
+//}
 
 }

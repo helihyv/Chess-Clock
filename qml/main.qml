@@ -23,7 +23,7 @@
 import QtQuick 1.1
 import Sailfish.Silica 1.0
 
-PageStackWindow {
+ApplicationWindow{
     id: appWindow
 
 
@@ -42,29 +42,29 @@ PageStackWindow {
 
     NewGameDialogPage{id: newGameDialogPage}
 
-    ToolBarLayout {
-        id: commonTools
-        visible: true
-        ToolIcon { platformIconId: "toolbar-view-menu";
-             anchors.right: parent===undefined ? undefined : parent.right
-             onClicked: (myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()
-        }
-    }
+//    ToolBarLayout {
+//        id: commonTools
+//        visible: true
+//        ToolIcon { platformIconId: "toolbar-view-menu";
+//             anchors.right: parent===undefined ? undefined : parent.right
+//             onClicked: (myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()
+//        }
+//    }
 
-    Menu {
-        id: myMenu
-        visualParent: pageStack
-        MenuLayout {
-            MenuItem
-            {
-                text: "Visit web page"
-                onClicked: Qt.openUrlExternally("http://chessclock.garage.maemo.org/")
-            }
-            MenuItem
-            {
-                text: "About"
-                onClicked: pageStack.push(aboutPage)
-            }
-        }
-    }
+//    Menu {
+//        id: myMenu
+//        visualParent: pageStack
+//        MenuLayout {
+//            MenuItem
+//            {
+//                text: "Visit web page"
+//                onClicked: Qt.openUrlExternally("http://chessclock.garage.maemo.org/")
+//            }
+//            MenuItem
+//            {
+//                text: "About"
+//                onClicked: pageStack.push(aboutPage)
+//            }
+//        }
+//    }
 }
