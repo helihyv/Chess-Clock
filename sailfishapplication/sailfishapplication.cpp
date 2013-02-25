@@ -16,7 +16,11 @@
 #include <MDeclarativeCache>
 #endif
 
+#include <QDebug>
+
 #include "sailfishapplication.h"
+
+
 
 QApplication *Sailfish::createApplication(int &argc, char **argv)
 {
@@ -47,7 +51,15 @@ QDeclarativeView *Sailfish::createView(const QString &file)
     } else {
         path = QString(DEPLOYMENT_PATH);
     }
-    view->setSource(QUrl::fromLocalFile(path + file));
+
+    //do not add local path if the file is stored in the resource system! Heli Hyvättinen 26.2.2013
+    if (!file.startsWith("qrc:"))
+
+        view->setSource(QUrl::fromLocalFile(path + file));
+
+    else view->setSource(file);
+
+    qDebug () << file;
     
     return view;
 }
