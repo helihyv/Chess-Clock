@@ -28,7 +28,6 @@ SOURCES += main.cpp \
     classes/timecontrol/delayclock.cpp \
     classes/timecontrol/delayafterclock.cpp \
     classes/timecontrol/hourglassclock.cpp \
-    classes/screenlitkeeper.cpp \
     classes/wrappedclockswidget.cpp \
     classes/settings.cpp \
     classes/turninformation.cpp \
@@ -44,7 +43,6 @@ HEADERS  += \
     classes/timecontrol/delayclock.h \
     classes/timecontrol/delayafterclock.h \
     classes/timecontrol/hourglassclock.h \
-    classes/screenlitkeeper.h \
     classes/wrappedclockswidget.h \
     classes/settings.h \
     sailfishapplication/sailfishapplication.h

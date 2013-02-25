@@ -24,7 +24,7 @@
 #include "clockswidget.h"
 #include "chessclock.h"
 
-#include "screenlitkeeper.h"
+//#include "screenlitkeeper.h"
 
 #include <QLabel>
 #include <QPixmap>
@@ -125,7 +125,7 @@ ClocksWidget::ClocksWidget(ChessClock *white, ChessClock *black, QWidget *parent
     recentX = recentY = -1;
 
     // ScreenLitKeeper to keep screen lit when playing
-    keeper_ = new ScreenLitKeeper(this);
+//    keeper_ = new ScreenLitKeeper(this);
 
     connect( white, SIGNAL(dontEatBattery()), this, SLOT(saveScreen()));
     connect( black, SIGNAL(dontEatBattery()), this, SLOT(saveScreen()));
@@ -146,7 +146,7 @@ void ClocksWidget::pause()
         pauseLabel_->setVisible(true);
  //For Harmattan pause button is moved to the toolbar (in QML)
 //        pauseButton_->setVisible(false);
-        keeper_->keepScreenLit(false);
+//        keeper_->keepScreenLit(false);
 
     }
     else if( status_ == BlackTurn)
@@ -156,7 +156,7 @@ void ClocksWidget::pause()
         pauseLabel_->setVisible(true);
  //For Harmattan pause button is moved to the toolbar (in QML)
 //        pauseButton_->setVisible(false);
-        keeper_->keepScreenLit(false);
+//        keeper_->keepScreenLit(false);
     }
 }
 
@@ -171,7 +171,7 @@ void ClocksWidget::stopPlay()
 
 void ClocksWidget::saveScreen()
 {
-    keeper_->keepScreenLit(false);
+//    keeper_->keepScreenLit(false);
 }
 
 
@@ -196,7 +196,7 @@ void ClocksWidget::mousePressEvent(QMouseEvent *event)
  //For Harmattan pause button is moved to the toolbar (in QML)
 //            pauseButton_->setVisible(true);
             emit unPaused(); //To tell QML that game is going (used to show pause button)
-            keeper_->keepScreenLit(true);
+//            keeper_->keepScreenLit(true);
             white_->startTurn();
             status_ = WhiteTurn;
             break;
@@ -214,7 +214,7 @@ void ClocksWidget::mousePressEvent(QMouseEvent *event)
             break;
         case WhitePause:
             // Continue play
-            keeper_->keepScreenLit(true);
+//            keeper_->keepScreenLit(true);
             pauseLabel_->setVisible(false);
 //For Harmattan pause button is moved to the toolbar (in QML)
 //            pauseButton_->setVisible(true);
@@ -224,7 +224,7 @@ void ClocksWidget::mousePressEvent(QMouseEvent *event)
             break;
         case BlackPause:
             // Continue play
-            keeper_->keepScreenLit(true);
+//            keeper_->keepScreenLit(true);
             pauseLabel_->setVisible(false);
 //For Harmattan pause button is moved to the toolbar (in QML)
 //            pauseButton_->setVisible(true);
