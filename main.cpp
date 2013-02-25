@@ -4,7 +4,7 @@
 
    This file is part of Chess Clock software.
 
-   (This file) Copyright (c) Heli Hyvättinen 2011
+   (This file) Copyright (c) Heli Hyvättinen 2013
 
    Chess Clock is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -19,17 +19,22 @@
 
 **************************************************************************/
 
-#include <QtGui/QApplication>
+#include <QApplication>
+#include <QDeclarativeView>
+
 #include <QtDeclarative>
+
+#include "sailfishapplication.h"
 #include "classes/wrappedclockswidget.h"
 #include "classes/settings.h"
-#include <MDeclarativeCache>
+
 
 
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QApplication * pApp = MDeclarativeCache::qApplication(argc, argv);
+    QScopedPointer<QApplication> pApp(Sailfish::createApplication(argc, argv));
+
 
     pApp->setApplicationName("Chess Clock");
     pApp->setOrganizationName("Chess Clock");
@@ -39,9 +44,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<WrappedClocksWidget>("ChessClocks", 1, 2, "WrappedClocksWidget");
     qmlRegisterType<Settings>("ChessClocks", 1, 2, "Settings");
 
-    QDeclarativeView * pView = MDeclarativeCache::qDeclarativeView();
-    pView->setSource(QUrl("qrc:/qml/main.qml"));
 
-    pView->showFullScreen();
+    QScopedPointer<QDeclarativeView> pView(Sailfish::createView("qrc:/qml/main.qml"));
+
+    Sailfish::showView(pView.data());
+
     return pApp->exec();
 }
