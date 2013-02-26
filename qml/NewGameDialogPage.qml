@@ -88,37 +88,42 @@ Page
 
 
 
-           Text
+           PageHeader
             {
                 id: title
 
                 anchors.horizontalCenter: parent.horizontalCenter
 
-                color:"white"
-                font.pointSize: 26
-                text: newGameDialogPage.name
+//                color:"white"
+//                font.pointSize: 26
+                title: newGameDialogPage.name
             }
 
-            Row
-            {
-                id: rowRow
-                spacing: 10
+//            Row
+//            {
+//                id: rowRow
+//                spacing: 10
 
-                anchors.top: title.bottom
 
-                Text
-                {
-//                     width: rowRow.width - rowRow.spacing - switchComponent.width - whiteSmall.width - blackSmall.width
-//                     height: switchComponent.height
-                    verticalAlignment: Text.AlignVCenter
-                    text: "Equal times"
-                    color: "white"
-                    font.pointSize: 26
-                }
 
-                Switch
+//                Text
+//                {
+////                     width: rowRow.width - rowRow.spacing - switchComponent.width - whiteSmall.width - blackSmall.width
+////                     height: switchComponent.height
+//                    verticalAlignment: Text.AlignVCenter
+
+//                    color: "white"
+//                    font.pointSize: 26
+//                }
+
+                TextSwitch
                 {
                     id: equalTimesSwitch
+
+                    anchors.top: title.bottom
+
+                    text: "Equal times"
+
                     onCheckedChanged:
                     {
                         if (checked)
@@ -145,7 +150,7 @@ Page
 
                     }
                 }
-            }
+//            }
 
 
 
@@ -154,7 +159,7 @@ Page
             {
                 id: whiteSmall
 
-                anchors.top: rowRow.bottom
+                anchors.top: title.bottom
 
                 source: ":/rc/pic/white_small.png"
 
@@ -172,7 +177,7 @@ Page
 
                 id: blackSmall
 
-                anchors.top: rowRow.bottom
+                anchors.top: title.bottom
 
 
                 source: ":/rc/pic/black_small.png"
@@ -186,12 +191,12 @@ Page
                 }
             }
 
-            Text
+            Label
             {
                 id: initialTimeText
-                text: "Initial time"
-                color: "white"
-                font.pointSize: 26
+//                text: "Initial time"
+//                color: "white"
+//                font.pointSize: 26
                 anchors.verticalCenter: whiteInitialTime.verticalCenter
               }
 
@@ -253,15 +258,15 @@ Page
 
 
 
-            Text
+            Label
             {
                 id: additionalTimeText
 
                 anchors.verticalCenter: whiteAdditionalTime.verticalCenter
 
                 text: "Additional time"
-                color: "white"
-                font.pointSize: 26
+//                color: "white"
+//                font.pointSize: 26
                 visible: newGameDialogPage.askAddition
 //                    anchors.top: initialTimeText.bottom
 //                    anchors.horizontalCenter: parent.horizontalCenter
@@ -327,12 +332,12 @@ Page
 
             }
 
-            Text
+            Label
             {
                 id: turnsPerAdditionText
                 text:  "Turns per addition"
-                color: "white"
-                font.pointSize: 26
+//                color: "white"
+//                font.pointSize: 26
                 visible: newGameDialogPage.askTurnsPerAddition
                 anchors.verticalCenter: whiteTurnsPerAddition.verticalCenter
             }
