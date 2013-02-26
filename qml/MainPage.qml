@@ -171,6 +171,8 @@ Page {
 //                font.pointSize: 36
 //                anchors.topMargin: 12
 //                color: "white"
+                font.pixelSize: theme.fontSizeLarge
+
 
                 MouseArea
                 {
