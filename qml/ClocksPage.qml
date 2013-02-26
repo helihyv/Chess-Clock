@@ -93,15 +93,24 @@ Page
 //    }
 
 
-
-
-    WrappedClocksWidget
+    Column
     {
-        id: wrappedClocksWidget
-        onUnPaused: pauseButton.visible = true
+        anchors.fill: parent
+
+        PageHeader // The purpose of this is to move the wrapped widget downwards to reveal upper left corner
+        {
+            title: ""
+        }
+
+
+        WrappedClocksWidget
+        {
+
+            id: wrappedClocksWidget
+            onUnPaused: pauseButton.visible = true
+        }
+
     }
-
-
     Dialog
     {
         id: confirmationDialog
