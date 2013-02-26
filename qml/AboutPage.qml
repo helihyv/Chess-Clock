@@ -38,29 +38,33 @@ Page
     Image {
         id: logo
         source: ":/rc/pic/logo.png"
+
+        anchors.top: title.bottom
+//        anchors.bottom: parent.bottom
+//        anchors.verticalCenter: parent.verticalCenter
     }
 
-Text
+PageHeader
 {
     id: title
-    text: "Chess Clock 2.0.2"        //Changes for PR 1.2
-    color: "white"
-    font.pointSize: 42
+    title: "Chess Clock 2.0.2"        //Changes for PR 1.2
+//    color: "white"
+//    font.pointSize: 42
 
-    anchors.left: logo.right
-    anchors.leftMargin: 50
+//    anchors.left: logo.right
+//    anchors.leftMargin: 50
 }
 
-Text
+Label
 {
 
     text: "© Heli Hyvättinen 2011–2013<br>© Arto Hyvättinen 2010 <p>Chess Clock is free software under the terms <br>of GNU General Public License 3 <p> Bugtracker, instructions and source code at <br>http://chessclock.garage.maemo.org"
 
-    color: "white"
-    font.pointSize: 22
+//    color: "white"
+//    font.pointSize: 22
 
 
-//    anchors.top: title.bottom
+    anchors.top: title.bottom
 //    anchors.topMargin: 50
     anchors.left: logo.right
     anchors.bottom: parent.bottom
