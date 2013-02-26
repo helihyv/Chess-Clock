@@ -38,6 +38,7 @@ Page {
         id: bigLogo
 //        anchors.fill: parent
 //        anchors.left: menuList.right
+        anchors.verticalCenter: parent.verticalCenter
 
         source: ":/rc/pic/logo.png"
     }
@@ -131,7 +132,10 @@ Page {
 
         }
 
-
+        header: PageHeader
+        {
+        title: "ChessClock"
+        }
 
 //        spacing:  10
 
@@ -161,12 +165,12 @@ Page {
                 }
             }
 
-            Text
+            Label
             {
                 text: name
-                font.pointSize: 36
+//                font.pointSize: 36
 //                anchors.topMargin: 12
-                color: "white"
+//                color: "white"
 
                 MouseArea
                 {

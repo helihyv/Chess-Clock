@@ -30,7 +30,7 @@ ApplicationWindow{
     property bool applicationActive: Qt.application.active
 
 
-    Component.onCompleted: theme.inverted = true
+//    Component.onCompleted: theme.inverted = true
 
     initialPage: mainPage
 
