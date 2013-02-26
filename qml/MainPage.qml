@@ -105,7 +105,7 @@ Page {
     }
 
 
-    ListView
+    SilicaListView
     {
         id: menuList
 
@@ -114,6 +114,24 @@ Page {
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
+
+        PullDownMenu
+        {
+            MenuItem
+            {
+                text: "Visit web page"
+                onClicked: Qt.openUrlExternally("http://chessclock.garage.maemo.org/")
+            }
+
+            MenuItem
+            {
+                text: "About"
+                onClicked: pageStack.push(aboutPage)
+            }
+
+        }
+
+
 
 //        spacing:  10
 
@@ -165,6 +183,9 @@ Page {
             }
 
         }
+
+
+
     }
 
 }
