@@ -4,7 +4,7 @@
 
    This file is part of Chess Clock software.
 
-   (This file) Copyright (c) Heli Hyvättinen 2011
+   (This file) Copyright (c) Heli Hyvättinen 2011–2013
 
    Chess Clock is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
